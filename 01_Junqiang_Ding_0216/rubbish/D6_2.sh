@@ -1,0 +1,11 @@
+nextflow run nf-core/rnaseq \
+    -r 3.14.0 \
+    -profile singularity \
+    --input samplesheet.csv \
+    --outdir ./results \
+    --gtf /home/songz/gaoz/reference/Homo_sapiens/NCBI/GRCh38/Annotation/Genes/genes.gtf \
+    --fasta /home/songz/gaoz/reference/Homo_sapiens/NCBI/GRCh38/Sequence/WholeGenomeFasta/genome.fa \
+    --star_index /home/songz/gaoz/reference/Homo_sapiens/NCBI/GRCh38/Sequence/STAR_Index/ \
+    --max_cpus 16 \
+    --max_memory '64.GB' \
+    -resume

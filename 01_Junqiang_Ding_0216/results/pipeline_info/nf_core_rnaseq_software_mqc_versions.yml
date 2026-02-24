@@ -1,0 +1,5 @@
+FQ_LINT:
+  fq: 0.12.0 (2024-07-08)
+Workflow:
+    nf-core/rnaseq: v3.21.0
+    Nextflow: 24.10.5

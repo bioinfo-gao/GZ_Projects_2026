@@ -1,0 +1,48 @@
+Feb-21 04:52:34.670 [main] DEBUG nextflow.cli.Launcher - $> nextflow run nf-core/rnaseq -r 3.14.0 -profile singularity --input samplesheet.csv --outdir ./results --gtf /home/songz/gaoz/reference/Homo_sapiens/NCBI/GRCh38/Annotation/Genes/genes.gtf --fasta /home/songz/gaoz/reference/Homo_sapiens/NCBI/GRCh38/Sequence/WholeGenomeFasta/genome.fa --star_index /home/songz/gaoz/reference/Homo_sapiens/NCBI/GRCh38/Sequence/STAR_Index/ -resume
+Feb-21 04:52:35.247 [main] DEBUG nextflow.cli.CmdRun - N E X T F L O W  ~  version 24.10.5
+Feb-21 04:52:35.475 [main] DEBUG nextflow.plugin.PluginsFacade - Setting up plugin manager > mode=prod; embedded=false; plugins-dir=/home/songz/.nextflow/plugins; core-plugins: nf-amazon@2.9.2,nf-azure@1.10.2,nf-cloudcache@0.4.2,nf-codecommit@0.2.2,nf-console@1.1.4,nf-google@1.15.4,nf-tower@1.9.3,nf-wave@1.7.4
+Feb-21 04:52:35.543 [main] INFO  o.pf4j.DefaultPluginStatusProvider - Enabled plugins: []
+Feb-21 04:52:35.545 [main] INFO  o.pf4j.DefaultPluginStatusProvider - Disabled plugins: []
+Feb-21 04:52:35.552 [main] INFO  org.pf4j.DefaultPluginManager - PF4J version 3.12.0 in 'deployment' mode
+Feb-21 04:52:35.602 [main] INFO  org.pf4j.AbstractPluginManager - No plugins
+Feb-21 04:52:35.663 [main] DEBUG nextflow.scm.ProviderConfig - Using SCM config path: /home/songz/.nextflow/scm
+Feb-21 04:52:35.775 [main] DEBUG nextflow.scm.RepositoryFactory - Found Git repository result: [RepositoryFactory]
+Feb-21 04:52:35.815 [main] INFO  nextflow.cli.CmdRun - Pulling nf-core/rnaseq ...
+Feb-21 04:52:35.833 [main] DEBUG nextflow.scm.RepositoryProvider - Request [credentials -:-] -> https://api.github.com/repos/nf-core/rnaseq/contents/nextflow.config?ref=3.14.0
+Feb-21 04:52:40.536 [main] DEBUG nextflow.scm.RepositoryProvider - Request [credentials -:-] -> https://api.github.com/repos/nf-core/rnaseq/contents/main.nf?ref=3.14.0
+Feb-21 04:52:40.922 [main] DEBUG nextflow.scm.RepositoryProvider - Request [credentials -:-] -> https://api.github.com/repos/nf-core/rnaseq
+Feb-21 04:52:41.353 [main] DEBUG nextflow.scm.AssetManager - Pulling nf-core/rnaseq -- Using remote clone url: https://github.com/nf-core/rnaseq.git
+Feb-21 04:52:48.495 [main] DEBUG nextflow.cli.Launcher - Operation aborted
+org.eclipse.jgit.errors.TransportException: https://github.com/nf-core/rnaseq.git: cannot open git-upload-pack
+	at org.eclipse.jgit.transport.TransportHttp.connect(TransportHttp.java:758)
+	at org.eclipse.jgit.transport.TransportHttp.openFetch(TransportHttp.java:465)
+	at org.eclipse.jgit.transport.FetchProcess.executeImp(FetchProcess.java:153)
+	at org.eclipse.jgit.transport.FetchProcess.execute(FetchProcess.java:105)
+	at org.eclipse.jgit.transport.Transport.fetch(Transport.java:1480)
+	at org.eclipse.jgit.api.FetchCommand.call(FetchCommand.java:238)
+	at org.eclipse.jgit.api.CloneCommand.fetch(CloneCommand.java:319)
+	at org.eclipse.jgit.api.CloneCommand.call(CloneCommand.java:189)
+	at nextflow.scm.AssetManager.download(AssetManager.groovy:607)
+	at nextflow.cli.CmdRun.getScriptFile0(CmdRun.groovy:599)
+	at nextflow.cli.CmdRun.getScriptFile(CmdRun.groovy:532)
+	at nextflow.cli.CmdRun.run(CmdRun.groovy:325)
+	at nextflow.cli.Launcher.run(Launcher.groovy:503)
+	at nextflow.cli.Launcher.main(Launcher.groovy:658)
+Caused by: javax.net.ssl.SSLException: Unsupported or unrecognized SSL message
+	at java.base/sun.security.ssl.SSLSocketInputRecord.handleUnknownRecord(SSLSocketInputRecord.java:462)
+	at java.base/sun.security.ssl.SSLSocketInputRecord.decode(SSLSocketInputRecord.java:175)
+	at java.base/sun.security.ssl.SSLTransport.decode(SSLTransport.java:111)
+	at java.base/sun.security.ssl.SSLSocketImpl.decode(SSLSocketImpl.java:1507)
+	at java.base/sun.security.ssl.SSLSocketImpl.readHandshakeRecord(SSLSocketImpl.java:1422)
+	at java.base/sun.security.ssl.SSLSocketImpl.startHandshake(SSLSocketImpl.java:455)
+	at java.base/sun.security.ssl.SSLSocketImpl.startHandshake(SSLSocketImpl.java:426)
+	at java.base/sun.net.www.protocol.https.HttpsClient.afterConnect(HttpsClient.java:586)
+	at java.base/sun.net.www.protocol.https.AbstractDelegateHttpsURLConnection.connect(AbstractDelegateHttpsURLConnection.java:187)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.getInputStream0(HttpURLConnection.java:1691)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.getInputStream(HttpURLConnection.java:1615)
+	at java.base/java.net.HttpURLConnection.getResponseCode(HttpURLConnection.java:531)
+	at java.base/sun.net.www.protocol.https.HttpsURLConnectionImpl.getResponseCode(HttpsURLConnectionImpl.java:307)
+	at org.eclipse.jgit.transport.http.JDKHttpConnection.getResponseCode(JDKHttpConnection.java:88)
+	at org.eclipse.jgit.util.HttpSupport.response(HttpSupport.java:232)
+	at org.eclipse.jgit.transport.TransportHttp.connect(TransportHttp.java:663)
+	... 13 common frames omitted

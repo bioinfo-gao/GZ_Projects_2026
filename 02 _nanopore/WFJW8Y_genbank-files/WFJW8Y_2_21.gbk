@@ -1,0 +1,51 @@
+LOCUS       plasmid                  151 bp    DNA     linear   SYN 21-FEB-2026
+DEFINITION  .
+ACCESSION   .
+VERSION     .
+KEYWORDS    .
+SOURCE      .
+  ORGANISM  .
+            .
+COMMENT     Annotated with pLannotate v1.2.2
+FEATURES             Location/Qualifiers
+     illumina_lib    complement(88..121)
+                     /note="pLannotate"
+                     /label="Truseq Read 2"
+                     /database="illumina_db"
+                     /identity="100"
+                     /match_length="100.0"
+                     /fragment="False"
+                     /other="illumina_lib"
+                     /description="Truseq Read 2 Illumina library element"
+     illumina_lib    26..58
+                     /note="pLannotate"
+                     /label="Truseq Read 1"
+                     /database="illumina_db"
+                     /identity="100"
+                     /match_length="100.0"
+                     /fragment="False"
+                     /other="illumina_lib"
+                     /description="Truseq Read 1 Illumina library element"
+     illumina_lib    1..29
+                     /note="pLannotate"
+                     /label="P5"
+                     /database="illumina_db"
+                     /identity="100"
+                     /match_length="100.0"
+                     /fragment="False"
+                     /other="illumina_lib"
+                     /description="P5 Illumina library element"
+     illumina_lib    complement(128..151)
+                     /note="pLannotate"
+                     /label="P7"
+                     /database="illumina_db"
+                     /identity="100"
+                     /match_length="100.0"
+                     /fragment="False"
+                     /other="illumina_lib"
+                     /description="P7 Illumina library element"
+ORIGIN
+        1 aatgatacgg cgaccaccga gatctacact ctttccctac acgacgctct tccgatctct
+       61 catctcaatc ctcccacccc cccccccaga tcggaagagc acacgtctga actccagtca
+      121 ccgatgtatc tcgtatgccg tcttctgctt g
+//

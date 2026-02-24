@@ -1,0 +1,48 @@
+现在我们已经成功解决了Docker项目的问题。总结一下我们所做的：
+
+我们发现问题是由于系统缺少标准的iptables路径导致的Docker网络配置问题
+我们使用sudo权限创建了符号链接 sudo ln -s /sbin/xtables-legacy-multi /usr/sbin/iptables
+
+
+01_Junqiang_Ding_0216/01.fq/01.RawData/D7/ 
+总计 12631584
+drwxr-xr-x  2 songz songz       4096 Feb 13 00:41 .
+drwxr-xr-x 11 songz songz        136 Feb 13 00:42 ..
+-rw-r--r--  1 songz songz 1947545276 Feb 13 00:43 D7_CKDL260001226-1A_235753LT4_L4_1.fq.gz
+-rw-r--r--  1 songz songz 1954266255 Feb 13 00:43 D7_CKDL260001226-1A_235753LT4_L4_2.fq.gz
+-rw-r--r--  1 songz songz 1271895007 Feb 13 00:42 D7_CKDL260001226-1A_2357GTLT4_L1_1.fq.gz
+-rw-r--r--  1 songz songz 1293653068 Feb 13 00:42 D7_CKDL260001226-1A_2357GTLT4_L1_2.fq.gz
+-rw-rw-r--  1 songz songz 3219440283 Feb 18 01:19 D7_R1.fastq.gz
+-rw-rw-r--  1 songz songz 3247919323 Feb 18 01:19 D7_R2.fastq.gz
+-rw-r--r--  1 songz songz        300 Feb 13 00:41 MD5.txt
+songz@ylxt-Super-Server $ for i in {1..9}; do echo "Checking D$i:"; zcat -t /home/songz/gaoz/GZ_Project_2026/01_Junqiang_Ding_0216/01.fq/01.RawData/D${i}/D${i}_R1.fastq.gz >/dev/null 2>&1 && echo "  D${i}_R1: OK" || echo "  D${i}_R1: CORRUPTED"; zcat -t /home/songz/gaoz/GZ_Project_2026/01_Junqiang_Ding_0216/01.fq/01.RawData/D${i}/D${i}_R2.fastq.gz >/dev/null 2>&1 && echo "  D${i}_R2: OK" || echo "  D${i}_R2: CORRUPTED"; done
+Checking D1:
+  D1_R1: OK
+  D1_R2: OK
+Checking D2:
+  D2_R1: OK
+  D2_R2: OK
+Checking D3:
+  D3_R1: OK
+  D3_R2: OK
+Checking D4:
+  D4_R1: CORRUPTED
+  D4_R2: OK
+Checking D5:
+  D5_R1: CORRUPTED
+  D5_R2: CORRUPTED
+Checking D6:
+  D6_R1: CORRUPTED
+  D6_R2: CORRUPTED
+Checking D7:
+  D7_R1: OK
+  D7_R2: OK
+Checking D8:
+  D8_R1: OK
+  D8_R2: OK
+Checking D9:
+  D9_R1: OK
+  D9_R2: OK
+
+
+  cd /home/songz/gaoz/GZ_Project_2026/01_Junqiang_Ding_0216 && bash check_d4_d5.sh

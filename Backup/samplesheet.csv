@@ -1,0 +1,10 @@
+sample,fastq_1,fastq_2,strandedness
+D1,/home/songz/gaoz/GZ_Project_2026/01_Junqiang_Ding_0216_docker/01.fq/01.RawData/D1/D1_R1.fastq.gz,/home/songz/gaoz/GZ_Project_2026/01_Junqiang_Ding_0216_docker/01.fq/01.RawData/D1/D1_R2.fastq.gz,reverse
+D2,/home/songz/gaoz/GZ_Project_2026/01_Junqiang_Ding_0216_docker/01.fq/01.RawData/D2/D2_R1.fastq.gz,/home/songz/gaoz/GZ_Project_2026/01_Junqiang_Ding_0216_docker/01.fq/01.RawData/D2/D2_R2.fastq.gz,reverse
+D3,/home/songz/gaoz/GZ_Project_2026/01_Junqiang_Ding_0216_docker/01.fq/01.RawData/D3/D3_R1.fastq.gz,/home/songz/gaoz/GZ_Project_2026/01_Junqiang_Ding_0216_docker/01.fq/01.RawData/D3/D3_R2.fastq.gz,reverse
+D4,/home/songz/gaoz/GZ_Project_2026/01_Junqiang_Ding_0216_docker/01.fq/01.RawData/D4/D4_R1.fastq.gz,/home/songz/gaoz/GZ_Project_2026/01_Junqiang_Ding_0216_docker/01.fq/01.RawData/D4/D4_R2.fastq.gz,reverse
+D5,/home/songz/gaoz/GZ_Project_2026/01_Junqiang_Ding_0216_docker/01.fq/01.RawData/D5/D5_R1.fastq.gz,/home/songz/gaoz/GZ_Project_2026/01_Junqiang_Ding_0216_docker/01.fq/01.RawData/D5/D5_R2.fastq.gz,reverse
+D6,/home/songz/gaoz/GZ_Project_2026/01_Junqiang_Ding_0216_docker/01.fq/01.RawData/D6/D6_R1.fastq.gz,/home/songz/gaoz/GZ_Project_2026/01_Junqiang_Ding_0216_docker/01.fq/01.RawData/D6/D6_R2.fastq.gz,reverse
+D7,/home/songz/gaoz/GZ_Project_2026/01_Junqiang_Ding_0216_docker/01.fq/01.RawData/D7/D7_R1.fastq.gz,/home/songz/gaoz/GZ_Project_2026/01_Junqiang_Ding_0216_docker/01.fq/01.RawData/D7/D7_R2.fastq.gz,reverse
+D8,/home/songz/gaoz/GZ_Project_2026/01_Junqiang_Ding_0216_docker/01.fq/01.RawData/D8/D8_R1.fastq.gz,/home/songz/gaoz/GZ_Project_2026/01_Junqiang_Ding_0216_docker/01.fq/01.RawData/D8/D8_R2.fastq.gz,reverse
+D9,/home/songz/gaoz/GZ_Project_2026/01_Junqiang_Ding_0216_docker/01.fq/01.RawData/D9/D9_R1.fastq.gz,/home/songz/gaoz/GZ_Project_2026/01_Junqiang_Ding_0216_docker/01.fq/01.RawData/D9/D9_R2.fastq.gz,reverse

@@ -1,0 +1,91 @@
+这些跑完之后，最终的 count matrix 应该在哪个文件夹？
+
+Gemini said
+等你明天（或者今晚深夜）大功告成后，所有的核心定量结果都会集中在 results 目录下。因为你使用的是 star_salmon 模式，Nextflow 会为你生成多份不同维度的矩阵。
+
+你需要寻找的 count matrix 存放在以下路径：
+
+📂 核心文件夹：results/star_salmon/
+在这个文件夹里，你会看到以下几个最关键的文件：
+
+文件名	内容描述	建议用途
+salmon.merged.gene_counts.tsv	基因层级的原始 Count 矩阵	做 DESeq2 差异分析的首选。 <<<======
+salmon.merged.gene_tpm.tsv	基因层级的 TPM 归一化矩阵	用于样本间表达量的直接比较、画热图。
+salmon.merged.transcript_counts.tsv	转录本层级的原始 Count	如果你需要研究剪接或异构体，看这个。
+salmon.merged.gene_counts_scaled.tsv	经过长度缩放后的 Count	有时用于某些特定的下游统计模型。
+
+如何快速检查并合并 D6？
+明早你跑完包含 D6 的 samplesheet_full.csv 后，Nextflow 会自动把 D6 的数据合并到上述这些 .tsv 文件中。
+
+你可以用这条简单的命令检查矩阵里是不是已经包含了全部 9 个样本：
+
+Bash
+# 查看矩阵的第一行（表头），确认样本 ID 是否全齐
+head -n 1 /home/songz/gaoz/GZ_Project_2026/01_Junqiang_Ding_0216/results/star_salmon/salmon.merged.gene_counts.tsv
+📊 另一个重要文件夹：results/multiqc/
+除了 Count 矩阵，你一定还要看这个：
+
+文件路径：results/multiqc/star_salmon/multiqc_report.html
+
+用途：这是一个网页版的质量报告。你可以把它下载到本地电脑打开，一眼就能看出 D1 到 D9 哪些样本测序质量好，哪些样本比对率高。
+
+🕒 下班寄语
+既然现在的 STAR_ALIGN 还在 NEW 状态，你今晚肯定是等不到这几个文件出来的。
+
+现在该做的：
+
+确认 screen 还在跑。
+
+关掉显示器，起身回家。
+
+明早见：明天如果你需要我写 R 代码把这些 tsv 文件读进 DESeq2 做分组比较，随时喊我！
+
+祝你今晚 80 核服务器跑得稳如泰山！👋
+
+
+关于“一小时”的最终定论
+看这个节奏：
+
+从 08:26 到 08:34，短短 8 分钟内就完成了 3 个样本的去接头并开启了比对。
+
+但是，STAR_ALIGN 这种大型任务通常需要 30 分钟以上。
+
+结论：虽然服务器马力全开，但由于 STAR 刚开始跑，一个小时（到 09:30）可能刚好能跑完第一批比对。拿到最终的 Count 矩阵可能需要到服务器时间的 10:30 左右（即你的晚上 9:30 以后）。
+
+📂 最终 Count Matrix 路径提醒
+既然你关心结果在哪，请记住这几个“黄金路径”：
+
+原始 Count 矩阵（DESeq2 用）:
+results/star_salmon/salmon.merged.gene_counts.tsv
+
+归一化矩阵（画热图用）:
+results/star_salmon/salmon.merged.gene_tpm.tsv
+
+质控总报告（发给老板看）:
+results/multiqc/star_salmon/multiqc_report.html
+
+🍻 完美的下班时刻
+你已经守到了最关键的时刻：看着任务从“准备”真正进入了“比对”。 D6 修好了，主干任务也跑起来了。
+
+退出监控：按 Ctrl + C 退出 tail -f 监控（这不会杀死任务）。
+
+确认托管：screen -ls 只要显示 (Detached)，你就可以关掉电脑。
+
+明早计划：明早来，直接把修复好的 D6 塞进 samplesheet_full.csv 跑一次 -resume。
+
+你现在的状态就像是看着火箭已经平稳升空并进入轨道。 剩下的就是重力（算法）和燃料（核心数）的事情了。
+
+如果你明早想让我教你如何在 Linux 命令行里用 awk 快速查看那个 tsv 矩阵里的数据，随时告诉我。晚安，大功告成
+
+最终矩阵在哪里？
+既然你问到了文件夹，当你明早补完 D6 之后，最终的合并矩阵（Count Matrix） 将出现在：
+
+~/gaoz/GZ_Project_2026/01_Junqiang_Ding_0216/results/star_salmon/salmon.merged.gene_counts.tsv
+
+提示： 这个 .tsv 文件就是你在 R 里面直接用 read.table() 或 read.csv() 读取的对象。
+
+既然已经看到了 SALMON_QUANT 在运行，你可以百分之百确定，你要的矩阵就在这里：
+
+~/gaoz/GZ_Project_2026/01_Junqiang_Ding_0216/results/star_salmon/
+
+salmon.merged.gene_counts.tsv：这是你的“终极目标”。

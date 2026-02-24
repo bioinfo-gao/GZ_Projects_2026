@@ -1,0 +1,6 @@
+Sample	Salmon	Cutadapt	FastQC	fq	nf-core/rnaseq	Nextflow
+Cutadapt		5.2				
+FQ_LINT				0.12.0 (2024-07-08)		
+FastQC			0.12.1			
+Salmon	1.10.3					
+Workflow					v3.21.0	24.10.5

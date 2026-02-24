@@ -1,0 +1,10 @@
+{
+    "salmon_version": "1.10.3",
+    "geneMap": "Mus_musculus.gtf",
+    "threads": "6",
+    "libType": "ISR",
+    "targets": "genome.transcripts.fa",
+    "alignments": "D1.Aligned.toTranscriptome.out.bam",
+    "output": "D1",
+    "auxDir": "aux_info"
+}

@@ -1,0 +1,3 @@
+task_id	hash	native_id	name	status	exit	submit	duration	realtime	%cpu	peak_rss	peak_vmem	rchar	wchar
+1	92/f3b217	3908587	NFCORE_RNASEQ:RNASEQ:PREPARE_GENOME:GTF2BED (Mus_musculus.gtf)	CACHED	0	2026-02-19 14:24:24.702	41.6s	38.9s	97.9%	1.9 GB	1.9 GB	845.8 MB	17 MB
+2	cd/e59bd8	975144	NFCORE_RNASEQ:RNASEQ:PREPARE_GENOME:CUSTOM_GETCHROMSIZES (Mus_musculus.fasta)	ABORTED	-	2026-02-19 20:44:37.237	-	-	-	-	-	-	-
