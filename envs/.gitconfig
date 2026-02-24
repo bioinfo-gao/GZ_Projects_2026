@@ -1,0 +1,9 @@
+# /home/songz/gaoz/.gitconfig
+[user]
+    name = gaoz
+    email = bioinfo.gao@gmail.com
+[color]
+    ui = auto
+[core]
+    # Use the absolute path to your private ignore file
+    excludesfile = /home/songz/gaoz/.gitignore_global

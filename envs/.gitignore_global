@@ -1,0 +1,24 @@
+# /home/songz/gaoz/.gitignore_global
+.DS_Store
+*.swp
+*~
+*Local*
+*Local_back*
+*Local_Back*
+# Python/Conda noise
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+# R noise
+*.Rproj.user
+.Rhistory
+.RData
+.Rapp.history
+# Large bioinfo files that shouldn't be in Git
+*.gz
+*.fq.gz
+*.fq
+*.fastq
+*.fastq.gz
+*.bam
+*.bigWig
