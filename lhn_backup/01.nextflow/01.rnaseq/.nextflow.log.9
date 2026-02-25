@@ -1,0 +1,19 @@
+Oct-20 19:51:21.137 [main] DEBUG nextflow.cli.Launcher - $> nextflow run nf-core/rnaseq --genome GRCh38 --outdir results --save_reference -profile test,singularity -resume
+Oct-20 19:51:21.236 [main] DEBUG nextflow.cli.CmdRun - N E X T F L O W  ~  version 25.04.7
+Oct-20 19:51:21.263 [main] DEBUG nextflow.plugin.PluginsFacade - Setting up plugin manager > mode=prod; embedded=false; plugins-dir=/home/songz/.nextflow/plugins; core-plugins: nf-amazon@2.15.0-patch1,nf-azure@1.16.0-patch1,nf-cloudcache@0.4.3,nf-codecommit@0.2.3,nf-console@1.2.1,nf-google@1.21.1,nf-k8s@1.0.0,nf-tower@1.11.4-patch1,nf-wave@1.12.1
+Oct-20 19:51:21.289 [main] INFO  o.pf4j.DefaultPluginStatusProvider - Enabled plugins: []
+Oct-20 19:51:21.290 [main] INFO  o.pf4j.DefaultPluginStatusProvider - Disabled plugins: []
+Oct-20 19:51:21.293 [main] INFO  org.pf4j.DefaultPluginManager - PF4J version 3.12.0 in 'deployment' mode
+Oct-20 19:51:21.306 [main] INFO  org.pf4j.AbstractPluginManager - No plugins
+Oct-20 19:51:21.320 [main] DEBUG nextflow.scm.ProviderConfig - Using SCM config path: /home/songz/.nextflow/scm
+Oct-20 19:51:22.607 [main] DEBUG nextflow.scm.AssetManager - Git config: /home/songz/.nextflow/assets/nf-core/rnaseq/.git/config; branch: master; remote: origin; url: https://github.com/nf-core/rnaseq.git
+Oct-20 19:51:22.652 [main] DEBUG nextflow.scm.RepositoryFactory - Found Git repository result: [RepositoryFactory]
+Oct-20 19:51:22.664 [main] DEBUG nextflow.scm.AssetManager - Git config: /home/songz/.nextflow/assets/nf-core/rnaseq/.git/config; branch: master; remote: origin; url: https://github.com/nf-core/rnaseq.git
+Oct-20 19:51:22.864 [main] DEBUG nextflow.cli.Launcher - Operation aborted
+nextflow.exception.AbortOperationException: Project `nf-core/rnaseq` is currently stuck on revision: 3.21.0 -- you need to explicitly specify a revision with the option `-r` in order to use it
+	at nextflow.scm.AssetManager.checkout(AssetManager.groovy:942)
+	at nextflow.cli.CmdRun.getScriptFile0(CmdRun.groovy:598)
+	at nextflow.cli.CmdRun.getScriptFile(CmdRun.groovy:524)
+	at nextflow.cli.CmdRun.run(CmdRun.groovy:326)
+	at nextflow.cli.Launcher.run(Launcher.groovy:513)
+	at nextflow.cli.Launcher.main(Launcher.groovy:673)
