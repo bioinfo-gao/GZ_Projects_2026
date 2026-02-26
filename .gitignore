@@ -22,6 +22,8 @@ bak/
 *.fq
 *.fq.gz
 *.h5
+*.h5ad
+*.h5seurat
 *.index*
 *.iso
 loca_bac
