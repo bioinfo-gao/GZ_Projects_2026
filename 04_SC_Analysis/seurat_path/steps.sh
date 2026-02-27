@@ -60,8 +60,79 @@ Ctrl + ,
 
 r.source.moveCursor
 
+
+
+
+
 勾选 ✅
 
 或者在 settings.json 里加：
 
+
+
+
+
 "r.source.moveCursor": true
+
+
+
+
+
+很好，这张截图非常关键 👍
+我现在明确告诉你问题在哪了。
+
+🎯 你现在看到的是：
+R: Run Source with Echo
+
+快捷键是：
+
+Ctrl + Shift + Enter
+
+而不是 Ctrl + Enter
+
+⚠️ 关键点
+
+新版 R 插件里：
+
+❌ 已经没有单独的 R: Source
+
+✅ 只有 R: Run Source with Echo
+
+❌ r.source.moveCursor 对它不生效
+
+所以你之前设置是对的，但命令不支持跳行。
+
+正确解决方案（真正可行）
+
+我们改回使用：
+
+R: Run Selection
+
+然后强制 VS Code 执行后移动光标。
+
+第一步：打开 Keyboard Shortcuts (JSON)
+
+按：
+
+Ctrl + Shift + P
+
+输入：
+
+Open Keyboard Shortcuts (JSON)
+第二步：添加自定义快捷键
+
+加入：
+
+[
+  {
+    "key": "ctrl+enter",
+    "command": "r.runSelection",
+    "when": "editorTextFocus && editorLangId == 'r'"
+  },
+  {
+    "key": "ctrl+enter",
+    "command": "cursorDown",
+    "when": "editorTextFocus && editorLangId == 'r'",
+    "args": { "to": "down", "by": "line", "value": 1 }
+  }
+]
