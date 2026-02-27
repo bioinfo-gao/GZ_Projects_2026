@@ -35,8 +35,10 @@ pbmc <- LoadData("pbmc3k")
 
 # 1 “完全复现教程流程”
 # 重置为只保留 counts, 这样就变成“原始状态”。
+# 或者V5官方推荐： GetAssayData(pbmc, layer = "counts")
 pbmc <- CreateSeuratObject(
-  counts = pbmc@assays$RNA@counts,
+  # counts = pbmc@assays$RNA@counts, ＃V4
+  counts = pbmc@assays$RNA$counts, #V5
   project = "pbmc3k",
   min.cells = 3,
   min.features = 200
