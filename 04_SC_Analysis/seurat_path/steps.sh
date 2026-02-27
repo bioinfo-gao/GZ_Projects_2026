@@ -31,3 +31,37 @@ mamba activate seurat_env
 getwd()
 
 list.files("data")
+
+更直接的方法（推荐）
+
+按：
+
+Ctrl + Shift + P
+
+输入：
+
+Preferences: Open Settings (JSON)
+
+然后添加：
+
+{
+    "r.source.moveCursor": true
+}
+
+运行后自动跳到下一行”
+
+再加一个设置：
+
+打开：
+
+Ctrl + ,
+
+搜索：
+
+r.source.moveCursor
+
+勾选 ✅
+
+或者在 settings.json 里加：
+
+"r.source.moveCursor": true

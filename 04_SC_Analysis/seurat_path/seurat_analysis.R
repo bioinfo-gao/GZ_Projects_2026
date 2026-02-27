@@ -9,8 +9,8 @@ library(dplyr)
 #library(SeuratData)
 
 # 1. 传统流程（读取原始 10X 数据） (假设你解压了 pbmc3k 数据到 data/ 目录)
-pbmc.data <- Read10X(data.dir = "data/filtered_gene_bc_matrices/hg19/")
-pbmc <- CreateSeuratObject(counts = pbmc.data, project = "pbmc3k", min.cells = 3, min.features = 200)
+# pbmc.data <- Read10X(data.dir = "data/filtered_gene_bc_matrices/hg19/")
+# pbmc <- CreateSeuratObject(counts = pbmc.data, project = "pbmc3k", min.cells = 3, min.features = 200)
 # 这里得到的是：
 
 # 🔹 只包含原始 counts
