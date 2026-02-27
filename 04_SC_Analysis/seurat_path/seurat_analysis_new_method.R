@@ -6,41 +6,14 @@
 # 启动 R 后的操作
 library(Seurat)
 library(dplyr)
-#library(SeuratData)
+library(SeuratData)
 
-# 1. 传统流程（读取原始 10X 数据） (假设你解压了 pbmc3k 数据到 data/ 目录)
-pbmc.data <- Read10X(data.dir = "data/filtered_gene_bc_matrices/hg19/")
-pbmc <- CreateSeuratObject(counts = pbmc.data, project = "pbmc3k", min.cells = 3, min.features = 200)
-# 这里得到的是：
-
-# 🔹 只包含原始 counts
-# 🔹 没有做标准化
-# 🔹 没有 PCA
-# 🔹 没有聚类
-# 🔹 是一个“干净的初始对象”
-
+# # 1. 传统流程（读取原始 10X 数据）读取数据 (假设你解压了 pbmc3k 数据到 data/ 目录)
+# pbmc.data <- Read10X(data.dir = "data/filtered_gene_bc_matrices/hg19/")
+# pbmc <- CreateSeuratObject(counts = pbmc.data, project = "pbmc3k", min.cells = 3, min.features = 200)
 
 InstallData("pbmc3k")
 pbmc <- LoadData("pbmc3k")
-
-# 这个返回的是：
-# 🔹 已经 CreateSeuratObject
-# 🔹 已经 NormalizeData
-# 🔹 已经 FindVariableFeatures
-# 🔹 已经 ScaleData
-# 🔹 已经 RunPCA
-# 🔹 甚至可能已经聚类
-# 换句话说：
-# 它是一个“处理过的完整对象”
-
-# 1 “完全复现教程流程”
-# 重置为只保留 counts, 这样就变成“原始状态”。
-pbmc <- CreateSeuratObject(
-  counts = pbmc@assays$RNA@counts,
-  project = "pbmc3k",
-  min.cells = 3,
-  min.features = 200
-)
 
 # 2. 质控 (QC) - 对应 sc.pp.calculate_qc_metrics
 pbmc[["percent.mt"]] <- PercentageFeatureSet(pbmc, pattern = "^MT-")
