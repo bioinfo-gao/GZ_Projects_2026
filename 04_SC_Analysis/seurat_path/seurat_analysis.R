@@ -105,3 +105,11 @@ pbmc <- FindClusters(pbmc, resolution = 0.5)
 pbmc <- RunUMAP(pbmc, dims = 1:10)
 DimPlot(pbmc, reduction = "umap", label = TRUE)
 FeaturePlot(pbmc, features = c("CST3", "NKG7"))
+
+# 10. 保存结果
+library(ggplot2)
+p1 <- DimPlot(pbmc, reduction = "umap", label = TRUE)
+ggsave("umap_clusters.pdf", plot = p1, width = 7, height = 6)
+
+p2 <- FeaturePlot(pbmc, features = c("CST3", "NKG7"))
+ggsave("umap_features.pdf", plot = p2, width = 7, height = 6)
