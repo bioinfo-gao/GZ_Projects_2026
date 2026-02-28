@@ -36,6 +36,15 @@ python -c "import scanpy as sc; import omicverse as ov; import torch; print('Sca
 # OmicVerse: 1.7.9
 # GPU可用: True
 
+# 这是 Pip 在处理复杂的生信包依赖时遇到了“逻辑死循环”。squidpy 依赖于 scanpy，
+# 而 scanpy 又深度依赖 anndata、numpy 和 numba。
+# 当这些包的版本要求互相冲突（例如一个要求 numpy 2.0，另一个要求 numpy 1.x）时，
+# Pip 的解析器会陷入无限递归，最终报出 resolution-too-deep。
+
+# 核心方案：手动限定“守门员”包的版本
+# 这个命令通过手动限制 numpy 和 zarr 的版本，直接砍掉了 90% 不兼容的搜索路径，让 Pip 能快速找到解：
+# 2. 使用约束参数安装 Squidpy
+pip install "squidpy>=1.6" "numpy<2" "zarr<3" "anndata>=0.10"
 
 现在大多数科研服务器都是：
 conda 管理科学计算栈
