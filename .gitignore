@@ -30,6 +30,8 @@ loca_bac
 local_backup/
 local_bak
 local_tmp/
+download/
+downloads/
 *.log
 .nextflow/
 *.pod5
