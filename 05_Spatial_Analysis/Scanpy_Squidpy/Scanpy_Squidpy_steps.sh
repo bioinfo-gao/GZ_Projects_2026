@@ -95,3 +95,10 @@ code
 Bash
 pip install squidpy omnipath --no-deps -i https://pypi.tuna.tsinghua.edu.cn/simple
 注：使用 --no-deps 会安装包但跳过检查依赖。如果安装后运行 import squidpy 报错提示缺少某个小包，你再单独安装那个缺失的小包即可。
+
+
+mamba install pip setuptools wheel -c conda-forge --force-reinstall -y
+
+#验证 Terminal 里的 Python 能否看到它
+
+python -c "import pkg_resources; print('找到 pkg_resources')"
