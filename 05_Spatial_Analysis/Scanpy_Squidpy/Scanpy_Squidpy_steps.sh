@@ -73,6 +73,9 @@ pip install uv
 # 2. 使用 uv 来解析并安装 squidpy 和 omnipath
 # uv 会在几秒钟内找到 Pip 找了几十分钟都找不到的那个解
 uv pip install "squidpy>=1.6" omnipath "numpy<2" "zarr<3" "anndata>=0.10" -i https://pypi.tuna.tsinghua.edu.cn/simple
+
+uv pip install setuptools
+
 方案二：手动“降维打击”（逐个击破法）
 如果不想装 uv，我们必须手动按优先级给 Pip 定死版本，不给它任何反复尝试的机会：
 code
