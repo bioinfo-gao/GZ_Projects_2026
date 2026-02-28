@@ -48,6 +48,7 @@ python -c "import scanpy as sc; import omicverse as ov; import torch; print('Sca
 # 2. 使用约束参数安装 Squidpy , 还是报错
 # pip install "squidpy>=1.6" "numpy<2" "zarr<3" "anndata>=0.10"
 
+还是错
 # 3. 或者先安装 Squidpy 的核心依赖，再安装 Squidpy
 pip install "numpy<2" "pandas<2.3" "anndata>=0.10" "zarr<3" 
 pip install squidpy omnipath
@@ -57,3 +58,37 @@ pip install torch-geometric # #pip install torch-geometric -i https://pypi.tuna.
 # conda 管理科学计算栈
 # pip 管理 torch / tensorflow
 # 混用是常态，而且更稳定。
+
+
+
+
+我用这个 方案一：引入 uv（生信环境解析的“特效药”，强烈推荐）
+uv 是目前 Python 社区公认的解析速度最快、逻辑最强的包管理工具。它能处理 Pip 无法处理的复杂依赖深度，且对内存占用极低。
+在你的 WSL 终端（激活环境后）执行：
+code
+Bash
+# 1. 在当前环境中安装 uv
+pip install uv
+
+# 2. 使用 uv 来解析并安装 squidpy 和 omnipath
+# uv 会在几秒钟内找到 Pip 找了几十分钟都找不到的那个解
+uv pip install "squidpy>=1.6" omnipath "numpy<2" "zarr<3" "anndata>=0.10" -i https://pypi.tuna.tsinghua.edu.cn/simple
+方案二：手动“降维打击”（逐个击破法）
+如果不想装 uv，我们必须手动按优先级给 Pip 定死版本，不给它任何反复尝试的机会：
+code
+Bash
+# 第一步：先把最基础的三个“祸根”定死
+pip install "numpy<2.0.0" "zarr<3.0.0" "anndata>=0.10.0" -i https://pypi.tuna.tsinghua.edu.cn/simple
+
+# 第二步：安装 scanpy（squidpy 的基础）
+pip install "scanpy>=1.10.0" -i https://pypi.tuna.tsinghua.edu.cn/simple
+
+# 第三步：最后安装 squidpy 和 omnipath
+# 使用 --no-cache-dir 减少内存压力
+pip install squidpy omnipath --no-cache-dir -i https://pypi.tuna.tsinghua.edu.cn/simple
+方案三：极致省心法（强制跳过递归）
+如果你确定你的环境里已经有了 scanpy 且能跑，你可以强制安装 squidpy 本身，而不允许它再去翻旧账：
+code
+Bash
+pip install squidpy omnipath --no-deps -i https://pypi.tuna.tsinghua.edu.cn/simple
+注：使用 --no-deps 会安装包但跳过检查依赖。如果安装后运行 import squidpy 报错提示缺少某个小包，你再单独安装那个缺失的小包即可。
