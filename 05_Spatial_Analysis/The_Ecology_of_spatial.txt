@@ -1,0 +1,14 @@
+# https://chatgpt.com/c/69a0e1bb-a824-832b-9132-a564d32b1920
+当前空间转录组（spatial transcriptomics）分析的实际使用比例，基于近几年方法论文、GitHub 生态、教程和会议报告的观察，大致可以这样判断：
+粗略区间（2023–2026 学术生态观察）
+Python：≈ 70%–85%
+R：≈ 15%–30%
+很难精确到“到底是 73% 还是 82%”，因为没有官方统计，但从工具生态和论文代码仓库来看：
+新方法论文大多数基于
+Scanpy
+Squidpy
+scvi-tools
+深度学习/图神经网络模型几乎全部在 Python（PyTorch 生态）
+而 R 主要集中在：
+Seurat（非常常用，但偏单细胞延伸）
+Giotto
