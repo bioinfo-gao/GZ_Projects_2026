@@ -18,6 +18,8 @@ print(torch.cuda.get_device_name(0))
 ✅ 第 6 步（可选但推荐）：安装 scvi-tools
 如果你做空间 domain / 深度模型：
 pip install scvi-tools
+＃ 安装 Squidpy（空间分析工具）
+pip install squidpy #-i https://pypi.tuna.tsinghua.edu.cn/simple
 # 安装 OmicVerse
 pip install omicverse 
 # 安装常用的 zarr 补丁（防止之前讨论过的报错）
