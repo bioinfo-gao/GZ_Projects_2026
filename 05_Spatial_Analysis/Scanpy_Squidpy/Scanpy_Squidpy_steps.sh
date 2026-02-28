@@ -7,18 +7,21 @@ mamba create -n spatial_Scanpy_Squidpy_GPU python=3.12 scanpy ipykernel pandas m
 # 针对 RTX 3060，安装支持 CUDA 12.1 的版本
 # 激活环境后，使用 PyTorch 官方的 Pip 链接。这样它会下载自带 libcublas 的安装包，不与系统或其他 Mamba 包冲突。
 mamba activate spatial_Scanpy_Squidpy_GPU
+
 pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu121
-第 5 步：测试 GPU: 
+
+# 第 5 步：测试 GPU: 
 python
 import torch
 print(torch.cuda.is_available())
 print(torch.cuda.get_device_name(0))
 # True
 # NVIDIA GeForce RTX 3060 # 说明 GPU 成功 🎉
-✅ 第 6 步（可选但推荐）：安装 scvi-tools
-如果你做空间 domain / 深度模型：
+# ✅ 第 6 步（可选但推荐）：安装 scvi-tools
+# 如果你做空间 domain / 深度模型：
 pip install scvi-tools
-＃ 安装 Squidpy（空间分析工具）
+
+# 安装 Squidpy（空间分析工具）
 pip install squidpy #-i https://pypi.tuna.tsinghua.edu.cn/simple
 # 安装 OmicVerse
 pip install omicverse 
@@ -46,7 +49,7 @@ python -c "import scanpy as sc; import omicverse as ov; import torch; print('Sca
 # 2. 使用约束参数安装 Squidpy
 pip install "squidpy>=1.6" "numpy<2" "zarr<3" "anndata>=0.10"
 
-现在大多数科研服务器都是：
-conda 管理科学计算栈
-pip 管理 torch / tensorflow
-混用是常态，而且更稳定。
+# 现在大多数科研服务器都是：
+# conda 管理科学计算栈
+# pip 管理 torch / tensorflow
+# 混用是常态，而且更稳定。
