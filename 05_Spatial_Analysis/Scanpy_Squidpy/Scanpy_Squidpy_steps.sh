@@ -19,16 +19,15 @@ print(torch.cuda.get_device_name(0))
 # NVIDIA GeForce RTX 3060 # 说明 GPU 成功 🎉
 # ✅ 第 6 步（可选但推荐）：安装 scvi-tools
 # 如果你做空间 domain / 深度模型：
-pip install scvi-tools
+# pip install scvi-tools
 
-# 安装 Squidpy（空间分析工具）
-pip install squidpy #-i https://pypi.tuna.tsinghua.edu.cn/simple
-# 安装 OmicVerse
-pip install omicverse 
-# 安装常用的 zarr 补丁（防止之前讨论过的报错）
-pip install "zarr<3"
-# 安装 PyG (图神经网络支持)
-pip install torch-geometric # #pip install torch-geometric -i https://pypi.tuna.tsinghua.edu.cn/simple
+# # 安装 Squidpy（空间分析工具）
+# pip install squidpy #-i https://pypi.tuna.tsinghua.edu.cn/simple
+# # 安装 OmicVerse
+# pip install omicverse 
+# # 安装常用的 zarr 补丁（防止之前讨论过的报错）
+# pip install "zarr<3"
+
 
 
 验证环境
@@ -46,9 +45,14 @@ python -c "import scanpy as sc; import omicverse as ov; import torch; print('Sca
 
 # 核心方案：手动限定“守门员”包的版本
 # 这个命令通过手动限制 numpy 和 zarr 的版本，直接砍掉了 90% 不兼容的搜索路径，让 Pip 能快速找到解：
-# 2. 使用约束参数安装 Squidpy
-pip install "squidpy>=1.6" "numpy<2" "zarr<3" "anndata>=0.10"
+# 2. 使用约束参数安装 Squidpy , 还是报错
+# pip install "squidpy>=1.6" "numpy<2" "zarr<3" "anndata>=0.10"
 
+# 3. 或者先安装 Squidpy 的核心依赖，再安装 Squidpy
+pip install "numpy<2" "pandas<2.3" "anndata>=0.10" "zarr<3" 
+pip install squidpy omnipath
+# 安装 PyG (图神经网络支持)
+pip install torch-geometric # #pip install torch-geometric -i https://pypi.tuna.tsinghua.edu.cn/simple
 # 现在大多数科研服务器都是：
 # conda 管理科学计算栈
 # pip 管理 torch / tensorflow
