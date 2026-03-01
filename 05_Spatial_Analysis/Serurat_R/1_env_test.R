@@ -4,7 +4,7 @@
 # micromamba activate spatial_R_env
 
 getwd()
-R.version.string
+
 
 # > getwd()
 # [1] "/home/zhen"
