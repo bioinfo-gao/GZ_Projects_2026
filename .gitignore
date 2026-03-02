@@ -26,6 +26,7 @@ bak/
 *.h5seurat
 *.index*
 *.iso
+data/
 loca_bac
 local_backup/
 local_bak
