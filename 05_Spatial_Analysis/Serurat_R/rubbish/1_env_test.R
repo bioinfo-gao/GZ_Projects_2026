@@ -8,7 +8,7 @@ getwd()
 
 # > getwd()
 # [1] "/home/zhen"
-# > R.version.string
+R.version.string
 # [1] "R version 4.4.3 (2025-02-28)
 
 # 设置镜像
