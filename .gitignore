@@ -27,6 +27,8 @@ bak/
 *.index*
 *.iso
 data/
+bak/
+bak/
 loca_bac
 local_backup/
 local_bak
