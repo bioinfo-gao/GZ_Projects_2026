@@ -1,0 +1,103 @@
+# gemini
+Single Cell / Spatial RNA-seq 中 Probe Design 和 Panel Design 教程
+
+Gemini said
+在单细胞（Single Cell）和空间转录组（Spatial RNA-seq，如 10x Xenium, Vizgen MERSCOPE, CosMx 等）分析中，Panel Design（基因组合设计） 和 Probe Design（探针序列设计） 是靶向测序技术中最核心的上游步骤。
+
+简单来说：
+
+Panel Design 是决定你要测哪些基因（选基因）。
+
+Probe Design 是决定为了测这些基因，你要合成什么样的 DNA 序列（选探针）。
+
+以下为你整理的完整教程和工作流。
+
+🧬 第一部分：Panel Design (基因组合设计)
+靶向空间转录组通常受限于光学通道或测序成本，只能检测 100~1000 个基因（称为 Plex）。你的目标是用最少的基因，区分出最多的细胞类型和生物学状态。
+
+核心设计原则与步骤：
+
+参考数据集准备：使用你之前在 Scanpy 或 Seurat 中跑出来的单细胞转录组数据（如你刚做的 pbmc3k）作为 Ground Truth。
+
+筛选 Marker 基因：
+
+运行 FindAllMarkers() 或 sc.tl.rank_genes_groups()。
+
+每个细胞亚群挑选 Top 20-50 的特异性基因。
+
+剔除高表达背景基因：在空间转录组中，极其高表达的基因（如核糖体基因、线粒体基因、高丰度管家基因）会产生严重的光学拥挤（Optical Crowding），必须剔除。
+
+补充功能基因：除了区分细胞类型的 Marker，还需要手动加入你关心的通路基因、药物靶点或疾病相关突变基因。
+
+验证 Panel 性能：在单细胞数据集中，只保留你选出的这几百个基因，重新进行 PCA 和 UMAP 聚类。如果分群效果依然清晰，说明 Panel 设计成功。
+
+🔬 第二部分：Probe Design (探针序列设计)
+确定了基因名单后，需要针对每个基因的 mRNA 序列设计互补的探针（通常是 Padlock probes 或 smFISH probes）。这一步对特异性要求极高。
+
+核心设计原则与步骤：
+
+获取靶序列 (Transcript Sequences)：从 Ensembl 或 RefSeq 下载目标基因的所有转录本 FASTA 文件。优先靶向所有异构体（Isoforms）共有的外显子区域。
+
+探针参数过滤：
+
+长度：通常 30-50 bp。
+
+GC 含量：控制在 40% - 60% 之间，过高或过低都会影响杂交效率（Tm 值）。
+
+避免连续重复：剔除包含 4 个以上连续相同碱基（如 GGGG）的序列。
+
+脱靶效应检查 (Off-target Check)：将设计好的初稿探针使用 BLAST 或 Bowtie2 比对回整个转录组库。丢弃能与其他基因发生高度同源比对的探针。
+
+添加功能标签：在探针两端添加用于扩增、荧光显色或条形码读取的特异性接头序列（Flanking/Readout sequences）。
+
+💻 第三部分：服务器实战工作流
+在你的 Linux 服务器上，探针设计通常依赖开源的探针设计流程包（如 OligoMiner）或自定义的 R/Python 脚本。
+
+请在终端中执行以下完整命令，启动我们的设计工作区：
+
+Bash
+screen -S probe_panel_design
+cd /home/gao/Code/Bioinfo_Analysis_Projects
+
+# 创建专门的工作目录
+mkdir -p 05_Spatial_Panel_Design
+cd 05_Spatial_Panel_Design
+
+# 激活我们之前配置好的空间转录组 R 环境
+mamba activate spatial_R
+
+# 使用 vim 创建一个设计记录文档
+vim panel_design_notes.md
+(在 Vim 中，你可以使用 i 进入插入模式，完成后按 Esc 输入 :wq 保存退出。)
+
+📊 设计工具与分析模块对照表 (附 Raw Markdown)
+这里为你整理了业界常用的设计模块对照表，你可以直接复制下方的 Raw Markdown 代码到你的 VS Code 或刚才用 Vim 创建的 .md 文件中。
+
+Markdown
+# 空间转录组 Panel 与 Probe 设计工具指南
+
+| 设计阶段 | 核心任务 | 推荐工具 / R 包 / Python 库 | 关键指标阈值 |
+| :--- | :--- | :--- | :--- |
+| **Panel Design** | 细胞类型 Marker 提取 | `Seurat` / `Scanpy` / `CellTypist` | Log2FC > 1.0, P_adj < 0.01 |
+| **Panel Design** | 基因共表达网络构建 | `WGCNA` / `hdWGCNA` | 捕捉核心 Module 基因 |
+| **Panel Design** | 冗余度评估与降维验证 | `Seurat::RunUMAP()` | 使用精简 Panel 重现完整全景 |
+| **Probe Design** | 转录本 FASTA 提取 | `biomaRt` (R) / `bedtools` | 优先覆盖共有外显子 (Constitutive Exons) |
+| **Probe Design** | 探针理化参数筛选 | `OligoMiner` (Python) | GC: 40-60%, Tm: 65-75°C |
+| **Probe Design** | 特异性比对 (反脱靶) | `BLAST+` / `Bowtie2` | 仅保留唯一比对 (Unique mapping) 探针 |
+设计阶段	核心任务	推荐工具 / R 包 / Python 库	关键指标阈值
+Panel Design	细胞类型 Marker 提取	Seurat / Scanpy / CellTypist	Log2FC > 1.0, P_adj < 0.01
+Panel Design	基因共表达网络构建	WGCNA / hdWGCNA	捕捉核心 Module 基因
+Panel Design	冗余度评估与降维验证	Seurat::RunUMAP()	使用精简 Panel 重现完整全景
+Probe Design	转录本 FASTA 提取	biomaRt (R) / bedtools	优先覆盖共有外显子 (Constitutive Exons)
+Probe Design	探针理化参数筛选	OligoMiner (Python)	GC: 40-60%, Tm: 65-75°C
+Probe Design	特异性比对 (反脱靶)	BLAST+ / Bowtie2	仅保留唯一比对 (Unique mapping) 探针
+🚀 代码版本控制同步
+完成文档编写后，按照你的项目管理习惯，我们将新模块推送到 GitHub 的 master 分支：
+
+Bash
+# 在 screen 的 05_Spatial_Panel_Design 目录下
+cd /home/gao/Code/Bioinfo_Analysis_Projects
+git add 05_Spatial_Panel_Design/
+git commit -m "feat: init spatial transcriptomics panel and probe design pipeline"
+git push origin master
+你想先从 Panel Design（基因挑选）开始写 R 脚本，还是直接进入更偏底层算法的 Probe Design（序列生成与 BLAST）？如果是选基因，我们可以直接调用你之前配好的 Seurat 环境提取 Marker。
