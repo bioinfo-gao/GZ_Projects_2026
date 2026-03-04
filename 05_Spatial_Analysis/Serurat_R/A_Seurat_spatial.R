@@ -1,4 +1,4 @@
-#library(Seurat)
+library(Seurat)
 library(BPCells)
 library(ggplot2)
 
@@ -10,7 +10,7 @@ spatial_path <- file.path(base_path, "spatial")
 # 2. 读取矩阵 (MTX 格式文件夹)
 # 注意：Read10X 专门处理包含三个 .gz 文件的文件夹
 message("正在读取矩阵...")
-counts <- Read10X(data.dir = matrix_path)
+counts <- Read10X(data.dir = matrix_path) # seurat
 
 # 3. 核心内存优化：立即将矩阵写入磁盘
 # 这一步将 9.7G 内存压力转移到硬盘，防止 R 崩溃
@@ -20,6 +20,14 @@ rm(counts); gc() # 立即清理内存中的原始矩阵
 
 # 4. 创建 Seurat 对象
 brain <- CreateSeuratObject(counts = counts_bp, assay = "RNA")
+getwd()
+setwd("/home/zhen/GZ_Projects_2026/03_Panel_Design")
+# dir.create("/home/zhen/GZ_Projects_2026/data/saved_rds/", recursive = TRUE) 
+# data_path = "/home/zhen/GZ_Projects_2026/data/saved_rds/"
+# # saveRDS(sc_obj, file = "../your_scRNA_data.rds") data_path
+# saveRDS(brain, file = paste0(data_path, "/your_scRNA_data.rds"))
+# sc_obj <- readRDS("../your_scRNA_data.rds")
+
 
 # 5. 手动加载并添加空间图像信息
 # Read10X_Image 专门处理 spatial 文件夹
@@ -31,7 +39,7 @@ brain[["Slice1"]] <- image
 # 6. 验证对象
 print(brain)
 
-# 7. 运行后续分析
+# 7. 运行后续分析 # 大约10分钟
 message("开始标准化...")
 brain <- SCTransform(brain, assay = "RNA", verbose = TRUE)
 brain <- RunPCA(brain, verbose = FALSE)
