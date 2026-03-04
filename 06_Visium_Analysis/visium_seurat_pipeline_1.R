@@ -79,7 +79,7 @@ p1 <- DimPlot(brain_spatial, reduction = "umap", label = TRUE)
 p2 <- SpatialDimPlot(brain_spatial, label = TRUE, label.size = 3)
 
 # 5.3 观察特定基因（比如海马体 marker 基因 Hpca）在组织上的空间表达分布
-p3 <- SpatialFeaturePlot(brain_spatial, features = "Hpca")
+p3 <- SpatialFeaturePlot(brain_spatial, features = "Hpca") # 选择一个在大脑中特异表达的基因
 
  p1 + p2 / p3
 
