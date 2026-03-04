@@ -1,0 +1,13 @@
+{
+    // 这个键负责【发现】
+    "positron.r.customBinaries": [
+        "/home/zhen/miniforge3/envs/seurat_env/bin/R"
+    ],
+
+    // 这个键负责【强制激活】当前工作区的使用路径 关键的 interpreterPath
+    // 默认权重：如果没有指定 interpreterPath，Positron 会默认寻找版本号最高的（即您的 4.5.1）。
+    "positron.r.interpreterPath": "/home/zhen/miniforge3/envs/seurat_env/bin/R",
+
+    // 为了兼容性，建议同时加上这个（对应旧版 VS Code 插件逻辑）
+    "r.rterm.linux": "/home/zhen/miniforge3/envs/seurat_env/bin/R"
+}
