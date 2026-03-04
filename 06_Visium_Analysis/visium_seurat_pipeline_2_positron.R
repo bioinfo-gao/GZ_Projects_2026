@@ -25,6 +25,7 @@ keep_genes <- rowSums(counts > 0) >= 3
 brain_spatial <- brain_spatial[keep_genes, ]
 print(dim(brain_spatial))
 print(head(brain_spatial))
+
 # 2. 数据质控 (QC)
 # Visium 的 spot 可能会落入无组织的空白区域，需要过滤线粒体和低表达 spot
 brain_spatial <- PercentageFeatureSet(
