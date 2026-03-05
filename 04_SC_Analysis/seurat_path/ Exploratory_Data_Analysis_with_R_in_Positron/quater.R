@@ -29,3 +29,18 @@ ggplot(hw_plot, aes(x = deadline, y = q3_deadline_stress)) +
   geom_boxplot(color = "black", fill = "lightblue", outlier.shape = NA) +
   labs(title = "Boxplot Test", x = "Deadline", y = "Stress") +
   theme_minimal()
+
+# 方案 A：增强箱线图可见性
+ggplot(hw, aes(x = deadline, y = q3_deadline_stress)) +
+  geom_boxplot(width = 0.5, color = "black", fill = "lightblue", outlier.shape = NA) +
+  geom_jitter(alpha = 0.4, width = 0.15, color = "darkgray") +
+  labs(title = "Stress Distribution (Boxplot)", y = "Stress Level") +
+  theme_minimal()
+
+# 方案 B：使用小提琴图 + 箱线图 (推荐)
+ggplot(hw, aes(x = deadline, y = q3_deadline_stress)) +
+  geom_violin(fill = "lightgray", color = "gray", alpha = 0.5) + # 显示密度分布
+  geom_boxplot(width = 0.1, color = "red", outlier.shape = NA) + # 叠加箱线图
+  geom_jitter(alpha = 0.3, width = 0.1, color = "black") +
+  labs(title = "Stress Distribution (Violin + Box)", y = "Stress Level") +
+  theme_minimal()
