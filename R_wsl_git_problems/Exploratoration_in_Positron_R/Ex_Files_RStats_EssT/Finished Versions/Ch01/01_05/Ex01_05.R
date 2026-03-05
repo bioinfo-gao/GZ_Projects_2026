@@ -13,13 +13,15 @@ library(datasets)
 require(datasets)
 
 # To remove the datasets package
-detach(package:datasets)
+# detach(package:datasets)
 
 # To see a list of the available datasets
 data()
 
 # You can see the same list with clickable links
 # to descriptions for each dataset at
+
+
 browseURL("http://stat.ethz.ch/R-manual/R-devel/library/datasets/html/00Index.html")
 
 # For information on a specific dataset
