@@ -1,0 +1,37 @@
+---
+title: "Untitled"
+format: html
+---
+
+很奇怪的是： 只有下面这个ssh works ！
+
+Open Remote - WSL for Positron (DEPRECATED)
+kv9898
+10,786
+(3)
+⚠️ DEPRECATED: Use official Positron WSL extension (Positron 2025.11.0-234+). This extension is no longer maintained.
+
+
+
+
+1. 解决插件冲突（最关键）
+日志显示您安装了一个第三方的 WSL 插件（jeanp413.open-remote-wsl），它与 Positron 内置的 WSL 支持发生了冲突，导致命令注册重复。
+操作：
+在 Windows 打开 Positron。
+点击左侧 Extensions（扩展）图标。
+搜索 open-remote-wsl。
+卸载或禁用 作者名为 jeanp413 的那个插件。
+重启 Positron。
+
+
+2. 清理 WSL 中残留的损坏服务器文件
+之前的安装失败可能在 WSL 目录中留下了损坏的锁定文件（Lock files），导致新安装无法写入。
+操作：
+打开您的 Ubuntu 原生终端（不是在 Positron 里面，是 Windows 开始菜单里的那个）。
+输入以下命令，删除 Positron 在远程生成的隐藏目录：
+code
+Bash
+# 删除 Positron 尝试建立的服务器目录
+rm -rf ~/.positron-server
+# 顺便清理可能冲突的 VS Code 残留
+rm -rf ~/.vscode-server
