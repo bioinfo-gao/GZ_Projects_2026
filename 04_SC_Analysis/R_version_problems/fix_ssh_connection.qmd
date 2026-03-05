@@ -16,10 +16,13 @@ kv9898
 
 1. 解决插件冲突（最关键）
 日志显示您安装了一个第三方的 WSL 插件（jeanp413.open-remote-wsl），它与 Positron 内置的 WSL 支持发生了冲突，导致命令注册重复。
+
 操作：
 在 Windows 打开 Positron。
 点击左侧 Extensions（扩展）图标。
-搜索 open-remote-wsl。
+
+搜索 open-remote-wsl。 <<==========================================
+
 卸载或禁用 作者名为 jeanp413 的那个插件。
 重启 Positron。
 
