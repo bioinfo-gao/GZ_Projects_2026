@@ -1,0 +1,18 @@
+在英文中，如果您想强调“固定版本”（即锁定特定版本，不允许自动升级或变更），以避免与“修理/修复”（repair）的含义混淆，最合适的词是 pin（作为动词使用，常用于软件版本控制和包管理中）。它专指“钉住”或“固定”某个版本，确保稳定性，而不会被误解为“修理”。
+为什么用 “pin”？
+
+含义精确：在编程和 DevOps 上下文中，“pin” 专用于固定版本或依赖项（e.g., pin a dependency），表示强制使用特定版本，避免升级带来的不兼容。
+避免混淆： “Fix” 虽然有时也用于“固定”（e.g., fix the version），但更常用作“修复 bug”（fix a bug），容易引起歧义。其他词如 “freeze”（冻结）也可，但 “pin” 更常见和专业。
+常见用法：在 Conda、Pip、NPM 等工具中，都用 “pin” 来描述锁定版本。
+
+示例句子
+
+“Please pin the Python version to 3.8 to avoid compatibility issues.”（请固定 Python 版本为 3.8，以避免兼容性问题。）
+“We need to pin the dependencies in the requirements.txt file.”（我们需要在 requirements.txt 文件中固定依赖版本。）
+
+其他备选词
+
+Lock：表示“锁定”，常用于版本锁定文件（如 lockfile）。e.g., “Lock the version in the environment.yml file.” 但 “pin” 更精确于单个版本。
+Freeze：表示“冻结”，用于临时固定。e.g., “Freeze the package versions before deployment.” 但不如 “pin” 通用。
+
+如果您在特定上下文中（如 Conda 环境），可以直接说 “pin the version” 或 “use version pinning”。如果需要更多例子或代码，请提供更多细节！
