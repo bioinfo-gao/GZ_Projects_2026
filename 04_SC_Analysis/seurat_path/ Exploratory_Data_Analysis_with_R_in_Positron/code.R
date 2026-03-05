@@ -94,3 +94,12 @@ hw |>
   )
 
 hw[, c( "id",           "q3_deadline_stress",      "hw_minutes")]
+
+
+# 方案 B：使用小提琴图 + 箱线图 (推荐)
+ggplot(hw, aes(x = deadline, y = q3_deadline_stress)) +
+  geom_violin(fill = "lightgray", color = "gray", alpha = 0.5) + # 显示密度分布
+  geom_boxplot(width = 0.1, color = "red", outlier.shape = NA) + # 叠加箱线图
+  geom_jitter(alpha = 0.3, width = 0.1, color = "black") +
+  labs(title = "Stress Distribution (Violin + Box)", y = "Stress Level") +
+  theme_minimal()
