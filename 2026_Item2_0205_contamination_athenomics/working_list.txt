@@ -1,37 +1,35 @@
 Week of 03-13-2026 to 03-19-2026
 
-# Item (1)-(2) 2 hours
-1) Install TailScale softwares for remote acession 
-2) Meeting to Juan Vavarro for remote server setting, account, password and virtual network
+# Item (1) 2 hours
+1.1) Install TailScale softwares for remote acession 
+1.2) Meeting to Juan Vavarro for remote server setting, account, password and virtual network
 
-# Item (3) 1 hours
-3) Install vsCode and Positron for remote server
+# Item (2) 1 hours
+2) Install and config vsCode, Positron, and git for remote server
 
-# Item (4) 2 hours
-4.1) Check all the serve features, including CPU, GPU, memory, hardisk, IP/network, 
+# Item (3) 2 hours
+3.1) Check all the serve features, including CPU, GPU, memory, hardisk, IP/network, 
 test if all kinds of instruments are working.
-4.2) Installed GPU driver 
-4.3) Edited the mount table 
-4.4) Check and set the sudo permission
+3.2) Installed GPU driver 
+3.3) Edited the mount table 
+3.3) Check and set the sudo permission
 4.5) make all large folder to be phsically in 10T hard driver. 
 
-# Item (5) 2 hours
-Upload raw data from sharepoint folder to server without IP
-Explored quite a few different methods.
-
-
-# Item (5) 1 hours
-install Dropbox and synchronize all data 
-
+# Item (4) 2 hours
+4) Upload the raw data from sharepoint folder to server without IP withour downloading to local personal computer 
+Explored quite a few different methods. Finally obtain 2 methods: manual downlaod in X11 window or Dropbox
 
 # Item (5) 1 hours
-# communcation for projects plan and priority. For one special expriment, 
+5) install Dropbox and synchronize all data 
+
+# Item (6) 1 hours
+6) communcation for projects plan and priority. For The 1st proority and special expriment, 
 communicatd information error message. 
-Explain what kind of work/service needs IP
-Explain the option for filesharing without IP 
+Explain what kind of work/service needs IP.
+Explain the option for filesharing without IP. 
 
 
-Subtotal: 8 hours 
+Subtotal: 9 hours 
 
 
 Week of 03-13-2026 to 03-19-2026
