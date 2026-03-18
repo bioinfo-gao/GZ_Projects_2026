@@ -1,0 +1,26 @@
+Customer Name,Name in File,Species,Analysis Type,Strand Specific,machine Type,Sequencing Type,"Data Delivery Method
+(Required)",i7 index,i5 index
+Jitu,C1_A,Human,Bulk RNA Seq,Yes,Nova Seq X Plus,PE150,Partial lane sequencing-With Demultiplexing,ATTACTCG,TATAGCCT
+Jitu,C1_B,Human,Bulk RNA Seq,Yes,Nova Seq X Plus,PE150,Partial lane sequencing-With Demultiplexing,TCCGGAGA,ATAGAGGC
+Jitu,C1_C,Human,Bulk RNA Seq,Yes,Nova Seq X Plus,PE150,Partial lane sequencing-With Demultiplexing,CGCTCATT,CCTATCCT
+Jitu,C1_D,Human,Bulk RNA Seq,Yes,Nova Seq X Plus,PE150,Partial lane sequencing-With Demultiplexing,GAGATTCC,GGCTCTGA
+Jitu,ch_1A,Human,Bulk RNA Seq,Yes,Nova Seq X Plus,PE150,Partial lane sequencing-With Demultiplexing,ATTCAGAA,AGGCGAAG
+Jitu,ch_1B,Human,Bulk RNA Seq,Yes,Nova Seq X Plus,PE150,Partial lane sequencing-With Demultiplexing,GAATTCGT,TAATCTTA
+Jitu,ch_1C,Human,Bulk RNA Seq,Yes,Nova Seq X Plus,PE150,Partial lane sequencing-With Demultiplexing,CTGAAGCT,CAGGACGT
+Jitu,ch_1D,Human,Bulk RNA Seq,Yes,Nova Seq X Plus,PE150,Partial lane sequencing-With Demultiplexing,TAATGCGC,GTACTGAC
+Jitu,C2_A,Human,Bulk RNA Seq,Yes,Nova Seq X Plus,PE150,Partial lane sequencing-With Demultiplexing,CGGCTATG,GACCTGTA
+Jitu,C2_B,Human,Bulk RNA Seq,Yes,Nova Seq X Plus,PE150,Partial lane sequencing-With Demultiplexing,TCCGCGAA,ATGTAACT
+Jitu,C2_C,Human,Bulk RNA Seq,Yes,Nova Seq X Plus,PE150,Partial lane sequencing-With Demultiplexing,TCTCGCGC,GTTTCAGA
+Jitu,C2_D,Human,Bulk RNA Seq,Yes,Nova Seq X Plus,PE150,Partial lane sequencing-With Demultiplexing,AGCGATAG,CACAGGAT
+Jitu,ch_2A,Human,Bulk RNA Seq,Yes,Nova Seq X Plus,PE150,Partial lane sequencing-With Demultiplexing,CGTGTAGG,TAGCTGCC
+Jitu,ch_2B,Human,Bulk RNA Seq,Yes,Nova Seq X Plus,PE150,Partial lane sequencing-With Demultiplexing,GACACTAC,AGCGAATG
+Jitu,ch_2C,Human,Bulk RNA Seq,Yes,Nova Seq X Plus,PE150,Partial lane sequencing-With Demultiplexing,TGCATACA,TATGCTGC
+Jitu,ch_2D,Human,Bulk RNA Seq,Yes,Nova Seq X Plus,PE150,Partial lane sequencing-With Demultiplexing,CAGTCTGG,AGAAGACT
+Jitu,C3_A,Human,Bulk RNA Seq,Yes,Nova Seq X Plus,PE150,Partial lane sequencing-With Demultiplexing,TGGCACCT,TATAGCCT
+Jitu,C3_B,Human,Bulk RNA Seq,Yes,Nova Seq X Plus,PE150,Partial lane sequencing-With Demultiplexing,CAAGGTGA,ATAGAGGC
+Jitu,C3_C,Human,Bulk RNA Seq,Yes,Nova Seq X Plus,PE150,Partial lane sequencing-With Demultiplexing,AAAGATAC,CCTATCCT
+Jitu,C3_D,Human,Bulk RNA Seq,Yes,Nova Seq X Plus,PE150,Partial lane sequencing-With Demultiplexing,TGGAGCTG,GGCTCTGA
+Jitu,ch_3A,Human,Bulk RNA Seq,Yes,Nova Seq X Plus,PE150,Partial lane sequencing-With Demultiplexing,TAAGGCGA,AGGCGAAG
+Jitu,ch_3B,Human,Bulk RNA Seq,Yes,Nova Seq X Plus,PE150,Partial lane sequencing-With Demultiplexing,CGTACTAG,TAATCTTA
+Jitu,ch_3C,Human,Bulk RNA Seq,Yes,Nova Seq X Plus,PE150,Partial lane sequencing-With Demultiplexing,GCTACGCT,CAGGACGT
+Jitu,ch_3D,Human,Bulk RNA Seq,Yes,Nova Seq X Plus,PE150,Partial lane sequencing-With Demultiplexing,CGAGGCTC,GTACTGAC
