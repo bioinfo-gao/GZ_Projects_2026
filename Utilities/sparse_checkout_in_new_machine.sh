@@ -41,6 +41,9 @@ git remote add origin git@github.com:bioinfo-gao/GZ_Projects_2026.git
 # 启用 sparse-checkout
 git config core.sparseCheckout true
 
+# 查看已包含的目录列表：
+git sparse-checkout list
+
 ## 设置为空（什么都不下载）
 git sparse-checkout set 
 
@@ -49,3 +52,5 @@ echo "完成，当前文件数: $(git ls-files | wc -l)"
 echo ""
 echo "现在可以添加文件夹了:"
 echo "  git sparse-checkout add 2026_Item2_0205_contamination_athenomics"
+
+git sparse-checkout add Utilities
