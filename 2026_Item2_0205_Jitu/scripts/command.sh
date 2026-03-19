@@ -1,0 +1,15 @@
+nextflow run nf-core/rnaseq \
+    -r 3.14.0 \
+    -profile singularity \
+    --input samplesheet.csv \
+    --outdir /path/to/your/results \
+    --fasta /path/to/shared/reference/genomes/Homo_sapiens/GRCh38/GENCODE/v45/GRCh38.primary_assembly.genome.fa \
+    --gtf /path/to/shared/reference/genomes/Homo_sapiens/GRCh38/GENCODE/v45/gencode.v45.annotation.gtf \
+    --gencode \
+    --aligner star_salmon \
+    --remove_ribo_rna \
+    --save_reference \
+    --save_nonrRNA_reads \
+    --skip_qc \
+    --max_cpus 16 \
+    --max_memory '64.GB'

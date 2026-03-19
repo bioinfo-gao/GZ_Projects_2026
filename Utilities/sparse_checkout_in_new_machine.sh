@@ -53,4 +53,12 @@ echo ""
 echo "现在可以添加文件夹了:"
 echo "  git sparse-checkout add 2026_Item2_0205_contamination_athenomics"
 
+# show the current sparse-checkout configuration
+git sparse-checkout list
+
+# add one 
 git sparse-checkout add Utilities
+
+# set the current ones (会覆盖之前的设置，所以如果之前设置了 2026_Item2_0205_contamination_athenomics 就会被覆盖掉)
+git sparse-checkout set 2026_Item2_0205_Jitu Utilities
+
