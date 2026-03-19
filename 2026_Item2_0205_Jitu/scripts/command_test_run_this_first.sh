@@ -7,6 +7,17 @@ ls -lh $NXF_SINGULARITY_CACHEDIR
 
 tmux new -s rnaseq  
 
+# Check if we are inside a tmux session
+# (1) 有些终端会在标题栏显示 [tmux] 或当前会话名,需要用鼠标悬停或查看标题栏才能看到。
+# (2) 你可以在命令行输入以下命令来检查是否在 tmux 中：
+echo $TMUX
+# 如果输出类似 /tmp/tmux-1000/default,12345,0 的字符串（包含 tmux 服务路径和会话信息），说明你在 tmux 中。
+# 如果没有输出（空行），说明不在 tmux 中。
+# (3) tmux info 命令
+tmux info 2>/dev/null
+# 如果在 tmux 内，会显示当前会话的详细信息。
+# 如果不在 tmux 内，会提示 no server running on /tmp/tmux-... 或 can't find server（错误信息会被重定向到 /dev/null 则不显示）。
+
 # 进入你的工作目录
 cd /home/gao/projects/2026_Item2_0205_Jitu/scripts
 
@@ -40,6 +51,10 @@ nextflow run nf-core/rnaseq \
 # # 列出最近一次运行的进程状态
 # nextflow log suspicious_williams -f process,status,exit
 # 如果看到类似 COMPLETED 的进程（如 TRIMGALORE、GTF_FILTER），说明这些步骤所需的软件已正常执行。
+
+
+
+
 
 # ======================= # =======================
 # 手动验证单个容器镜像（可选）
