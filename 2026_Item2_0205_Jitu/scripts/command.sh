@@ -1,7 +1,7 @@
 nextflow run nf-core/rnaseq \
     -r 3.14.0 \
     -profile singularity \
-    --input Sample_Sheet.csv \
+    --input Sample_Sheet2.csv \
     --outdir /home/gao/projects/2026_Item2_0205_Jitu/output \
     --fasta /Work_bio/references/Homo_sapiens/GRCh38/GENCODE/human_gencode_v45/GRCh38.primary_assembly.genome.fa \
     --gtf /Work_bio/references/Homo_sapiens/GRCh38/GENCODE/human_gencode_v45/gencode.v45.annotation.gtf \
