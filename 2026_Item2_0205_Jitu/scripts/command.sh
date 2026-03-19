@@ -1,3 +1,8 @@
+conda config --add channels conda-forge
+conda config --add channels bioconda # Nextflow is available via the Bioconda channel.
+
+mamber install nextflow 
+nextflow -version
 # export NXF_SINGULARITY_CACHEDIR=/Work_bio/gao/projects/singularity_cache
 # mkdir -p $NXF_SINGULARITY_CACHEDIR
 # # 如果这个目录为空或不存在，说明镜像尚未完全下载。不用担心，下一次运行时会自动下载。
@@ -22,7 +27,8 @@ nextflow run nf-core/rnaseq \
     --max_cpus 32 \
     --max_memory '64.GB'
 
-
+# 在 nf-core/rnaseq 命令里，把 --fasta 换成 --star_index /你的路径/star_index 
+# --star_index /Work_bio/references/Mus_musculus/GRCm39/GENCODE_M35/star_index \ 会正常快30min 以上，应该使用这个
 # Ctrl+B, D     # detach the tmux, let it run in the background
 
 tmux a  # return the last tmux 

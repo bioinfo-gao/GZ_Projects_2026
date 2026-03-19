@@ -1,5 +1,72 @@
+Weekly Report
+Period: March 13, 2026 – March 19, 2026
+Prepared by: Gao Zhen
+Total Hours: 20 hours
+
+1. Remote Access & Server Setup (2 hours)
+
+Installed Tailscale for secure remote access.
+Met with Juan Navarro to configure the remote server, including account creation, password setup, and virtual network integration.
+
+2. Development Environment Configuration (1 hour)
+
+Installed and configured Visual Studio Code, Positron IDE, and Git on the remote server to ensure a consistent development workflow.
+
+3. Server Hardware & System Verification (2 hours)
+
+Performed full system health check: CPU, GPU, memory, storage, network/IP connectivity.
+Verified all instruments and peripherals are functioning correctly.
+Installed the GPU drivers.
+Edited and optimized the fstab mount table for automatic mounting.
+Reviewed and configured sudo permissions for secure access.
+Physically migrated all large data folders to the 10TB dedicated hard drive.
+
+4. Data Transfer & Reference Genome Preparation (2 hours)
+
+Explored secure data upload methods from SharePoint to the server without exposing IP addresses or downloading to local machine.
+Two viable options identified: manual download via X11 forwarding, or using Dropbox synchronization.
+
+Downloaded and prepared GENCODE v45 (GRCh38) as the local reference genome (fasta + gtf files), including MD5 checksums for reproducibility.
+
+5. Data Synchronization (1 hour)
+
+Installed Dropbox on the remote server and synchronized all sequencing data for secure backup and access.
+
+6. Project Communication & Planning (1 hour)
+
+Discussed project priorities and timelines with the team.
+Clarified which tasks/services require IP exposure.
+Explained alternative file-sharing options that do not require IP access (e.g., Dropbox).
+
+7. Nextflow RNA-seq Pipeline Preparation (3 hours)
+
+Built a standardized, reusable Nextflow RNA-seq workflow.
+Documented clear the steps and instructions so other team members can run the pipeline by simply following the provided script.
+
+8. Quality Control & Preliminary Analysis (4 hours)
+
+Performed pre-alignment quality control (QC) on raw data (e.g., adapter content, base quality, rRNA contamination).
+Compared results against previous custom QC reports.
+Analyzed potential causes of observed differences and discussed next steps for downstream analysis.
+
+9. Standard RNA-seq Workflow Execution (4 hours)
+
+Ran the full Nextflow RNA-seq pipeline (total runtime ~8 hours; hands-on time ~3 hours).
+Investigated and documented the primary data source (species, DNA/RNA type).
+
+Total Hours Worked: Approximately 20 hours
+Next Steps:
+
+Review QC results and refine analysis strategy.
+Assist team members in running the Nextflow pipeline.
+Continue data organization and backup.
+
+Prepared by: Gao Zhen
+Date: March 19, 2026
+
 Week of 03-13-2026 to 03-19-2026
 
+=========My hand work 
 # Item (1) 2 hours
 1.1) Install TailScale softwares for remote acession 
 1.2) Meeting to Juan Vavarro for remote server setting, account, password and virtual network
@@ -38,12 +105,66 @@ Explain the option for filesharing without IP.
 8.3) Provide the possible reason for such results and discuss and design the next analysis 
 
 # Item (9) 4 hours
-9.1) Run standard nextflow RNAseq # Totall running time is about 8 hours, personal time is about 3 hours 
+9.1) Run standard nextflow RNAseq # Totall running time is about 10 hours, personal time is about 3 hours 
 9.2) Explore the mainbody of the data came from which kind of source ( which species, which type of DNA/RNA )
 
 
 Subtotal: 20 hours 
 
+
+周报
+时间段：2026年3月13日 - 2026年3月19日
+报告人：Gao Zhen
+总工作时长：约20小时
+主要任务完成情况
+
+远程访问与服务器基础配置（约3小时）
+安装 Tailscale 软件，实现安全远程访问。
+与 Juan Navarro 协作完成远程服务器账号、密码及虚拟网络配置。
+在远程服务器上安装并配置 VS Code、Positron 和 Git，确保开发环境可用。
+
+服务器硬件与系统检查（约2小时）
+全面检查服务器硬件状态：CPU、GPU、内存、硬盘、网络连接。
+测试所有仪器功能正常。
+安装最新 GPU 驱动。
+编辑 fstab 挂载表，实现自动挂载。
+配置 sudo 权限，确保安全与便利。
+将所有大体积数据文件夹物理迁移至 10TB 硬盘。
+
+数据传输与参考基因组准备（约3小时）
+探索无需暴露 IP 地址的批量数据上传方案，最终确定两种可行方法：
+a. 通过 X11 窗口手动下载；
+b. 使用 Dropbox 同步。
+下载并冻结 GENCODE v45（GRCh38）作为本地参考基因组（包括 fasta 和 gtf 文件），已生成 md5 校验，确保可复现。
+
+Dropbox 同步与数据备份（约1小时）
+安装 Dropbox 并完成所有测序数据的同步，确保数据安全备份。
+
+项目沟通与规划（约1小时）
+与团队沟通项目优先级及实验计划。
+明确哪些任务/服务需要 IP 访问权限。
+向团队说明无需 IP 地址的文件共享方案（Dropbox 等）。
+
+Nextflow RNA-seq 流程准备（约3小时）
+搭建标准化 Nextflow RNA-seq 工作流脚本。
+编写详细说明文档，确保其他团队成员可直接复用脚本运行分析。
+
+数据质控与初步分析（约7小时）
+对原始数据进行质控（QC），包括比对率、rRNA 污染等指标。
+与之前自定义 QC 结果对比，分析差异原因。
+讨论并初步设计后续分析策略。
+运行标准 Nextflow RNA-seq 流程（总运行时间约8小时，个人操作约3小时）。
+确认主要数据来源（物种、DNA/RNA 类型）。
+
+
+总计工作时长：约20小时
+备注：
+
+本周重点完成远程服务器环境搭建、数据安全传输及分析流程标准化。
+后续计划：优化 RNA-seq 结果解释、推进特殊实验数据分析。
+
+签名：Gao Zhen
+日期：2026年3月19日
 
 Week of 03-13-2026 to 03-19-2026
 Week of 03-13-2026 to 03-19-2026
