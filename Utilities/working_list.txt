@@ -5,7 +5,7 @@ Week of 03-13-2026 to 03-19-2026
 1.2) Meeting to Juan Vavarro for remote server setting, account, password and virtual network
 
 # Item (2) 1 hours
-2) Install and config vsCode, Positron, and git for remote server
+2) Install and config the vsCode, Positron, and git for remote server
 
 # Item (3) 2 hours
 3.1) Check all the serve features, including CPU, GPU, memory, hardisk, IP/network, 
@@ -21,7 +21,7 @@ Explored quite a few different methods. Finally obtain 2 methods: manual downlao
 4.2) prepair GENCODE v45 (GRCh38) to local refence
 
 # Item (5) 1 hours
-5) install Dropbox and synchronize all data 
+5) install Dropbox and synchronize all seqencing data 
 
 # Item (6) 1 hours
 6) communcation for projects plan and priority. For The 1st proority and special expriment, 
@@ -29,13 +29,20 @@ communicatd information error message.
 Explain what kind of work/service needs IP.
 Explain the option for filesharing without IP. 
 
-# Item (7) 11 hours
-7) prepair the nextflow RNAseq pipeline
+# Item (7) 3 hours
+7) prepair the nextflow RNAseq pipeline, the new people just follow my scripts will be ok
 
-# Item (8) 11 hours
-8) Initial check of data quality 
+# Item (8) 4 hours
+8.1) Run initial  QC for before alignment 
+8.2) Compair with qc data from custom
+8.3) Provide the possible reason for such results and discuss and design the next analysis 
 
-Subtotal: 10 hours 
+# Item (9) 4 hours
+9.1) Run standard nextflow RNAseq # Totall running time is about 8 hours, personal time is about 3 hours 
+9.2) Explore the mainbody of the data came from which kind of source ( which species, which type of DNA/RNA )
+
+
+Subtotal: 20 hours 
 
 
 Week of 03-13-2026 to 03-19-2026
