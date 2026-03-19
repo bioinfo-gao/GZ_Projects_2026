@@ -1,0 +1,149 @@
+Mar-18 23:36:49.223 [main] DEBUG nextflow.cli.Launcher - $> nextflow run nf-core/rnaseq -r 3.14.0 -profile singularity --input Sample_Sheet2.csv --outdir /home/gao/projects/2026_Item2_0205_Jitu/output --fasta /Work_bio/references/Homo_sapiens/GRCh38/GENCODE/human_gencode_v45/GRCh38.primary_assembly.genome.fa --gtf /Work_bio/references/Homo_sapiens/GRCh38/GENCODE/human_gencode_v45/gencode.v45.annotation.gtf --gencode --aligner star_salmon --remove_ribo_rna --save_reference --save_nonrRNA_reads --max_cpus 32 --max_memory 64.GB
+Mar-18 23:36:49.321 [main] DEBUG nextflow.cli.CmdRun - N E X T F L O W  ~  version 25.10.4
+Mar-18 23:36:49.347 [main] DEBUG nextflow.plugin.PluginsFacade - Setting up plugin manager > mode=prod; embedded=false; plugins-dir=/home/gao/.nextflow/plugins; core-plugins: nf-amazon@3.4.4,nf-azure@1.20.2,nf-cloudcache@0.5.0,nf-codecommit@0.5.0,nf-console@1.3.0,nf-google@1.23.5,nf-k8s@1.2.2,nf-tower@1.17.5,nf-wave@1.16.1
+Mar-18 23:36:49.376 [main] INFO  o.pf4j.DefaultPluginStatusProvider - Enabled plugins: []
+Mar-18 23:36:49.377 [main] INFO  o.pf4j.DefaultPluginStatusProvider - Disabled plugins: []
+Mar-18 23:36:49.380 [main] INFO  org.pf4j.DefaultPluginManager - PF4J version 3.12.0 in 'deployment' mode
+Mar-18 23:36:49.397 [main] DEBUG nextflow.util.RetryConfig - Missing nextflow session - using default retry config
+Mar-18 23:36:49.551 [main] INFO  org.pf4j.AbstractPluginManager - No plugins
+Mar-18 23:36:49.564 [main] DEBUG nextflow.scm.ProviderConfig - Using SCM config path: /home/gao/.nextflow/scm
+Mar-18 23:36:50.471 [main] DEBUG nextflow.scm.AssetManager - Git config: /home/gao/.nextflow/assets/nf-core/rnaseq/.git/config; branch: null; remote: origin; url: https://github.com/nf-core/rnaseq.git
+Mar-18 23:36:50.518 [main] DEBUG nextflow.scm.RepositoryFactory - Found Git repository result: [RepositoryFactory]
+Mar-18 23:36:50.530 [main] DEBUG nextflow.scm.AssetManager - Git config: /home/gao/.nextflow/assets/nf-core/rnaseq/.git/config; branch: null; remote: origin; url: https://github.com/nf-core/rnaseq.git
+Mar-18 23:36:51.155 [main] DEBUG nextflow.config.ConfigBuilder - Found config base: /home/gao/.nextflow/assets/nf-core/rnaseq/nextflow.config
+Mar-18 23:36:51.158 [main] DEBUG nextflow.config.ConfigBuilder - Parsing config file: /home/gao/.nextflow/assets/nf-core/rnaseq/nextflow.config
+Mar-18 23:36:51.174 [main] DEBUG nextflow.config.ConfigBuilder - Applying config profile: `singularity`
+Mar-18 23:36:52.831 [main] DEBUG nextflow.config.ConfigBuilder - Available config profiles: [bih, cfc_dev, uzl_omics, ifb_core, embl_hd, denbi_qbic, alice, mjolnir_globe, uppmax, giga, incliva, ilifu, ki_luria, uge, icr_alma, rosalind_uge, lugh, mccleary, unibe_ibu, vai, czbiohub_aws, jax, roslin, iris, tes, scw, unc_longleaf, tigem, tubingen_apg, apollo, ipop_up, vsc_calcua, pdc_kth, ceci_nic5, ccga_cau, humantechnopole, stjude, daisybio, eddie, medair, biowulf, apptainer, bi, bigpurple, test_full_gcp, adcra, cedars, pawsey_setonix, vsc_kul_uhasselt, pawsey_nimbus, rki, ucl_myriad, utd_ganymede, charliecloud, fred_hutch, seattlechildrens, icr_davros, ceres, munin, arm, rosalind, hasta, cfc, uzh, test_full_aws, shu_bmrc, ebi_codon_slurm, ebc, ccga_dx, crick, ku_sund_danhead, marvin, lrz_cm4, biohpc_gen, shifter, mana, mamba, york_viking, unc_lccc, wehi, awsbatch, wustl_htcf, arcc, ceci_dragon2, imperial, maestro, software_license, cannon, genotoul, nci_gadi, abims, eva_grace, janelia, nu_genomics, googlebatch, oist, sahmri, kaust, alliance_canada, mpcdf, leicester, vsc_ugent, create, sage, cambridge, jex, podman, ebi_codon, cheaha, xanadu, nyu_hpc, test, marjorie, computerome, ucd_sonic, seg_globe, mssm, sanger, dkfz, bluebear, pasteur, einstein, ethz_euler, m3c, test_full, imb, ucl_cscluster, tuos_stanage, azurebatch, seadragon, crukmi, csiro_petrichor, qmul_apocrita, docker, engaging, gis, hypatia, psmn, test_full_azure, eva, unity, cropdiversityhpc, nygc, fgcz, conda, crg, singularity, mpcdf_viper, dirac, self_hosted_runner, tufts, uw_hyak_pedslabs, binac2, utd_sysbio, hki_genie, debug, genouest, cbe, unsw_katana, utd_juno, test_cache, phoenix, gitpod, seawulf, uod_hpc, fub_curta, lovelace, uct_hpc, aws_tower, fsu_draco]
+Mar-18 23:36:52.888 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins declared=[nf-validation@1.1.3]
+Mar-18 23:36:52.889 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins default=[]
+Mar-18 23:36:52.889 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins resolved requirement=[nf-validation@1.1.3]
+Mar-18 23:36:53.324 [main] DEBUG n.plugin.HttpPluginRepository - Registry request: https://registry.nextflow.io/api/v1/plugins/dependencies?plugins=nf-validation%401.1.3&nextflowVersion=25.10.4
+- code: 200
+- body: {"plugins":[{"id":"nf-validation","releases":[{"version":"1.1.3","url":"https://registry.nextflow.io/api/v1/plugins/nf-validation/1.1.3/download/nf-validation-1.1.3.zip","date":"2023-11-21T10:34:48.682432Z","sha512sum":"673e998b83f21315b1f465d3d1609806428518955c174155a1e14a1c410ed9e7c84034b849780567a1a6254f8e6b9bdbb87b1939e5a8f754ff2268e5809bf77e","requires":">=22.10.0","dependsOn":[],"status":"PUBLISHED"}],"projectUrl":"https://github.com/nextflow-io/nf-validation","provider":"nextflow"}]}
+Mar-18 23:36:53.393 [main] DEBUG nextflow.plugin.PluginUpdater - Installing plugin nf-validation version: 1.1.3
+Mar-18 23:36:53.402 [main] INFO  org.pf4j.AbstractPluginManager - Plugin 'nf-validation@1.1.3' resolved
+Mar-18 23:36:53.403 [main] INFO  org.pf4j.AbstractPluginManager - Start plugin 'nf-validation@1.1.3'
+Mar-18 23:36:53.410 [main] DEBUG nextflow.plugin.BasePlugin - Plugin started nf-validation@1.1.3
+Mar-18 23:36:53.416 [main] DEBUG n.secret.LocalSecretsProvider - Secrets store: /home/gao/.nextflow/secrets/store.json
+Mar-18 23:36:53.418 [main] DEBUG nextflow.secret.SecretsLoader - Discovered secrets providers: [nextflow.secret.LocalSecretsProvider@560d6d2] - activable => nextflow.secret.LocalSecretsProvider@560d6d2
+Mar-18 23:36:53.420 [main] DEBUG nextflow.cli.CmdRun - Applied DSL=2 from script declaration
+Mar-18 23:36:53.420 [main] DEBUG nextflow.cli.CmdRun - Launching `https://github.com/nf-core/rnaseq` [angry_bassi] DSL2 - revision: b89fac3265 [3.14.0]
+Mar-18 23:36:53.465 [main] DEBUG nextflow.Session - Session UUID: cc534d07-019a-4267-b713-a55a3874c64e
+Mar-18 23:36:53.466 [main] DEBUG nextflow.Session - Run name: angry_bassi
+Mar-18 23:36:53.466 [main] DEBUG nextflow.Session - Executor pool size: 64
+Mar-18 23:36:53.474 [main] DEBUG nextflow.file.FilePorter - File porter settings maxRetries=3; maxTransfers=50; pollTimeout=null
+Mar-18 23:36:53.479 [main] DEBUG nextflow.util.ThreadPoolBuilder - Creating thread pool 'FileTransfer' minSize=10; maxSize=192; workQueue=LinkedBlockingQueue[-1]; allowCoreThreadTimeout=false
+Mar-18 23:36:53.493 [main] DEBUG nextflow.cli.CmdRun - 
+  Version: 25.10.4 build 11173
+  Created: 10-02-2026 15:17 UTC (10:17 EDT)
+  System: Linux 6.8.0-101-generic
+  Runtime: Groovy 4.0.28 on OpenJDK 64-Bit Server VM 23.0.2-internal-adhoc.conda.src
+  Encoding: UTF-8 (UTF-8)
+  Process: 3157576@us1 [127.0.1.1]
+  CPUs: 64 - Mem: 94.2 GB (895.2 MB) - Swap: 2 GB (1.8 GB)
+Mar-18 23:36:53.507 [main] DEBUG nextflow.Session - Work-dir: /Work_bio/gao/projects/2026_Item2_0205_Jitu/scripts/work [ext2/ext3]
+Mar-18 23:36:53.535 [main] DEBUG nextflow.executor.ExecutorFactory - Extension executors providers=[]
+Mar-18 23:36:53.544 [main] DEBUG nextflow.Session - Observer factory (v2): LinObserverFactory
+Mar-18 23:36:53.547 [main] DEBUG nextflow.Session - Observer factory (v2): DefaultObserverFactory
+Mar-18 23:36:53.606 [main] DEBUG nextflow.cache.CacheFactory - Using Nextflow cache factory: nextflow.cache.DefaultCacheFactory
+Mar-18 23:36:53.615 [main] DEBUG nextflow.util.CustomThreadPool - Creating default thread pool > poolSize: 65; maxThreads: 1000
+Mar-18 23:36:53.805 [main] DEBUG nextflow.Session - Session start
+Mar-18 23:36:53.814 [main] DEBUG nextflow.trace.TraceFileObserver - Workflow started -- trace file: /home/gao/projects/2026_Item2_0205_Jitu/output/pipeline_info/execution_trace_2026-03-18_23-36-52.txt
+Mar-18 23:36:53.820 [main] DEBUG nextflow.Session - Using default localLib path: /home/gao/.nextflow/assets/nf-core/rnaseq/lib
+Mar-18 23:36:53.825 [main] DEBUG nextflow.Session - Adding to the classpath library: /home/gao/.nextflow/assets/nf-core/rnaseq/lib
+Mar-18 23:36:53.826 [main] DEBUG nextflow.Session - Adding to the classpath library: /home/gao/.nextflow/assets/nf-core/rnaseq/lib/nfcore_external_java_deps.jar
+Mar-18 23:36:54.244 [main] DEBUG nextflow.script.ScriptRunner - > Launching execution
+Mar-18 23:36:54.256 [main] DEBUG nextflow.script.IncludeDef - Loading included plugin extensions with names: [validateParameters:validateParameters, paramsHelp:paramsHelp]; plugin Id: nf-validation
+Mar-18 23:36:54.277 [main] DEBUG nextflow.validation.SchemaValidator - Starting parameters validation
+Mar-18 23:36:54.393 [main] WARN  nextflow.validation.SchemaValidator - The following invalid input values have been detected:
+
+* --save_nonrRNA_reads: true
+
+
+Mar-18 23:36:54.404 [main] DEBUG n.validation.DirectoryPathValidator - S3 paths are not supported by 'DirectoryPathValidator': 's3://ngi-igenomes/igenomes'
+Mar-18 23:36:54.406 [main] DEBUG nextflow.validation.SchemaValidator - Starting validation: 'input': '/Work_bio/gao/projects/2026_Item2_0205_Jitu/scripts/Sample_Sheet2.csv' with '/home/gao/.nextflow/assets/nf-core/rnaseq/assets/schema_input.json'
+Mar-18 23:36:54.458 [main] ERROR nextflow.validation.SchemaValidator - ERROR: Validation of 'input' file failed!
+Mar-18 23:36:54.462 [main] DEBUG nextflow.script.ScriptRunner - Parsed script files:
+  Script_023d2c935be30472: /home/gao/.nextflow/assets/nf-core/rnaseq/main.nf
+Mar-18 23:36:54.462 [main] DEBUG nextflow.Session - Session aborted -- Cause: [0;31mThe following errors have been detected:
+
+* -- Entry 1: Missing required value: strandedness
+* -- Entry 2: Missing required value: strandedness
+* -- Entry 3: Missing required value: strandedness
+* -- Entry 4: Missing required value: strandedness
+* -- Entry 5: Missing required value: strandedness
+* -- Entry 6: Missing required value: strandedness
+* -- Entry 7: Missing required value: strandedness
+* -- Entry 8: Missing required value: strandedness
+* -- Entry 9: Missing required value: strandedness
+* -- Entry 10: Missing required value: strandedness
+* -- Entry 11: Missing required value: strandedness
+* -- Entry 12: Missing required value: strandedness
+* -- Entry 13: Missing required value: strandedness
+* -- Entry 14: Missing required value: strandedness
+* -- Entry 15: Missing required value: strandedness
+* -- Entry 16: Missing required value: strandedness
+* -- Entry 17: Missing required value: strandedness
+* -- Entry 18: Missing required value: strandedness
+* -- Entry 19: Missing required value: strandedness
+* -- Entry 20: Missing required value: strandedness
+* -- Entry 21: Missing required value: strandedness
+* -- Entry 22: Missing required value: strandedness
+* -- Entry 23: Missing required value: strandedness
+* -- Entry 24: Missing required value: strandedness
+[0m
+
+Mar-18 23:36:54.474 [main] DEBUG n.trace.WorkflowStatsObserver - Workflow completed > WorkflowStats[succeededCount=0; failedCount=0; ignoredCount=0; cachedCount=0; pendingCount=0; submittedCount=0; runningCount=0; retriesCount=0; abortedCount=0; succeedDuration=0ms; failedDuration=0ms; cachedDuration=0ms;loadCpus=0; loadMemory=0; peakRunning=0; peakCpus=0; peakMemory=0; ]
+Mar-18 23:36:54.623 [main] DEBUG nextflow.trace.ReportObserver - Workflow completed -- rendering execution report
+Mar-18 23:36:55.158 [main] DEBUG nextflow.trace.TimelineObserver - Workflow completed -- rendering execution timeline
+Mar-18 23:36:55.216 [main] DEBUG nextflow.trace.TraceFileObserver - Workflow completed -- saving trace file
+Mar-18 23:36:55.233 [main] DEBUG nextflow.cli.Launcher - Operation aborted
+nextflow.validation.SchemaValidationException: [0;31mThe following errors have been detected:
+
+* -- Entry 1: Missing required value: strandedness
+* -- Entry 2: Missing required value: strandedness
+* -- Entry 3: Missing required value: strandedness
+* -- Entry 4: Missing required value: strandedness
+* -- Entry 5: Missing required value: strandedness
+* -- Entry 6: Missing required value: strandedness
+* -- Entry 7: Missing required value: strandedness
+* -- Entry 8: Missing required value: strandedness
+* -- Entry 9: Missing required value: strandedness
+* -- Entry 10: Missing required value: strandedness
+* -- Entry 11: Missing required value: strandedness
+* -- Entry 12: Missing required value: strandedness
+* -- Entry 13: Missing required value: strandedness
+* -- Entry 14: Missing required value: strandedness
+* -- Entry 15: Missing required value: strandedness
+* -- Entry 16: Missing required value: strandedness
+* -- Entry 17: Missing required value: strandedness
+* -- Entry 18: Missing required value: strandedness
+* -- Entry 19: Missing required value: strandedness
+* -- Entry 20: Missing required value: strandedness
+* -- Entry 21: Missing required value: strandedness
+* -- Entry 22: Missing required value: strandedness
+* -- Entry 23: Missing required value: strandedness
+* -- Entry 24: Missing required value: strandedness
+[0m
+
+	at nextflow.validation.SchemaValidator.validateFile(SchemaValidator.groovy:607)
+	at nextflow.validation.SchemaValidator.validateParameters(SchemaValidator.groovy:444)
+	at nextflow.validation.SchemaValidator.validateParameters(SchemaValidator.groovy)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at nextflow.script.FunctionDef.invoke_a(FunctionDef.groovy:64)
+	at nextflow.script.ComponentDef.invoke_o(ComponentDef.groovy:40)
+	at nextflow.script.WorkflowBinding.invokeMethod(WorkflowBinding.groovy:105)
+	at nextflow.script.BaseScript.invokeMethod(BaseScript.groovy:214)
+	at org.codehaus.groovy.vmplugin.v8.IndyGuardsFiltersAndSignatures.invokeGroovyObjectInvoker(IndyGuardsFiltersAndSignatures.java:151)
+	at org.codehaus.groovy.vmplugin.v8.IndyInterface.fromCache(IndyInterface.java:321)
+	at Script_023d2c935be30472.runScript(Script_023d2c935be30472:52)
+	at nextflow.script.BaseScript.run0(BaseScript.groovy:218)
+	at nextflow.script.BaseScript.run(BaseScript.groovy:260)
+	at nextflow.script.parser.v1.ScriptLoaderV1.runScript(ScriptLoaderV1.groovy:246)
+	at nextflow.script.parser.v1.ScriptLoaderV1.runScript(ScriptLoaderV1.groovy)
+	at nextflow.script.ScriptRunner.run(ScriptRunner.groovy:246)
+	at nextflow.script.ScriptRunner.execute(ScriptRunner.groovy:139)
+	at nextflow.cli.CmdRun.run(CmdRun.groovy:429)
+	at nextflow.cli.Launcher.run(Launcher.groovy:515)
+	at nextflow.cli.Launcher.main(Launcher.groovy:675)
