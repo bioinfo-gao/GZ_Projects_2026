@@ -16,8 +16,9 @@ test if all kinds of instruments are working.
 4.5) make all large folder to be phsically in 10T hard driver. 
 
 # Item (4) 2 hours
-4) Upload the raw data from sharepoint folder to server without IP withour downloading to local personal computer 
+4.1) Upload the raw data from sharepoint folder to server without IP withour downloading to local personal computer 
 Explored quite a few different methods. Finally obtain 2 methods: manual downlaod in X11 window or Dropbox
+4.2) prepair GENCODE v45 (GRCh38) to local refence
 
 # Item (5) 1 hours
 5) install Dropbox and synchronize all data 
@@ -28,8 +29,13 @@ communicatd information error message.
 Explain what kind of work/service needs IP.
 Explain the option for filesharing without IP. 
 
+# Item (7) 11 hours
+7) prepair the nextflow RNAseq pipeline
 
-Subtotal: 9 hours 
+# Item (8) 11 hours
+8) Initial check of data quality 
+
+Subtotal: 10 hours 
 
 
 Week of 03-13-2026 to 03-19-2026
