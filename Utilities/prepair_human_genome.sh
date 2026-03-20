@@ -56,6 +56,8 @@ sudo apt install rna-star
 
 cd /Work_bio/references/Homo_sapiens/GRCh38/GENCODE/human_gencode_v45
 
+tmux new -s rnaseq -> 运行命令 -> Ctrl+B, D 离开 ->  tmux a 
+
 # exact 1.5 hour 
 STAR --runMode genomeGenerate \
      --runThreadN 16 \
