@@ -62,6 +62,13 @@ STAR --runMode genomeGenerate \
      --sjdbGTFfile gencode.vM35.annotation.gtf \
      --sjdbOverhang 149    
 
+# STAR 生成索引所需的内存大约是 基因组大小的 10 倍。
+# 人类基因组 (3Gb) 
+#  建议设置 32GB - 40GB。
+# --limitGenomeGenerateRAM 45000000000
+# STAR does not support shorthand units like "G" or "GB" f
+# --limitGenomeGenerateRAM $((45 * 1024 * 1024 * 1024))
+
 # du -h star_index/
 # 26G     star_index/
 

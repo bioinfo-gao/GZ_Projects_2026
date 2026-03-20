@@ -65,6 +65,9 @@ STAR --runMode genomeGenerate \
      --sjdbOverhang 149 \
      --limitGenomeGenerateRAM 45000000000
 
+# STAR does not support shorthand units like "G" or "GB" f
+# --limitGenomeGenerateRAM $((45 * 1024 * 1024 * 1024))
+
 # 构建人类索引需要大约 35GB - 40GB 内存。你的服务器有 64GB 内存，请在运行此命令时，确保没有其他大的 Nextflow 流程在后台跑，否则会导致内存崩溃。
 
 # 这个命令会生成 STAR 索引，存储在 ./star_index 目录下。索引文件通常比原始 FASTA 大很多（可能达到 10-20 倍），这是正常的。
