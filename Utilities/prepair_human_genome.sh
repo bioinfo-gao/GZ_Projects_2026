@@ -1,6 +1,6 @@
 # 创建目录
-#mkdir -p /Work_bio/references/Homo_sapiens/GRCh38/GENCODE/human_gencode_v45
-mkdir -p /Work_bio/references/Mus_musculus/GRCm39/GENCODE_M35
+mkdir -p /Work_bio/references/Homo_sapiens/GRCh38/GENCODE/human_gencode_v45
+# mkdir -p /Work_bio/references/Mus_musculus/GRCm39/GENCODE_M35
 cd /Work_bio/references/Mus_musculus/GRCm39/GENCODE_M35
 
 # 下载基因组 FASTA, 1min
@@ -53,18 +53,19 @@ samtools faidx GRCm39.primary_assembly.genome.fa # 生成索引 (mouse 版本)
 sudo apt install rna-star
 # 只要这个命令能跑通而不报错，通常说明 FASTA 和 GTF 结构是完整的
 
-# Exact 1.5 hour
 
+cd /Work_bio/references/Homo_sapiens/GRCh38/GENCODE/human_gencode_v45
+
+# exact 1.5 hour 
 STAR --runMode genomeGenerate \
      --runThreadN 16 \
      --genomeDir ./star_index \
-     --genomeFastaFiles GRCm39.primary_assembly.genome.fa \
-     --sjdbGTFfile gencode.vM35.annotation.gtf \
-     --sjdbOverhang 149    
+     --genomeFastaFiles GRCh38.primary_assembly.genome.fa \
+     --sjdbGTFfile gencode.v45.annotation.gtf \
+     --sjdbOverhang 149 \
+     --limitGenomeGenerateRAM 45000000000
 
-# du -h star_index/
-# 26G     star_index/
-
+# 构建人类索引需要大约 35GB - 40GB 内存。你的服务器有 64GB 内存，请在运行此命令时，确保没有其他大的 Nextflow 流程在后台跑，否则会导致内存崩溃。
 
 # 这个命令会生成 STAR 索引，存储在 ./star_index 目录下。索引文件通常比原始 FASTA 大很多（可能达到 10-20 倍），这是正常的。
 # 如果输出大部分是 150：请用 --sjdbOverhang 149。     
@@ -85,5 +86,5 @@ STAR --runMode genomeGenerate \
 # 你可以通过以下两个方法把那个“消失”的人类 Index 找出来：
 # 方法 A：使用 Nextflow 日志定位（最科学）
 # 在终端输入：
-
-# 不想找了，直接重跑一次，命令里加上 --save_reference 就好了。
+# # 你可以在 Nextflow 的日志输出中找到 STAR Index 的生成路径。通常会有类似这样的日志行：
+# [star_index] STAR index generated at: /Work_bio/references
