@@ -135,3 +135,5 @@ find work -name "*.sortmerna.log" -exec grep -H "Total reads passing E-value thr
 # work/4b/f8496dd082f8ea9b5800ad77a3418f/C1_D.sortmerna.log:    Total reads passing E-value threshold = 32449366 (91.60)
 
 Ctrl B, then D 
+
+find work -name "*.sortmerna.log" -exec grep -H "Total reads passing E-value threshold" {} \;

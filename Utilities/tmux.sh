@@ -1,4 +1,8 @@
 tmux new -s rnaseq -> 运行命令 -> Ctrl+B, D 离开
+tmux a # -> 重新进入最近的会话
+tmux ls # -> 查看正在运行的会话
+tmux attach -t rnaseq # -> 重新进入指定会话
+tmux kill-session -t rnaseq # -> 关闭指定会话
 
 # 新建会话：
 tmux new -s rnaseq 
