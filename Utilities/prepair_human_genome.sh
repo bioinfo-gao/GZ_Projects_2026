@@ -1,5 +1,6 @@
 # 创建目录
 mkdir -p /Work_bio/references/Homo_sapiens/GRCh38/GENCODE/human_gencode_v45
+
 # mkdir -p /Work_bio/references/Mus_musculus/GRCm39/GENCODE_M35
 cd /Work_bio/references/Mus_musculus/GRCm39/GENCODE_M35
 
@@ -55,8 +56,11 @@ sudo apt install rna-star
 
 
 cd /Work_bio/references/Homo_sapiens/GRCh38/GENCODE/human_gencode_v45
+# find work -name "*.sortmerna.log" -exec grep -H "Total reads passing E-value threshold" {} \;
 
-tmux new -s rnaseq -> 运行命令 -> Ctrl+B, D 离开 ->  tmux a 
+cd /Work_bio/references/Homo_sapiens/GRCh38/GENCODE/human_gencode_v45
+
+tmux new -s rnaseq -> 运行命令 -> Ctrl+B, D 离开 ->  tmux a #return
 
 # exact 1.5 hour 
 STAR --runMode genomeGenerate \
@@ -65,7 +69,8 @@ STAR --runMode genomeGenerate \
      --genomeFastaFiles GRCh38.primary_assembly.genome.fa \
      --sjdbGTFfile gencode.v45.annotation.gtf \
      --sjdbOverhang 149 \
-     --limitGenomeGenerateRAM 45000000000
+     --limitGenomeGenerateRAM $((40 * 10**9))
+#     --limitGenomeGenerateRAM 40000000000
 
 # STAR does not support shorthand units like "G" or "GB" 
 # trick: 1 of the following 2
