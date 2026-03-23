@@ -9,10 +9,16 @@ nextflow -version
 # # 首先确定你的工作目录正确不正确， 且其中有无 
 # ls -lh $NXF_SINGULARITY_CACHEDIR
 
-tmux new -s rnaseq  d
+tmux new -s rnaseq  
+#  SortMeRNA 的开发者修改或删除了 GitHub 上的库文件（v4.3.4 标签下的数据库文件），导致 nf-core/rnaseq 流程中硬编码的下载链接失效了。
+#  必须升级版本，本处使用 3.15.1 版本
+#  下一次似乎可以继续提高CPU 和  Memory
+# SortMeRNA 报错是因为之前的版本硬编码了一个指向 GitHub master 分支的链接，而该文件最近被移动或重命名了。
+# 在 3.14.1 版本中，开发者将链接指向了固定的提交（commit）地址，解决了下载失败的问题。
+# 在 3.15.1 版本中，不仅修复了此问题，还包含了一些其他的性能改进和 Bug 修复。
 
 nextflow run nf-core/rnaseq \
-    -r 3.14.0 \
+    -r 3.15.1 \
     -profile singularity \
     -resume \
     --input /home/gao/projects/2026_Item2_0205_Jitu/scripts/Sample_Sheet2.csv \
@@ -23,14 +29,6 @@ nextflow run nf-core/rnaseq \
     --aligner star_salmon \
     --remove_ribo_rna \
     --save_reference \
-    --save_nonrRNA_reads \
+    --save_non_ribo_reads \
     --max_cpus 32 \
     --max_memory '64.GB'
-
-# 在 nf-core/rnaseq 命令里，把 --fasta 换成 --star_index /你的路径/star_index 
-# --star_index /Work_bio/references/Mus_musculus/GRCm39/GENCODE_M35/star_index \ 会正常快30min 以上，应该使用这个
-# Ctrl+B, D     # detach the tmux, let it run in the background
-
-tmux a  # return the last tmux 
-
-exit  # exit from the current tmux # or Ctrl D. BUT I recommend exit
