@@ -52,11 +52,12 @@ help(package=colorspace)  # Lots of info on color spaces
 ?palette
 
 # Built-in palettes
-# rainbow(n, s = 1, v = 1, start = 0, end = max(1, n - 1)/n, alpha = 1)
-# heat.colors(n, alpha = 1)  # Yellow through red
-# terrain.colors(n, alpha = 1)  # Gray through green
-# topo.colors(n, alpha = 1)  # Purple through tan
-# cm.colors(n, alpha = 1)  # Blues and pinks
+n=6
+rainbow(n, s = 1, v = 1, start = 0, end = max(1, n - 1)/n, alpha = 1)
+heat.colors(n, alpha = 1)  # Yellow through red
+terrain.colors(n, alpha = 1)  # Gray through green
+topo.colors(n, alpha = 1)  # Purple through tan
+cm.colors(n, alpha = 1)  # Blues and pinks
 help(package = colorspace)
 palette()
 barplot(x, col = 1:6)

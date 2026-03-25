@@ -8,7 +8,7 @@ str(UCBAdmissions)
 UCBAdmissions
 
 # The problem
-admit.fail <- (UCBAdmissions$Admit)  # Doesn't work
+admit.fail <- (UCBAdmissions$Admit)  # Doesn't work <==========================================
 barplot(UCBAdmissions$Admit)  # Doesn't work
 plot(UCBAdmissions)  # DOES work but not what we wanted now
 
@@ -31,11 +31,17 @@ round(prop.table(admit.dept), 2) * 100  # Give percentages w/o decimal places
 ?round
 
 # Go from table to one row per case
-admit1 <- as.data.frame.table(UCBAdmissions)  # Coerces to data frame
-admit2 <- lapply(admit1, function(x)rep(x, admit1$Freq))  # Repeats each row by Freq
+admit1 <- as.data.frame.table(UCBAdmissions)  # Coerces to data frame <<<===========================
+admit1  # View , the very good big picture view <=== by ZG
+dim(admit1 )
+admit2 <- lapply(admit1, function(x)rep(x, admit1$Freq))  # Repeats each row by Freq << ========= ZG
+head(admit2)
+dim(admit2)
+summary(admit2)
 admit3 <- as.data.frame(admit2)  # Converts from list back to data frame
 admit4 <- admit3[, -4]  # Removes fifth column with frequencies
-# Or do it all in one go
+admit4
+# Or do it all in one go <============ ZG 
 admit.rows <- as.data.frame(lapply(as.data.frame.table(UCBAdmissions), function(x)rep(x, as.data.frame.table(UCBAdmissions)$Freq)))[, -4]
 str(admit.rows)
 admit.rows[1:10, ]  # View first ten rows of data (of 4526)
