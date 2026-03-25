@@ -9,11 +9,17 @@ feeds <- table(chickwts$feed)
 # The hard way: Via R's code
 
 getwd()
-setwd("C:/Users/zhen-/Documents/Code/Rcode/R_Templet_For_Omics/Tutorial//Finished Versions/Ch02/02_06")
-~
+# [1] "/Work_bio/gao/projects/Utilities/R/2026_Tested_Versions"
+# setwd("C:/Users/zhen-/Documents/Code/Rcode/R_Templet_For_Omics/Tutorial//Finished Versions/Ch02/02_06")
+
+setwd("/home/gao/projects/Utilities/R/2026_Tested_Versions/Ch02/02_06")
+# Close any open devices
+dev.off()
+
+
 # For PNG file (Run entire block at once)
 #png(filename= "~/Desktop/R/Ex02_06a.png",  # Open device
-png(filename= "./Ex02_06aZG.png",  # Open device
+png(filename= "./Ex02_06aZG.png",  # Open device （注意： 在文件夹顶层创建文件)
     width = 888,
     height = 571)
 par(oma = c(1, 1, 1, 1))  # Outside margins: b, l, t, r
@@ -29,9 +35,11 @@ dev.off()  # Close device (run in same block)
 
 # OR this one for PDF file (Run entire block at once)
 #pdf("~/Desktop/R/Ex02_06b.pdf",
-pdf("./Ex02_06b.pdf",
+
+pdf("./Ex02_06b.pdf",  # <==== 改这里  # Open device （注意： 在文件夹顶层创建文件)
     width = 9,
     height = 6)
+
 par(oma = c(1, 1, 1, 1))  # Outside margins: b, l, t, r
 par(mar = c(4, 5, 2, 1))  # Sets plot margins
 barplot(feeds[order(feeds)],  # Create the chart
