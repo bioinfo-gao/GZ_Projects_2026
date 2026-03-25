@@ -17,7 +17,11 @@ detach(package:datasets)
 
 # To see a list of the available datasets
 data()
-
+# no data sets found
+# Use ‘
+data(package = .packages(all.available = TRUE))
+# ’
+# to list the data sets in all *available* packages.
 # You can see the same list with clickable links
 # to descriptions for each dataset at
 browseURL("http://stat.ethz.ch/R-manual/R-devel/library/datasets/html/00Index.html")
@@ -25,8 +29,9 @@ browseURL("http://stat.ethz.ch/R-manual/R-devel/library/datasets/html/00Index.ht
 # For information on a specific dataset
 ?airmiles
 
+library(datasets) # Load datasets package, please note detached in the previous step
 # To load a dataset from the package into the Workspace
-data(airmiles)  # Listed as "ts" for "time-series"
+data(airmiles)  # Listed as "ts" for "time-series" data("airmiles")  
 
 # To see the contents of the dataset
 # (Don't actually need to load for this)
@@ -36,7 +41,7 @@ airmiles
 ?str
 str(airmiles)
 
-# Or, in RStudio, click on the dataset in "Workspace,"
+# Or, in RStudio, click on the dataset in "Workspace,"  
 # which uses the "fix" function and makes it possible
 # edit the dataset in a new window
 

@@ -45,6 +45,11 @@ detach("package:ggplot2", unload = TRUE)
 ?detach
 
 # To permanently remove (delete) package
-install.packages("psytabs")  # Adds psytabs
-remove.packages("psytabs")   # Deletes it
-?remove.packages
+# install.packages("psytabs")  # Adds psytabs
+# remove.packages("psytabs")   # Deletes it
+# ?remove.packages
+#  the psytabs package was removed from the CRAN repository on June 1, 2018, because check problems were not corrected. 
+
+options(download.file.method = "libcurl")
+install.packages("remotes")
+remotes::install_github("cran/psytabs")
