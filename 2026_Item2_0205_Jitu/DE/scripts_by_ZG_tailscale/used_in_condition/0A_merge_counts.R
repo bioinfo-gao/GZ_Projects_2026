@@ -22,13 +22,18 @@
 library("tximport")
 
 # 1. 设置路径
-base_dir <- "/home/songz/gaoz/GZ_Project_2026/01_Junqiang_Ding_0216/results/star_salmon"
-tx2gene_file <- file.path(base_dir, "salmon_tx2gene.tsv")
+# base_dir <- "/home/songz/gaoz/GZ_Project_2026/01_Junqiang_Ding_0216/results/star_salmon"
+# base_dir <- "/home/gao/projects/2026_Item2_0205_Jitu/output/star_salmon/tx2gene.tsv"
+base_dir <- "/home/gao/projects/2026_Item2_0205_Jitu/output/star_salmon"
+tx2gene_file <- file.path(base_dir, "tx2gene.tsv")
+tx2gene_file 
 
 # 2. 获取所有样本的 quant.sf 路径
 samples <- list.dirs(base_dir, full.names = FALSE, recursive = FALSE)
-samples <- samples[grep("^D", samples)] # 只取 D 开头的样本
+samples 
+#samples <- samples[grep("^D", samples)] # 只取 D 开头的样本
 files <- file.path(base_dir, samples, "quant.sf")
+files 
 names(files) <- samples
 
 # 3. 读取转换表

@@ -15,16 +15,20 @@
 #     r-pheatmap \
 #     r-ggrepel
 # 创建一个名为 DE_Final 的纯净 R 4.4 环境
-# mamba create -y -n DE_Final -c bioconda -c conda-forge \
-#     r-base=4.4 \
+
+# 创建一个名为 DE_Final 的纯净 R 4.5 环境, the following command run in BASH! <=======
+# mamba create -y -n DE_R45 -c bioconda -c conda-forge \
+#     r-base=4.5 \
 #     bioconductor-deseq2 \
 #     r-ggplot2 \
 #     bioconductor-tximport \
 #     r-pheatmap \
 #     r-ggrepel
-#mamba activate DE_R44
+
+# mamba activate DE_R45
 # 运行脚本
 # Rscript DE_analysis.R
+
 # 也可以进去“手动”操作（进入 R 交互界面）
 # 1. 加载必要的包
 library(DESeq2)
@@ -32,8 +36,9 @@ library(ggplot2)
 
 # 2. 读取数据
 # 确保文件路径正确，就是我们刚刚合并出来的那个矩阵
+#setwd("/home/songz/gaoz/GZ_Project_2026/01_Junqiang_Ding_0216/")
 #setwd("/home/songz/gaoz/GZ_Project_2026/01_Junqiang_Ding_0216/results/star_salmon")
-setwd("/home/songz/gaoz/GZ_Project_2026/01_Junqiang_Ding_0216/")
+setwd("/home/gao/projects/2026_Item2_0205_Jitu/output/star_salmon")
 counts_data <- read.table("salmon.merged.gene_counts.tsv", header = TRUE, row.names = 1, check.names = FALSE)
 head(counts_data )
 
