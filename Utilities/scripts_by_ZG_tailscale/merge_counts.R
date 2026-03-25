@@ -14,9 +14,9 @@
 # if (!require("remotes")) install.packages("remotes")
 # remotes::install_github("nx10/httpgd")
 
-if (!require("BiocManager", quietly = TRUE))
-    install.packages("BiocManager")
-BiocManager::install("tximport")
+# if (!require("BiocManager", quietly = TRUE))
+#     install.packages("BiocManager")
+# BiocManager::install("tximport")
 # library("remotes")
 # library("styler")
 library("tximport")
