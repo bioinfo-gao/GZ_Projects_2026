@@ -1,3 +1,5 @@
+# 正常情况不需要，nextflow 已经自动生成了，只有位生成的时候才需要
+
 # install.packages("languageserver") # 用于代码补全和语法检查
 # install.packages("httpgd")        # 用于在 VS Code 内部显示高质量图片
 # 1: In install.packages("languageserver") :
