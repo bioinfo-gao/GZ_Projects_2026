@@ -1,0 +1,4 @@
+task_id	hash	native_id	name	status	exit	submit	duration	realtime	%cpu	peak_rss	peak_vmem	rchar	wchar
+1	51/017821	3475353	NFCORE_SAREK:PREPARE_INTERVALS:GATK4_INTERVALLISTTOBED (genome)	FAILED	1	2026-03-26 15:49:22.044	133ms	45ms	-	-	-	-	-
+3	f5/e2e4b2	3475379	NFCORE_SAREK:PREPARE_GENOME:BWAMEM1_INDEX (genome.fasta)	FAILED	1	2026-03-26 15:49:22.063	121ms	43ms	-	-	-	-	-
+2	9f/fcbf99	3475363	NFCORE_SAREK:PREPARE_INTERVALS:CREATE_INTERVALS_BED (genome.interval_list)	FAILED	1	2026-03-26 15:49:22.057	126ms	44ms	-	-	-	-	-

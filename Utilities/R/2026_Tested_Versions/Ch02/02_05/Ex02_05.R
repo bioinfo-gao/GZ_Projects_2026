@@ -1,7 +1,8 @@
 # R Statistics Essential Training
 # Ex02_05
 # Overlaying Plots
-
+# 1st, 
+# R in terminal 
 # LOAD DATASET
 require("datasets")
 ?swiss
