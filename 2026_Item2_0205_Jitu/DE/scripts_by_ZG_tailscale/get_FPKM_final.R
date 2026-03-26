@@ -1,9 +1,11 @@
-# mamba install bioconductor-genomicfeatures -c bioconda -c conda-forge -y # 10 min 
-install.packages("BiocManager", repos = "https://cran.rstudio.com/")
-BiocManager::install("txdbmaker") # 这个程序不应该用R安装，几十分钟很慢，所以用Python来处理
-# mamba install bioconductor-txdbmaker -c bioconda -c conda-forge -y
-library(BiocManager)
+# mamba inmamba install bioconductor-genomicfeatures bioconductor-txdbmaker -c bioconda -c conda-forge -y
 
+# mamba install bioconductor-genomicfeatures -c bioconda -c conda-forge -y # 10 min 
+# mamba install bioconductor-txdbmaker -c bioconda -c conda-forge -y
+# install.packages("BiocManager", repos = "https://cran.rstudio.com/")
+# BiocManager::install("txdbmaker") # 这个程序不应该用R安装，几十分钟很慢，所以用Python来处理
+
+library(BiocManager)
 library(txdbmaker)
 library(GenomicFeatures)
 
