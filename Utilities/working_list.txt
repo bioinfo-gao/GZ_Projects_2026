@@ -65,54 +65,62 @@ Prepared by: Gao Zhen
 Date: March 19, 2026
 
 ===============================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================
-Week of 03-20-2026 to 03-26-2026
-
-Weekly Report
+Weekly Work Report
 Period: March 20, 2026 – March 26, 2026
 Prepared by: Gao Zhen
-Total Hours: 20 hours
+Total Hours Worked: 20 hours
 
-1. Prepair human and mouse geneome and mutation database (2 hours)
-Downloaded gencode mouse genome and annotation
-Do samtool, star and bwa-mem2, 3 types of index for mouse and human genome
-Downloaded human snp and indel genome database for WGS 
+1. Genome and Mutation Database Preparation (2 hours)
 
-2. R Languages Environment Configuration (2 hour)
-Installed R with different versions
-Prepair the R plotting environment
-Test and Setting for the quick R versions switch
+Downloaded the GENCODE M38 mouse genome and annotation files.
+Built index for mouse and human genomes by 3 tools: samtools, STAR, and bwa-mem2.
+Downloaded human SNP and indel databases for Whole Genome Sequencing (WGS) analysis.
 
-3.System connectivity and nextflow local Configuration (1 hours)
-Setup the local Linux computer to connect to the server
-Setup the nextflow local configuration
+2. R Language Environment Configuration (2 hours)
 
-4. Continued the rRNA quantification of all 24 samples (2 hours)
+Installed multiple versions of R.
+Configured the R plotting environment.
+Tested and implemented a quick R version switching mechanism.
 
-5. Debug the RNAseq 3.14.0 and changed to 3.15.1 to finnished the pipeline automation secessfully (3 hour)
+3. System Connectivity and Nextflow Local Configuration (1 hour)
+
+Established secure connection between the local Linux workstation and the remote server.
+Configured Nextflow local settings for efficient pipeline execution.
+
+4. rRNA Quantification (2 hours)
+
+Continued rRNA quantification analysis for all 24 samples.
+
+5. RNA-seq Pipeline Debugging and Automation (3 hours)
+
+Debugged the RNA-seq pipeline (version 3.14.0).
+Upgraded to version 3.15.1 and successfully completed pipeline automation.
 
 6. Project Communication & Planning (1 hour)
+
 Discussed project priorities and pipeline development with the team.
-Discussed the filesharing stategies with the team for the current and in the future.
+Reviewed and planned file-sharing strategies for current and future use.
 
 7. Nextflow WGS Pipeline Preparation (3 hours)
-Installed all kinds of softwares and databases
-Prepaired all the Environments and test running the pipeline with sample data
 
-8. Nextflow shotgun meta Pipeline Preparation (3 hours)
-Installed all kinds of softwares and databases
-Prepaired all the Environments and test running the pipeline with sample data
+Installed required software tools and databases.
+Prepared analysis environments and tested the WGS pipeline using sample data.
 
-9. Communication with Henan and code reading and code development (3 hour)
-Discussed the code and steps developed by Henan Li
-Search and read the code in USA and China servers.
-Developed the code for the same (or higly similar) results with the same inputs for future
+8. Nextflow Shotgun Metagenomics Pipeline Preparation (3 hours)
+
+Installed a comprehensive set of software tools and databases (very large installation).
+Designed three different analytical strategies and prepared the corresponding environments.
+
+9. Code Review and Development Coordination (3 hours)
+
+Communicated with Henan Li regarding the code and analysis steps he developed.
+Reviewed and analyzed relevant code on both the USA and China servers.
+Developed optimized code to achieve the same (or highly similar) results using the same input data for future reproducibility.
 
 
 Total Hours Worked: Approximately 20 hours
-
-
 Prepared by: Gao Zhen
-Date: March 19, 2026
+Date: March 26, 2026
 
 ===============================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================
 
