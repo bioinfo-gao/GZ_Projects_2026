@@ -14,6 +14,7 @@ if [[ ! -d "$BASE_DIR" ]]; then
     exit 1
 fi
 
+# for SPLIT_DIR in "$BASE_DIR"/*/split_results; do #不想手写 sample，可以自动扫描
 for sample in "${SAMPLES[@]}"; do
 
     SPLIT_DIR="${BASE_DIR}/${sample}/split_results"

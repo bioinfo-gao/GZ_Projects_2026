@@ -13,6 +13,7 @@ SAMPLES=("WhS4_1" "WhS4_4" "WTS4_1" "WTS4_2" "WTS4_5")
 mkdir -p "$DEST_MAIN"
 mkdir -p "$DEST_YF"
 
+# # for SPLIT_DIR in "$BASE_DIR"/*/split_results; do #不想手写 sample，可以自动扫描
 for sample in "${SAMPLES[@]}"; do
 
     SPLIT_DIR="${BASE_DIR}/${sample}/split_results"
