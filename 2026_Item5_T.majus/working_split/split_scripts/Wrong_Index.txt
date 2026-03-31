@@ -1,0 +1,7 @@
+从您的 fastq header 可以看到：
+1
+索引序列是 GAATTCGT+TAAGATTA，但根据 Total_1.csv，WhS4_4 应该是：
+i7 (P7): GAATTCGT ✅ 匹配
+i5 (P5): TAATCTTA ❌ 但 header 显示 TAAGATTA
+这说明测序公司返回的 fastq 文件中的 index 与 sample sheet 略有不同（第 4 位 A vs T）。这不影响插入片段分析，但后续拆分时需要注意。
+请先运行手动测试确认 fastp 1.3.0 能正常工作，然后运行完整脚本！

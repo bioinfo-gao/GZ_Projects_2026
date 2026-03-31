@@ -1,0 +1,30 @@
+### WTS4_1 ↔ YF99
+  R1: WTS4_1_CKDL260004732-1A_235Y7KLT3_L7_1.fq.gz
+  R2: WTS4_1_CKDL260004732-1A_235Y7KLT3_L7_2.fq.gz
+  状态：成功
+  报告：/home/gao/projects/2026_Item5_T.majus/split_output/WTS4_1/WTS4_1_insert_size.html
+
+### WTS4_2 ↔ YF106
+  R1: WTS4_2_CKDL260004732-1A_235Y7KLT3_L7_1.fq.gz
+  R2: WTS4_2_CKDL260004732-1A_235Y7KLT3_L7_2.fq.gz
+  状态：成功
+  报告：/home/gao/projects/2026_Item5_T.majus/split_output/WTS4_2/WTS4_2_insert_size.html
+
+### WTS4_5 ↔ YF116
+  R1: WTS4_5_CKDL260004732-1A_235Y7KLT3_L7_1.fq.gz
+  R2: WTS4_5_CKDL260004732-1A_235Y7KLT3_L7_2.fq.gz
+  状态：成功
+  报告：/home/gao/projects/2026_Item5_T.majus/split_output/WTS4_5/WTS4_5_insert_size.html
+
+### WhS4_1 ↔ YF123
+  R1: WhS4_1_CKDL260004732-1A_235Y7KLT3_L7_1.fq.gz
+  R2: WhS4_1_CKDL260004732-1A_235Y7KLT3_L7_2.fq.gz
+  状态：成功
+  报告：/home/gao/projects/2026_Item5_T.majus/split_output/WhS4_1/WhS4_1_insert_size.html
+
+### WhS4_4 ↔ YF128
+  R1: WhS4_4_CKDL260004732-1A_235Y7KLT3_L7_1.fq.gz
+  R2: WhS4_4_CKDL260004732-1A_235Y7KLT3_L7_2.fq.gz
+  状态：成功
+  报告：/home/gao/projects/2026_Item5_T.majus/split_output/WhS4_4/WhS4_4_insert_size.html
+
