@@ -1,0 +1,13 @@
+sample_id	group	i7_index	i5_index	status	species
+Mock_1	Mock	CTGAAGCT	CAGGACGT	normal	Human
+Mock_2	Mock	TAATGCGC	GTACTGAC	normal	Human
+Mock_3	Mock	CGGCTATG	GACCTGTA	abnormal	Human
+WT_1	WT	TCCGCGAA	ATGTAACT	normal	Human
+WT_2	WT	TCTCGCGC	GTTTCAGA	abnormal	Human
+WT_3	WT	AGCGATAG	CACAGGAT	normal	Human
+vpr_1	vpr	CGTGTAGG	TAGCTGCC	normal	Human
+vpr_2	vpr	GACACTAC	AGCGAATG	normal	Human
+vpr_3	vpr	TGCATACA	TATGCTGC	normal	Human
+Q65R_1	Q65R	CAGTCTGG	AGAAGACT	normal	Human
+Q65R_2	Q65R	TGGCACCT	TATAGCCT	normal	Human
+Q65R_3	Q65R	CAAGGTGA	ATAGAGGC	normal	Human
