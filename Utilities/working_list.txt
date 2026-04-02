@@ -123,7 +123,62 @@ Prepared by: Gao Zhen
 Date: March 26, 2026
 
 ===============================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================
+Weekly Work Report
+Period: March 27, 2026 – April 2, 2026
+Prepared by: Gao Zhen
+Total Hours Worked: 20 hours
 
+1. Genome and Mutation Database Preparation (4 hours)
+
+Downloaded the GENCODE M38 mouse genome and annotation files.
+Built index for mouse and human genomes by 3 tools: samtools, STAR, and bwa-mem2.
+Downloaded human SNP and indel databases for Whole Genome Sequencing (WGS) analysis.
+
+2. R Language Environment Configuration (2 hours)
+
+Installed multiple versions of R.
+Configured the R plotting environment.
+Tested and implemented a quick R version switching mechanism.
+
+3. System Connectivity and Nextflow Local Configuration (1 hour)
+
+Established secure connection between the local Linux workstation and the remote server.
+Configured Nextflow local settings for efficient pipeline execution.
+
+4. rRNA Quantification (2 hours)
+
+Continued rRNA quantification analysis for all 24 samples.
+
+5. RNA-seq Pipeline Debugging and Automation (3 hours)
+
+Debugged the RNA-seq pipeline (version 3.14.0).
+Upgraded to version 3.15.1 and successfully completed pipeline automation.
+
+6. Project Communication & Planning (1 hour)
+
+Discussed project priorities and pipeline development with the team.
+Reviewed and planned file-sharing strategies for current and future use.
+
+7. Nextflow WGS Pipeline Preparation (3 hours)
+
+Installed required software tools and databases.
+Prepared analysis environments and tested the WGS pipeline using sample data.
+
+8. Nextflow Shotgun Metagenomics Pipeline Preparation (3 hours)
+
+Installed a comprehensive set of software tools and databases (very large installation).
+Designed three different analytical strategies and prepared the corresponding environments.
+
+9. Code Review and Development Coordination (3 hours)
+
+Communicated with Henan Li regarding the code and analysis steps he developed.
+Reviewed and analyzed relevant code on both the USA and China servers.
+Developed optimized code to achieve the same (or highly similar) results using the same input data for future reproducibility.
+
+
+Total Hours Worked: Approximately 20 hours
+Prepared by: Gao Zhen
+Date: March 26, 2026
 
 
 Week of 03-13-2026 to 03-19-2026
