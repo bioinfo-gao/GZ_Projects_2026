@@ -1,0 +1,12 @@
+nextflow run /Share/lhn_work/ATH_20260129/nf-core-rnaseq_3.21.0/3_21_0 \
+    --input /Share/lhn_work/ATH_20260129/Project_2026/04.liqiuchen_human_bulk_rna_20260311/samplesheet.csv \
+    --outdir /Share/lhn_work/ATH_20260129/Project_2026/04.liqiuchen_human_bulk_rna_20260311/human_12 \
+    --fasta /Share/lhn_work/ATH_20260129/database/human/Homo_sapiens.GRCh38.dna_sm.primary_assembly.fa \ 
+    --gtf /Share/lhn_work/ATH_20260129/database/human/Homo_sapiens.GRCh38.115.gtf  \
+    -profile singularity \
+    -offline --remove_ribo_rna \ 
+    --ribo_database_manifest /Share/lhn_work/ATH_20260129/database/rRNA/local_rrna_manifest.txt \ 
+    -with-report report.html \
+    -with-trace trace.csv \
+    -with-timeline timeline.html\ 
+    --save_reference
