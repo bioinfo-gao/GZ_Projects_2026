@@ -1,0 +1,125 @@
+  R1 文件数：2
+  R2 文件数：2
+  原始 reads 数：26490276
+  运行 fastp 合并 lane 并评估...
+Read1 before filtering:
+total reads: 26467569
+total bases: 3970135350
+Q20 bases: 3937393184(99.1753%)
+Q30 bases: 3819556704(96.2072%)
+Q40 bases: 3819556704(96.2072%)
+
+Read2 before filtering:
+total reads: 26467569
+total bases: 3970135350
+Q20 bases: 3933685892(99.0819%)
+Q30 bases: 3819732497(96.2116%)
+Q40 bases: 3819732497(96.2116%)
+
+Read1 after filtering:
+total reads: 26455294
+total bases: 3964388751
+Q20 bases: 3932369709(99.1923%)
+Q30 bases: 3816546978(96.2708%)
+Q40 bases: 3816546978(96.2708%)
+
+Read2 after filtering:
+total reads: 26455294
+total bases: 3965382835
+Q20 bases: 3929457889(99.094%)
+Q30 bases: 3816801221(96.253%)
+Q40 bases: 3816801221(96.253%)
+
+Filtering result:
+reads passed filter: 52910588
+reads failed due to low quality: 0
+reads failed due to too many N: 0
+
+Duplication rate: 17.6055%
+
+Insert size peak (evaluated by paired-end reads): 268
+
+JSON report: /home/gao/projects/2026_Item6_UIC_02122603/ReAnalysis/processed_fastq/Q65R_2_assessment.json
+HTML report: /home/gao/projects/2026_Item6_UIC_02122603/ReAnalysis/processed_fastq/Q65R_2_assessment.html
+
+fastp -i /dev/fd/63 -I /dev/fd/62 -o /home/gao/projects/2026_Item6_UIC_02122603/ReAnalysis/processed_fastq/Q65R_2_R1.merged.fq.gz -O /home/gao/projects/2026_Item6_UIC_02122603/ReAnalysis/processed_fastq/Q65R_2_R2.merged.fq.gz --json /home/gao/projects/2026_Item6_UIC_02122603/ReAnalysis/processed_fastq/Q65R_2_assessment.json --html /home/gao/projects/2026_Item6_UIC_02122603/ReAnalysis/processed_fastq/Q65R_2_assessment.html -w 32 --trim_poly_g --disable_adapter_trimming --disable_quality_filtering --disable_length_filtering 
+fastp v1.3.0, time used: 580 seconds
+  处理后 reads: 26455294 (99.86%)
+  ✓ 成功
+
+########################################
+### 样本：Q65R_3 (组：Q65R, 状态：normal)
+########################################
+  R1 文件数：2
+  R2 文件数：2
+  原始 reads 数：24000585
+  运行 fastp 合并 lane 并评估...
+Read1 before filtering:
+total reads: 23977871
+total bases: 3596680650
+Q20 bases: 3566236103(99.1535%)
+Q30 bases: 3452256942(95.9845%)
+Q40 bases: 3452256942(95.9845%)
+
+Read2 before filtering:
+total reads: 23977871
+total bases: 3596680650
+Q20 bases: 3565521290(99.1337%)
+Q30 bases: 3461922575(96.2533%)
+Q40 bases: 3461922575(96.2533%)
+
+Read1 after filtering:
+total reads: 23969275
+total bases: 3592742403
+Q20 bases: 3562783953(99.1661%)
+Q30 bases: 3450103171(96.0298%)
+Q40 bases: 3450103171(96.0298%)
+
+Read2 after filtering:
+total reads: 23969275
+total bases: 3593448151
+Q20 bases: 3562659750(99.1432%)
+Q30 bases: 3459774551(96.2801%)
+Q40 bases: 3459774551(96.2801%)
+
+Filtering result:
+reads passed filter: 47938550
+reads failed due to low quality: 0
+reads failed due to too many N: 0
+
+Duplication rate: 15.8051%
+
+Insert size peak (evaluated by paired-end reads): 267
+
+JSON report: /home/gao/projects/2026_Item6_UIC_02122603/ReAnalysis/processed_fastq/Q65R_3_assessment.json
+HTML report: /home/gao/projects/2026_Item6_UIC_02122603/ReAnalysis/processed_fastq/Q65R_3_assessment.html
+
+fastp -i /dev/fd/63 -I /dev/fd/62 -o /home/gao/projects/2026_Item6_UIC_02122603/ReAnalysis/processed_fastq/Q65R_3_R1.merged.fq.gz -O /home/gao/projects/2026_Item6_UIC_02122603/ReAnalysis/processed_fastq/Q65R_3_R2.merged.fq.gz --json /home/gao/projects/2026_Item6_UIC_02122603/ReAnalysis/processed_fastq/Q65R_3_assessment.json --html /home/gao/projects/2026_Item6_UIC_02122603/ReAnalysis/processed_fastq/Q65R_3_assessment.html -w 32 --trim_poly_g --disable_adapter_trimming --disable_quality_filtering --disable_length_filtering 
+fastp v1.3.0, time used: 531 seconds
+  处理后 reads: 23969275 (99.86%)
+  ✓ 成功
+
+==========================================
+评估完成
+成功：12/12
+失败：0/12
+==========================================
+
+UIC RNA-seq 插入片段评估总结
+生成时间：Wed Apr  1 10:21:19 PM EDT 2026
+fastp 版本：fastp 1.3.0
+成功样本：12/12
+
+Mock_1: 25787633 → 25754351 (99.87%)
+Mock_2: 26098104 → 26065976 (99.87%)
+Mock_3: 22720122 → 22688464 (99.86%)
+WT_1: 26436782 → 26401389 (99.86%)
+WT_2: 22850548 → 22821262 (99.87%)
+WT_3: 33308982 → 33266375 (99.87%)
+vpr_1: 32124786 → 32086978 (99.88%)
+vpr_2: 27798302 → 27761772 (99.86%)
+vpr_3: 24982983 → 24949043 (99.86%)
+Q65R_1: 27005906 → 26971388 (99.87%)
+Q65R_2: 26490276 → 26455294 (99.86%)
+Q65R_3: 24000585 → 23969275 (99.86%)
+(DE_R45) [22:38:45] [/Work_bio/gao/projects/2026_Item6_UIC_02122603/ReAnalysis]:
