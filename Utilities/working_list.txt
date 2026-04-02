@@ -126,59 +126,41 @@ Date: March 26, 2026
 Weekly Work Report
 Period: March 27, 2026 – April 2, 2026
 Prepared by: Gao Zhen
-Total Hours Worked: 20 hours
+Total Hours Worked: 30 hours
 
-1. Genome and Mutation Database Preparation (4 hours)
+1. Tropaeolum majus Genome Reference Preparation (4 hours)
 
-Downloaded the GENCODE M38 mouse genome and annotation files.
-Built index for mouse and human genomes by 3 tools: samtools, STAR, and bwa-mem2.
-Downloaded human SNP and indel databases for Whole Genome Sequencing (WGS) analysis.
+Downloaded the reference genome and annotation files for Tropaeolum majus.
+Converted the annotation files to standard GTF format.
+Modified the naive annotation file to ensure full compatibility with the GENCODE format.
+Built genome indexes using three tools: SAMtools, STAR, and BWA-MEM2.
 
-2. R Language Environment Configuration (2 hours)
+2. Separation of Contaminated RNA-seq Samples (6 hours)
 
-Installed multiple versions of R.
-Configured the R plotting environment.
-Tested and implemented a quick R version switching mechanism.
+Identified that five plant RNA-seq samples were contaminated with sgRNA library samples due to identical i7/i5 indexes.
+Conducted in-depth analysis of contamination patterns, reads length distribution, contamination distribution, and possible separation strategies.
+Designed, tested, and implemented an effective separation method.
+Successfully separated the contaminated samples and merged the clean samples with other normal samples for downstream analysis.
 
-3. System Connectivity and Nextflow Local Configuration (1 hour)
+3. Project Communication & Planning (3 hours)
 
-Established secure connection between the local Linux workstation and the remote server.
-Configured Nextflow local settings for efficient pipeline execution.
+Held ongoing discussions with the team regarding project challenges and customer requirements/responses, and adjusted priorities accordingly.
+Clearly explained experimental capabilities, root causes of observed issues, proposed solutions, and provided realistic timelines.
 
-4. rRNA Quantification (2 hours)
+4. Investigation of Scattered Sample Distribution in the UIC Project (7 hours)
 
-Continued rRNA quantification analysis for all 24 samples.
+Performed comprehensive quality checks across all processing dimensions and steps for each sample.
+Identified the most significant contributing factors to the scattered distribution.
+Conducted targeted analyses to validate the initial hypothesis, supported by statistical results and visualizations.
 
-5. RNA-seq Pipeline Debugging and Automation (3 hours)
+5. Nextflow Rerun to Rescue the UIC Project (10 hours)
 
-Debugged the RNA-seq pipeline (version 3.14.0).
-Upgraded to version 3.15.1 and successfully completed pipeline automation.
+Reconfigured and re-executed the Nextflow pipeline to remove low-quality reads.
+Redid subsequent analyses to generate updated PCA plots and differential expression (DE) results.
 
-6. Project Communication & Planning (1 hour)
-
-Discussed project priorities and pipeline development with the team.
-Reviewed and planned file-sharing strategies for current and future use.
-
-7. Nextflow WGS Pipeline Preparation (3 hours)
-
-Installed required software tools and databases.
-Prepared analysis environments and tested the WGS pipeline using sample data.
-
-8. Nextflow Shotgun Metagenomics Pipeline Preparation (3 hours)
-
-Installed a comprehensive set of software tools and databases (very large installation).
-Designed three different analytical strategies and prepared the corresponding environments.
-
-9. Code Review and Development Coordination (3 hours)
-
-Communicated with Henan Li regarding the code and analysis steps he developed.
-Reviewed and analyzed relevant code on both the USA and China servers.
-Developed optimized code to achieve the same (or highly similar) results using the same input data for future reproducibility.
-
-
-Total Hours Worked: Approximately 20 hours
+Total Hours Worked: Approximately 30 hours
 Prepared by: Gao Zhen
-Date: March 26, 2026
+Date: April 2, 2026
 
 
 Week of 03-13-2026 to 03-19-2026
