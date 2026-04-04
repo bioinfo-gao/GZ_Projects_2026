@@ -25,6 +25,8 @@ samtools_stats/
 .work/
 .nextflow.log*
 multiqc_data/
+*-nf-*
+*/Final_Filtered_Results
 
 # 保留小型结果
 !2026_Item6_UIC_02122603/results/

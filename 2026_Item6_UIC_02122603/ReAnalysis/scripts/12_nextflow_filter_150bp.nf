@@ -1,82 +1,71 @@
 nextflow.enable.dsl=2
 
-// --- 路径参数校准 ---
 params.bam_dir = "/Work_bio/gao/projects/2026_Item6_UIC_02122603/output_nf_fast/star_salmon"
 params.gtf     = "/Work_bio/references/Homo_sapiens/GRCh38/human_gencode_v45/gencode.v45.annotation.gtf"
 params.outdir  = "/Work_bio/gao/projects/2026_Item6_UIC_02122603/Final_Filtered_Results"
 params.cutoff  = 150
 
+// 进程 1: 正常的 150bp 物理过滤 (使用 Samtools 镜像)
 process FILTER_BAM {
     tag "$sample_id"
     container 'biocontainers/samtools:v1.17_cv1'
     publishDir "${params.outdir}/filtered_bams", mode: 'copy'
-
-    input:
-    tuple val(sample_id), path(bam)
-
-    output:
-    tuple val(sample_id), path("${sample_id}_long_150.bam"), emit: filtered_bam
-    path "${sample_id}_long_150.bam.bai"
-
+    input: tuple val(sample_id), path(bam)
+    output: tuple val(sample_id), path("${sample_id}_long_150.bam"), emit: filtered_bam
     script:
     """
-    # 使用 tlen 变量代替 isize，并增加正负值判断以增强兼容性
     samtools view -h -e 'tlen >= ${params.cutoff} || tlen <= -${params.cutoff}' $bam -b -o ${sample_id}_long_150.bam
-    samtools index ${sample_id}_long_150.bam
     """
 }
 
-process REQUANTIFY {
-    tag "Matrix_Generation"
+// 进程 2: 提取降解片段 (使用 Samtools 镜像)
+process EXTRACT_TRASH_BAM {
+    tag "Extract_$sample_id"
+    container 'biocontainers/samtools:v1.17_cv1'
+    input: tuple val(sample_id), path(bam)
+    output: tuple val(sample_id), path("${sample_id}_trash.bam"), emit: trash_bam
+    script:
+    """
+    samtools view -h -e 'tlen < ${params.cutoff} && tlen > -${params.cutoff} && tlen != 0' $bam -b -o ${sample_id}_trash.bam
+    """
+}
+
+// 进程 3: 全局矩阵定量 (使用 Subread 镜像)
+process REQUANTIFY_MATRIX {
+    tag "Matrix_Gen"
     container 'biocontainers/subread:v2.0.1_cv1'
     publishDir "${params.outdir}/counts", mode: 'copy'
-
-    input:
-    path bams
-
-    output:
-    path "filtered_counts_v150_matrix.txt"
-    path "filtered_counts_v150_matrix.txt.summary"
-
+    input: path bams
+    output: path "filtered_counts_v150_matrix.txt"
     script:
     """
-    featureCounts -p -T 16 -s 2 \\
-        -a ${params.gtf} \\
-        -o filtered_counts_v150_matrix.txt \\
-        ${bams}
+    featureCounts -p -T 16 -s 2 -a ${params.gtf} -o filtered_counts_v150_matrix.txt ${bams}
     """
 }
 
-process TRASH_ANALYSIS {
-    tag "Trash_$sample_id"
-      // 核心修正：添加容器镜像
-    container 'biocontainers/subread:v2.0.1_cv1' 
+// 进程 4: 降解片段成分分析 (使用 Subread 镜像)
+process QUANTIFY_TRASH {
+    tag "Quant_$sample_id"
+    container 'biocontainers/subread:v2.0.1_cv1'
     publishDir "${params.outdir}/trash_analysis", mode: 'copy'
-
-    input:
-    tuple val(sample_id), path(bam)
-
-    output:
-    path "${sample_id}_trash_stats.txt"
-
+    input: tuple val(sample_id), path(trash_bam)
+    output: path "${sample_id}_trash_stats.txt"
     script:
     """
-    # 同样在 Trash 分析中使用 tlen 逻辑
-    samtools view -h -e '(tlen < ${params.cutoff} && tlen > 0) || (tlen > -${params.cutoff} && tlen < 0)' $bam -b -o ${sample_id}_trash.bam
-    featureCounts -p -T 8 -s 2 -a ${params.gtf} -o ${sample_id}_trash_stats.txt ${sample_id}_trash.bam
+    featureCounts -p -T 8 -s 2 -a ${params.gtf} -o ${sample_id}_trash_stats.txt ${trash_bam}
     """
 }
 
 workflow {
-    def bam_pattern = "${params.bam_dir}/*.markdup.sorted.bam"
-    
-    bam_ch = Channel.fromPath(bam_pattern)
-                    .ifEmpty { error "Cannot find BAM files in ${params.bam_dir}" }
+    bam_ch = Channel.fromPath("${params.bam_dir}/*.markdup.sorted.bam")
                     .map { it -> [ it.baseName.replace('.markdup.sorted', ''), it ] }
 
+    // 1. 处理主流程
     FILTER_BAM(bam_ch)
-    REQUANTIFY(FILTER_BAM.out.filtered_bam.map{it[1]}.collect())
-    
+    REQUANTIFY_MATRIX(FILTER_BAM.out.filtered_bam.map{it[1]}.collect())
+
+    // 2. 处理 Trash 流程
     trash_targets = bam_ch.filter { it[0] =~ /WT_2|Mock_3/ }
-    TRASH_ANALYSIS(trash_targets)
+    EXTRACT_TRASH_BAM(trash_targets)
+    QUANTIFY_TRASH(EXTRACT_TRASH_BAM.out.trash_bam)
 }
