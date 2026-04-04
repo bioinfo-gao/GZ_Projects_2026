@@ -1,3 +1,54 @@
+# 编辑 .gitignore
+
+
+# 添加以下内容（排除 nf-core 大输出文件）
+# ==========================================
+# nf-core/rnaseq large output files - DO NOT TRACK
+# ==========================================
+2026_Item6_UIC_02122603/output_nf_fast/
+*.transcripts.gtf
+*.coverage.gtf
+*.merged.gtf
+*.bam
+*.bam.flagstat
+*.bam.idxstats
+*.bam.stats
+*.bai
+*.cram
+*.crai
+*_1.fq.gz
+*_2.fq.gz
+salmon_quant/
+star_salmon/
+stringtie/
+samtools_stats/
+.work/
+.nextflow.log*
+multiqc_data/
+
+# 保留小型结果
+!2026_Item6_UIC_02122603/results/
+!2026_Item6_UIC_02122603/scripts/
+!2026_Item6_UIC_02122603/config/
+
+
+# --- Nextflow 中间文件 (中间步骤，通常极大) ---
+*/work/*
+.nextflow/
+.nextflow.log*
+
+# --- 数据与大结果文件 (不要上传到 Git) ---
+*.bam
+*.bai
+*.fastq.gz
+*.fq.gz
+output_nf_fast/
+Final_Filtered_Results/
+
+# --- 临时文件与系统文件 ---
+.DS_Store
+.ipynb_checkpoints/
+
 *.7z
 *.ab1
 bac/
@@ -65,3 +116,5 @@ work/
 # --- 测序原始数据 & 信号文件 ---
 # --- 索引文件 (大文件且可重新生成) ---
 # --- 软件日志 & 临时目录 ---
+
+
