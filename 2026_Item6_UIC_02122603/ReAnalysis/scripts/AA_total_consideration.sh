@@ -21,7 +21,7 @@ for SAMPLE in "${SAMPLES[@]}"; do
     samtools index ${SAMPLE}_filtered_250bp.bam
 done
 
-
+# 起初准备设置250bp 
 # 步骤 3：重新计算 Count 并做 PCA
 # 使用过滤后的 BAM 重新运行 featureCounts，你会发现 WT_2 和 Mock_3 的噪音被物理隔离了。
 
@@ -37,3 +37,5 @@ done
 # 如果多为线粒体基因（MT-）：说明细胞在处理过程中发生了严重的应激或坏死。
 # 如果多为内含子序列（Introns）：说明发生了 DNA 污染。
 # 如果多为基因 3' 端截断：说明发生了从 5' 端开始的 RNA 降解。
+
+# 最终决定设置150bp  <<<==================

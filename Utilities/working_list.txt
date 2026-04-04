@@ -126,45 +126,47 @@ Date: March 26, 2026
 Weekly Work Report
 Period: March 27, 2026 – April 2, 2026
 Prepared by: Gao Zhen
-Total Hours Worked: 30 hours
+Total Hours Worked: 26 hours
 
 1. Tropaeolum majus Genome Reference Preparation (4 hours)
 
 Downloaded the reference genome and annotation files for Tropaeolum majus.
 Converted the annotation files to standard GTF format.
-Modified the naive annotation file to ensure full compatibility with the GENCODE format.
+Modified the annotation file to ensure full compatibility with the GENCODE format.
 Built genome indexes using three tools: SAMtools, STAR, and BWA-MEM2.
 
 2. Separation of Contaminated RNA-seq Samples (6 hours)
 
-Identified that five plant RNA-seq samples were contaminated with sgRNA library samples due to identical i7/i5 indexes.
+Evaluate the five plant RNA-seq samples contaminated with sgRNA library samples due to identical i7/i5 indexes.
 Conducted in-depth analysis of contamination patterns, reads length distribution, contamination distribution, and possible separation strategies.
 Designed, tested, and implemented an effective separation method.
 Successfully separated the contaminated samples and merged the clean samples with other normal samples for downstream analysis.
 
-3. Project Communication & Planning (3 hours)
-
-Held ongoing discussions with the team regarding project challenges and customer requirements/responses, and adjusted priorities accordingly.
-Clearly explained experimental capabilities, root causes of observed issues, proposed solutions, and provided realistic timelines.
-
-4. Investigation of Scattered Sample Distribution in the UIC Project (7 hours)
+3. Investigation of Scattered Sample Distribution in the UIC Project (7 hours)
 
 Performed comprehensive quality checks across all processing dimensions and steps for each sample.
 Identified the most significant contributing factors to the scattered distribution.
 Conducted targeted analyses to validate the initial hypothesis, supported by statistical results and visualizations.
 
-5. Nextflow Rerun to Rescue the UIC Project (10 hours)
+4. Nextflow Rerun to Rescue the UIC Project (5 hours)
 
 Reconfigured and re-executed the Nextflow pipeline to remove low-quality reads.
-Redid subsequent analyses to generate updated PCA plots and differential expression (DE) results.
+Redid subsequent analyses to generate updated PCA plots
 
-Total Hours Worked: Approximately 30 hours
+5. Project Communication/Planning & costum Communication (4 hours)
+
+Held ongoing discussions with the team regarding project challenges and customer requirements/responses, and adjusted priorities accordingly.
+Explanation of experimental capabilities, root causes of observed issues, proposed solutions, and provided projected timelines.
+Write the official technical report to our customer for the debugging and re-assessment of the project.
+
+Total Hours Worked: Approximately 26 hours
 Prepared by: Gao Zhen
 Date: April 2, 2026
 
 
-Week of 03-13-2026 to 03-19-2026
 ===============================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================
+===============================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================
+Week of 03-13-2026 to 03-19-2026
 Week of 03-13-2026 to 03-19-2026
 Week of 03-13-2026 to 03-19-2026
 Week of 03-13-2026 to 03-19-2026
