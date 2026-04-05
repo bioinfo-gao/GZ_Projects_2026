@@ -2,10 +2,14 @@ import pandas as pd
 import glob
 import os
 
+# 运行方法
+# cd /home/gao/projects/2026_Item5_T.majus/scripts
+# python 1_produce_nf-core_Samplesheet.py
+
 # 配置路径
 fastq_dir = "/home/gao/Dropbox/Quote_03062602_plant"
-original_csv = "Sample_Sheet_corrected1.csv"
-output_samplesheet = "nf_core_samplesheet.csv"
+original_csv = "/home/gao/projects/2026_Item5_T.majus/scripts/Sample_Sheet_corrected1.csv"
+output_samplesheet = "/home/gao/projects/2026_Item5_T.majus/scripts/nf_core_samplesheet.csv"
 
 # 读取原始表格
 df = pd.read_csv(original_csv)
