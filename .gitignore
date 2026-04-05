@@ -1,127 +1,118 @@
-# 编辑 .gitignore
-
-
-# 添加以下内容（排除 nf-core 大输出文件）
 # ==========================================
-# nf-core/rnaseq large output files - DO NOT TRACK
+# 1. 优先排除所有内容 (全局兜底)
 # ==========================================
-2026_Item6_UIC_02122603/output_nf_fast/
-*.transcripts.gtf
-*.coverage.gtf
-*.merged.gtf
-*.bam
-*.bam.flagstat
-*.bam.idxstats
-*.bam.stats
-*.bai
-*.cram
-*.crai
-*_1.fq.gz
-*_2.fq.gz
-salmon_quant/
-star_salmon/
-stringtie/
-samtools_stats/
-*.work/
-.nextflow.log*
-multiqc_data/
-*-nf-*
-*/Final_Filtered_Results
-*/conda_envs/*
-*/output_results/*
-*/output/*
+# 如果项目非常大，通常建议只追踪代码。以下是具体的排除规则：
 
-
-# 保留小型结果
-!2026_Item6_UIC_02122603/results/
-!2026_Item6_UIC_02122603/scripts/
-!2026_Item6_UIC_02122603/config/
-
-
-# --- Nextflow 中间文件 (中间步骤，通常极大) ---
-*/work/*
+# ==========================================
+# 2. Nextflow & nf-core 运行过程文件 (核心排除)
+# ==========================================
 .nextflow/
 .nextflow.log*
+work/
+bin/
+*/work/*
+*-nf-*
 
-# --- 数据与大结果文件 (不要上传到 Git) ---
-*.bam
-*.bai
-*.fastq.gz
-*.fq.gz
-output_nf_fast/
-Final_Filtered_Results/
-
-# --- 临时文件与系统文件 ---
-.DS_Store
-.ipynb_checkpoints/
-
-*.7z
-*.ab1
-bac/
-Backup/D8_R1.fastq.gz.bak
-Backup/D8_R1.fastq.gz.bak2
-Backup/D8_R1.fastq.gz.from_bak
-Backup/D8_R2.fastq.gz3
-*.bai
-bak/
-*.bam
-*.bigWig
-*.bt2
-*.bw
-.conda/
-*.cram
-.DS_Store
-*.err
-*.fai
-*.fast5
+# ==========================================
+# 3. 测序原始数据与大型中间结果 (重点排除)
+# ==========================================
+# --- 原始数据 ---
 *.fastq
 *.fastq.gz
 *.fq
 *.fq.gz
+*.fast5
+*.pod5
+*_1.fq.gz
+*_2.fq.gz
+
+# --- 对比与索引文件 (BAM/SAM/CRAM/BAI/Index) ---
+*.bam
+*.bai
+*.sam
+*.cram
+*.crai
+*.bw
+*.bigWig
+*.bt2
+*.fai
+*.tbi
+*.index*
+
+# --- nf-core/rnaseq & 组装特定输出 ---
+*.transcripts.gtf
+*.coverage.gtf
+*.merged.gtf
+*.bam.flagstat
+*.bam.idxstats
+*.bam.stats
+salmon_quant/
+star_salmon/
+stringtie/
+samtools_stats/
+multiqc_data/
+
+# ==========================================
+# 4. 项目特定的输出目录 (按你提供的路径)
+# ==========================================
+2026_Item6_UIC_02122603/output_nf_fast/
+*/Final_Filtered_Results/
+*/output_results/
+*/output/
+*/conda_envs/
+conda_envs/
+.conda/
+venv/
+
+# ==========================================
+# 5. 临时文件、日志与备份
+# ==========================================
+*.log
+*.err
+*.tmp
+tmp/
+temp/
+local_tmp/
+rubbish/
+junk/
+bak/
+bak/
+Backup/
+local_bak/
+local_backup/
+local_bac/
+download/
+downloads/
+__pycache__/
+.ipynb_checkpoints/
+.snakemake/
+
+# ==========================================
+# 6. 压缩包与二进制大文件
+# ==========================================
+*.zip
+*.tar.gz
+*.7z
+*.rar
+*.iso
 *.h5
 *.h5ad
 *.h5seurat
-*.index*
-*.iso
-data/
-bak/
-bak/
-rubbish/
-junk/
-loca_bac
-local_backup/
-local_bak
-local_tmp/
-download/
-downloads/
-*.log
-.nextflow/
-*.pod5
-__pycache__/
-# --- Python/R 产生的环境或缓存 ---
-*.rar
+*x86_64.sh
+
+# ==========================================
+# 7. 操作系统与编辑器文件
+# ==========================================
+.DS_Store
+Thumbs.db
 .RData
 .Rhistory
 .Rproj.user/
-*.sam
-.snakemake/
-*.tar.gz
-*.tbi
-temp/
-Thumbs.db
-*.tmp
-tmp/
-*.vcf.gz
-venv/
-work/
-*.zip
-*x86_64.sh
-# 排除所有可能的二进制大数据
-# 排除生信特有大数据 (增加常见格式)
-# --- 操作系统文件 ---
-# --- 测序原始数据 & 信号文件 ---
-# --- 索引文件 (大文件且可重新生成) ---
-# --- 软件日志 & 临时目录 ---
 
-
-conda_envs/
+# ==========================================
+# 8. 特例白名单 (明确需要 Git 追踪的小型文件)
+# ==========================================
+# 使用 ! 符号确保这些目录及其内容不被上述规则过滤
+!2026_Item6_UIC_02122603/results/
+!2026_Item6_UIC_02122603/scripts/
+!2026_Item6_UIC_02122603/config/
