@@ -22,7 +22,7 @@ salmon_quant/
 star_salmon/
 stringtie/
 samtools_stats/
-.work/
+*.work/
 .nextflow.log*
 multiqc_data/
 *-nf-*
