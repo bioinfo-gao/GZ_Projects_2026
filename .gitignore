@@ -28,6 +28,9 @@ multiqc_data/
 *-nf-*
 */Final_Filtered_Results
 */conda_envs/*
+*/output_results/*
+*/output/*
+
 
 # 保留小型结果
 !2026_Item6_UIC_02122603/results/
