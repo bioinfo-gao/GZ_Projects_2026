@@ -30,6 +30,18 @@ nextflow run nf-core/rnaseq \
     --max_memory '85.GB' \
     -resume
 
-
+ nextflow run nf-core/rnaseq \
+    -r 3.15.1 \
+    -profile singularity \
+    -c local_plant_small.config \
+    --input nf_core_samplesheet.csv \
+    --outdir ../output_results \
+    --fasta "/Work_bio/references/Tropaeolum_majus/T_majus_v1/schmidt_et_al_2024/T_majus.primary_assembly.genome.fa" \
+    --gtf "T_majus.final.gtf" \
+    --star_index "/Work_bio/references/Tropaeolum_majus/T_majus_v1/schmidt_et_al_2024/star_index" \
+    --aligner star_salmon \
+    --max_cpus 32 \
+    --max_memory '90.GB' \
+    -resume   
 
 
