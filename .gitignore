@@ -41,6 +41,8 @@ bin/
 
 # --- nf-core/rnaseq & 组装特定输出 ---
 *.transcripts.gtf
+*.gtf
+*.gff*
 *.coverage.gtf
 *.merged.gtf
 *.bam.flagstat
