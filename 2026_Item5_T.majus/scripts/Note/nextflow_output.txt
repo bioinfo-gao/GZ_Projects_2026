@@ -1,0 +1,82 @@
+[ee/ce3882] NFCORE_RNASEQ:PREPARE_GENOME:GTF2BED (T_majus.primary_assembly.genome.filtered.gtf)                                      [100%] 1 of 1, cached: 1 ✔
+[39/aaf216] NFCORE_RNASEQ:PREPARE_GENOME:MAKE_TRANSCRIPTS_FASTA (rsem/T_majus.primary_assembly.genome.fa)                            [100%] 1 of 1, cached: 1 ✔
+[01/dbc176] NFCORE_RNASEQ:PREPARE_GENOME:CUSTOM_GETCHROMSIZES (T_majus.primary_assembly.genome.fa)                                   [100%] 1 of 1, cached: 1 ✔
+[-        ] NFCORE_RNASEQ:RNASEQ:FASTQ_QC_TRIM_FILTER_SETSTRANDEDNESS:CAT_FASTQ                                                      -
+[97/7c3a01] NFCORE_RNASEQ:RNASEQ:FASTQ_QC_TRIM_FILTER_SETSTRANDEDNESS:FASTQ_FASTQC_UMITOOLS_TRIMGALORE:FASTQC (Wh4a)                 [100%] 34 of 34, cached: 34 ✔
+[b5/f2aebe] NFCORE_RNASEQ:RNASEQ:FASTQ_QC_TRIM_FILTER_SETSTRANDEDNESS:FASTQ_FASTQC_UMITOOLS_TRIMGALORE:TRIMGALORE (Wh5c)             [100%] 34 of 34, cached: 34 ✔
+[75/eba2ab] NFCORE_RNASEQ:RNASEQ:FASTQ_QC_TRIM_FILTER_SETSTRANDEDNESS:FASTQ_SUBSAMPLE_FQ_SALMON:SALMON_INDEX (genome.transcripts.fa) [100%] 1 of 1, cached: 1 ✔
+[25/f1f190] NFCORE_RNASEQ:RNASEQ:FASTQ_QC_TRIM_FILTER_SETSTRANDEDNESS:FASTQ_SUBSAMPLE_FQ_SALMON:FQ_SUBSAMPLE (Wh1d)                  [100%] 34 of 34, cached: 34 ✔
+[17/14ee92] NFCORE_RNASEQ:RNASEQ:FASTQ_QC_TRIM_FILTER_SETSTRANDEDNESS:FASTQ_SUBSAMPLE_FQ_SALMON:SALMON_QUANT (Wh1d)                  [100%] 34 of 34, cached: 34 ✔
+executor >  local (595)
+[a0/c03d76] NFCORE_RNASEQ:PREPARE_GENOME:GTF_FILTER (T_majus.primary_assembly.genome.fa)                                             [100%] 1 of 1, cached: 1 ✔
+[ee/ce3882] NFCORE_RNASEQ:PREPARE_GENOME:GTF2BED (T_majus.primary_assembly.genome.filtered.gtf)                                      [100%] 1 of 1, cached: 1 ✔
+[39/aaf216] NFCORE_RNASEQ:PREPARE_GENOME:MAKE_TRANSCRIPTS_FASTA (rsem/T_majus.primary_assembly.genome.fa)                            [100%] 1 of 1, cached: 1 ✔
+[01/dbc176] NFCORE_RNASEQ:PREPARE_GENOME:CUSTOM_GETCHROMSIZES (T_majus.primary_assembly.genome.fa)                                   [100%] 1 of 1, cached: 1 ✔
+[-        ] NFCORE_RNASEQ:RNASEQ:FASTQ_QC_TRIM_FILTER_SETSTRANDEDNESS:CAT_FASTQ                                                      -
+[97/7c3a01] NFCORE_RNASEQ:RNASEQ:FASTQ_QC_TRIM_FILTER_SETSTRANDEDNESS:FASTQ_FASTQC_UMITOOLS_TRIMGALORE:FASTQC (Wh4a)                 [100%] 34 of 34, cached: 34 ✔
+[b5/f2aebe] NFCORE_RNASEQ:RNASEQ:FASTQ_QC_TRIM_FILTER_SETSTRANDEDNESS:FASTQ_FASTQC_UMITOOLS_TRIMGALORE:TRIMGALORE (Wh5c)             [100%] 34 of 34, cached: 34 ✔
+[75/eba2ab] NFCORE_RNASEQ:RNASEQ:FASTQ_QC_TRIM_FILTER_SETSTRANDEDNESS:FASTQ_SUBSAMPLE_FQ_SALMON:SALMON_INDEX (genome.transcripts.fa) [100%] 1 of 1, cached: 1 ✔
+[25/f1f190] NFCORE_RNASEQ:RNASEQ:FASTQ_QC_TRIM_FILTER_SETSTRANDEDNESS:FASTQ_SUBSAMPLE_FQ_SALMON:FQ_SUBSAMPLE (Wh1d)                  [100%] 34 of 34, cached: 34 ✔
+[17/14ee92] NFCORE_RNASEQ:RNASEQ:FASTQ_QC_TRIM_FILTER_SETSTRANDEDNESS:FASTQ_SUBSAMPLE_FQ_SALMON:SALMON_QUANT (Wh1d)                  [100%] 34 of 34, cached: 34 ✔
+executor >  local (596)
+[a0/c03d76] NFCORE_RNASEQ:PREPARE_GENOME:GTF_FILTER (T_majus.primary_assembly.genome.fa)                                             [100%] 1 of 1, cached: 1 ✔
+[ee/ce3882] NFCORE_RNASEQ:PREPARE_GENOME:GTF2BED (T_majus.primary_assembly.genome.filtered.gtf)                                      [100%] 1 of 1, cached: 1 ✔
+[39/aaf216] NFCORE_RNASEQ:PREPARE_GENOME:MAKE_TRANSCRIPTS_FASTA (rsem/T_majus.primary_assembly.genome.fa)                            [100%] 1 of 1, cached: 1 ✔
+[01/dbc176] NFCORE_RNASEQ:PREPARE_GENOME:CUSTOM_GETCHROMSIZES (T_majus.primary_assembly.genome.fa)                                   [100%] 1 of 1, cached: 1 ✔
+[-        ] NFCORE_RNASEQ:RNASEQ:FASTQ_QC_TRIM_FILTER_SETSTRANDEDNESS:CAT_FASTQ                                                      -
+[97/7c3a01] NFCORE_RNASEQ:RNASEQ:FASTQ_QC_TRIM_FILTER_SETSTRANDEDNESS:FASTQ_FASTQC_UMITOOLS_TRIMGALORE:FASTQC (Wh4a)                 [100%] 34 of 34, cached: 34 ✔
+[b5/f2aebe] NFCORE_RNASEQ:RNASEQ:FASTQ_QC_TRIM_FILTER_SETSTRANDEDNESS:FASTQ_FASTQC_UMITOOLS_TRIMGALORE:TRIMGALORE (Wh5c)             [100%] 34 of 34, cached: 34 ✔
+[75/eba2ab] NFCORE_RNASEQ:RNASEQ:FASTQ_QC_TRIM_FILTER_SETSTRANDEDNESS:FASTQ_SUBSAMPLE_FQ_SALMON:SALMON_INDEX (genome.transcripts.fa) [100%] 1 of 1, cached: 1 ✔
+[25/f1f190] NFCORE_RNASEQ:RNASEQ:FASTQ_QC_TRIM_FILTER_SETSTRANDEDNESS:FASTQ_SUBSAMPLE_FQ_SALMON:FQ_SUBSAMPLE (Wh1d)                  [100%] 34 of 34, cached: 34 ✔
+[17/14ee92] NFCORE_RNASEQ:RNASEQ:FASTQ_QC_TRIM_FILTER_SETSTRANDEDNESS:FASTQ_SUBSAMPLE_FQ_SALMON:SALMON_QUANT (Wh1d)                  [100%] 34 of 34, cached: 34 ✔
+executor >  local (596)
+[a0/c03d76] NFCORE_RNASEQ:PREPARE_GENOME:GTF_FILTER (T_majus.primary_assembly.genome.fa)                                             [100%] 1 of 1, cached: 1 ✔
+[ee/ce3882] NFCORE_RNASEQ:PREPARE_GENOME:GTF2BED (T_majus.primary_assembly.genome.filtered.gtf)                                      [100%] 1 of 1, cached: 1 ✔
+[39/aaf216] NFCORE_RNASEQ:PREPARE_GENOME:MAKE_TRANSCRIPTS_FASTA (rsem/T_majus.primary_assembly.genome.fa)                            [100%] 1 of 1, cached: 1 ✔
+[01/dbc176] NFCORE_RNASEQ:PREPARE_GENOME:CUSTOM_GETCHROMSIZES (T_majus.primary_assembly.genome.fa)                                   [100%] 1 of 1, cached: 1 ✔
+[-        ] NFCORE_RNASEQ:RNASEQ:FASTQ_QC_TRIM_FILTER_SETSTRANDEDNESS:CAT_FASTQ                                                      -
+[97/7c3a01] NFCORE_RNASEQ:RNASEQ:FASTQ_QC_TRIM_FILTER_SETSTRANDEDNESS:FASTQ_FASTQC_UMITOOLS_TRIMGALORE:FASTQC (Wh4a)                 [100%] 34 of 34, cached: 34 ✔
+[b5/f2aebe] NFCORE_RNASEQ:RNASEQ:FASTQ_QC_TRIM_FILTER_SETSTRANDEDNESS:FASTQ_FASTQC_UMITOOLS_TRIMGALORE:TRIMGALORE (Wh5c)             [100%] 34 of 34, cached: 34 ✔
+[75/eba2ab] NFCORE_RNASEQ:RNASEQ:FASTQ_QC_TRIM_FILTER_SETSTRANDEDNESS:FASTQ_SUBSAMPLE_FQ_SALMON:SALMON_INDEX (genome.transcripts.fa) [100%] 1 of 1, cached: 1 ✔
+[25/f1f190] NFCORE_RNASEQ:RNASEQ:FASTQ_QC_TRIM_FILTER_SETSTRANDEDNESS:FASTQ_SUBSAMPLE_FQ_SALMON:FQ_SUBSAMPLE (Wh1d)                  [100%] 34 of 34, cached: 34 ✔
+[17/14ee92] NFCORE_RNASEQ:RNASEQ:FASTQ_QC_TRIM_FILTER_SETSTRANDEDNESS:FASTQ_SUBSAMPLE_FQ_SALMON:SALMON_QUANT (Wh1d)                  [100%] 34 of 34, cached: 34 ✔
+[b0/b6ed76] NFCORE_RNASEQ:RNASEQ:ALIGN_STAR:STAR_ALIGN (WTS4_1)                                                                      [100%] 34 of 34, cached: 17 ✔
+[29/d0c685] NFCORE_RNASEQ:RNASEQ:ALIGN_STAR:BAM_SORT_STATS_SAMTOOLS:SAMTOOLS_SORT (Wh2b)                                             [ 97%] 33 of 34, cached: 14
+[62/c78d58] NFCORE_RNASEQ:RNASEQ:ALIGN_STAR:BAM_SORT_STATS_SAMTOOLS:SAMTOOLS_INDEX (Wh2b)                                            [100%] 33 of 33, cached: 14
+[-        ] NFCORE_RNASEQ:RNASEQ:ALIGN_STAR:BAM_SORT_STATS_SAMTOOLS:BAM_STATS_SAMTOOLS:SAMTOOLS_STATS                                -
+[-        ] NFCORE_RNASEQ:RNASEQ:ALIGN_STAR:BAM_SORT_STATS_SAMTOOLS:BAM_STATS_SAMTOOLS:SAMTOOLS_FLAGSTAT                             -
+[-        ] NFCORE_RNASEQ:RNASEQ:ALIGN_STAR:BAM_SORT_STATS_SAMTOOLS:BAM_STATS_SAMTOOLS:SAMTOOLS_IDXSTATS                             -
+[ec/8db338] NFCORE_RNASEQ:RNASEQ:QUANTIFY_STAR_SALMON:SALMON_QUANT (WTS4_1)                                                          [100%] 34 of 34, cached: 6 ✔
+[4e/2181ce] NFCORE_RNASEQ:RNASEQ:QUANTIFY_STAR_SALMON:CUSTOM_TX2GENE (null)                                                          [100%] 1 of 1 ✔
+[-        ] NFCORE_RNASEQ:RNASEQ:QUANTIFY_STAR_SALMON:TXIMETA_TXIMPORT                                                               [  0%] 0 of 1
+[-        ] NFCORE_RNASEQ:RNASEQ:QUANTIFY_STAR_SALMON:SE_GENE                                                                        -
+[-        ] NFCORE_RNASEQ:RNASEQ:QUANTIFY_STAR_SALMON:SE_GENE_LENGTH_SCALED                                                          -
+[-        ] NFCORE_RNASEQ:RNASEQ:QUANTIFY_STAR_SALMON:SE_GENE_SCALED                                                                 -
+[-        ] NFCORE_RNASEQ:RNASEQ:QUANTIFY_STAR_SALMON:SE_TRANSCRIPT                                                                  -
+[-        ] NFCORE_RNASEQ:RNASEQ:DESEQ2_QC_STAR_SALMON                                                                               -
+[11/169b31] NFCORE_RNASEQ:RNASEQ:BAM_MARKDUPLICATES_PICARD:PICARD_MARKDUPLICATES (Wh2b)                                              [100%] 33 of 33, cached: 6
+[3a/47ad30] NFCORE_RNASEQ:RNASEQ:BAM_MARKDUPLICATES_PICARD:SAMTOOLS_INDEX (Wh2b)                                                     [100%] 33 of 33, cached: 6
+[-        ] NFCORE_RNASEQ:RNASEQ:BAM_MARKDUPLICATES_PICARD:BAM_STATS_SAMTOOLS:SAMTOOLS_STATS                                         -
+[-        ] NFCORE_RNASEQ:RNASEQ:BAM_MARKDUPLICATES_PICARD:BAM_STATS_SAMTOOLS:SAMTOOLS_FLAGSTAT                                      -
+[-        ] NFCORE_RNASEQ:RNASEQ:BAM_MARKDUPLICATES_PICARD:BAM_STATS_SAMTOOLS:SAMTOOLS_IDXSTATS                                      -
+[fc/aefeb0] NFCORE_RNASEQ:RNASEQ:STRINGTIE_STRINGTIE (Wh2b)                                                                          [100%] 33 of 33, cached: 3
+[-        ] NFCORE_RNASEQ:RNASEQ:SUBREAD_FEATURECOUNTS                                                                               -
+[-        ] NFCORE_RNASEQ:RNASEQ:MULTIQC_CUSTOM_BIOTYPE                                                                              -
+[ef/5de645] NFCORE_RNASEQ:RNASEQ:BEDTOOLS_GENOMECOV_FW (Wh2b)                                                                        [100%] 33 of 33, cached: 6
+[86/7bf146] NFCORE_RNASEQ:RNASEQ:BEDTOOLS_GENOMECOV_REV (Wh2b)                                                                       [100%] 33 of 33, cached: 6
+[e3/dc19f6] NFCORE_RNASEQ:RNASEQ:BEDGRAPH_BEDCLIP_BEDGRAPHTOBIGWIG_FORWARD:UCSC_BEDCLIP (WhS4_4)                                     [ 93%] 31 of 33, cached: 2
+[17/f5ac15] NFCORE_RNASEQ:RNASEQ:BEDGRAPH_BEDCLIP_BEDGRAPHTOBIGWIG_FORWARD:UCSC_BEDGRAPHTOBIGWIG (WhS4_4)                            [100%] 31 of 31, cached: 2
+[09/e4ca73] NFCORE_RNASEQ:RNASEQ:BEDGRAPH_BEDCLIP_BEDGRAPHTOBIGWIG_REVERSE:UCSC_BEDCLIP (Wh2a)                                       [ 96%] 32 of 33, cached: 2
+[a1/057e33] NFCORE_RNASEQ:RNASEQ:BEDGRAPH_BEDCLIP_BEDGRAPHTOBIGWIG_REVERSE:UCSC_BEDGRAPHTOBIGWIG (Wh2a)                              [100%] 32 of 32, cached: 2
+[eb/5e4bd8] NFCORE_RNASEQ:RNASEQ:QUALIMAP_RNASEQ (Wh2b)                                                                              [100%] 33 of 33, cached: 2
+[84/00eaac] NFCORE_RNASEQ:RNASEQ:DUPRADAR (Wh2b)                                                                                     [100%] 33 of 33, cached: 6
+[8e/6f57cc] NFCORE_RNASEQ:RNASEQ:BAM_RSEQC:RSEQC_BAMSTAT (Wh5a)                                                                      [ 90%] 30 of 33, cached: 2
+[96/87e780] NFCORE_RNASEQ:RNASEQ:BAM_RSEQC:RSEQC_INNERDISTANCE (Wh5a)                                                                [ 90%] 30 of 33, cached: 2
+[62/bbba72] NFCORE_RNASEQ:RNASEQ:BAM_RSEQC:RSEQC_INFEREXPERIMENT (Wh5a)                                                              [ 90%] 30 of 33, cached: 2
+[98/92c066] NFCORE_RNASEQ:RNASEQ:BAM_RSEQC:RSEQC_JUNCTIONANNOTATION (Wh5a)                                                           [ 90%] 30 of 33, cached: 2
+[1a/411ee0] NFCORE_RNASEQ:RNASEQ:BAM_RSEQC:RSEQC_JUNCTIONSATURATION (Wh5a)                                                           [ 90%] 30 of 33, cached: 2
+[02/c7f8c4] NFCORE_RNASEQ:RNASEQ:BAM_RSEQC:RSEQC_READDISTRIBUTION (WhS4_4)                                                           [ 90%] 30 of 33, cached: 2
+[b0/f47ae2] NFCORE_RNASEQ:RNASEQ:BAM_RSEQC:RSEQC_READDUPLICATION (WhS4_4)                                                            [ 90%] 30 of 33, cached: 2
+Plus 1 more processes waiting for tasks…
+
+[rnaseq_ma0:java*                                                                                                                                     "us1" 00:03 09-Apr-26
