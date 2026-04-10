@@ -56,13 +56,6 @@ for sample in samples:
 
 # 生成新表格
 final_df = pd.DataFrame(data, columns=['sample', 'fastq_1', 'fastq_2', 'strandedness'])
-final_df
-
-# 如果存在同名文件，先删除
-if os.path.exists(output_samplesheet):
-    os.remove(output_samplesheet)
-    print(f"已删除旧的 Samplesheet 文件: {output_samplesheet}")
-
 final_df.to_csv(output_samplesheet, index=False)
 print(f"成功生成 nf-core 专用 Samplesheet: {output_samplesheet}")
 print(f"共处理 {len(data)} 个样本")
