@@ -66,6 +66,14 @@ conda_envs/
 .conda/
 venv/
 
+# QC folders (root and nested)
+QC/
+*/QC/
+
+# gene and genome folders (root and nested)
+Genes/
+*/Genes/
+
 # ==========================================
 # 5. 临时文件、日志与备份
 # ==========================================
