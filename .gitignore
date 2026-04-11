@@ -88,7 +88,7 @@ downloads/
 __pycache__/
 .ipynb_checkpoints/
 .snakemake/
-*/QC/*
+*/QC/
 
 # ==========================================
 # 6. 压缩包与二进制大文件
