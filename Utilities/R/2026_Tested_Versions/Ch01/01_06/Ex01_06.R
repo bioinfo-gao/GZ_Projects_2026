@@ -9,7 +9,7 @@ x1  # Prints contents of x1 in console
 x2 <- 10:0  # Assigns number 10 through 0 to x2
 x2
 
-x3 <- seq(10)  # Counts from 1 to 10
+x3 <- seq(10)  # Counts from 1 to 10 
 x3
 ?seq
 
@@ -21,11 +21,20 @@ x5 <- c(5, 4, 1, 6, 7, 2, 2, 3, 2, 8)  # Concatenate
 x5
 ?c
 
+# The following command is a shortcut for entering data manually, but only FOR Real numbers
+# NO strings
+# in RStudio, you can use the keyboard shortcut Cmd/Ctrl-Shift-M
+# in Positron, look at the bottom of the console
+# enter TWICE for FINISH
+
 x6 <- scan()  # After running this command, go to console
               # Hit return after each number
               # Hit return twice to stop
-x6
+x6 
 ?scan
+
+
+print(x6)
 
 ls()  # List objects (same as Workspace viewer)
 ?ls

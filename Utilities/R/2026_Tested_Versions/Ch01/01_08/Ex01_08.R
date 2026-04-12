@@ -34,13 +34,18 @@ round(prop.table(admit.dept), 2) * 100  # Give percentages w/o decimal places
 admit1 <- as.data.frame.table(UCBAdmissions)  # Coerces to data frame <<<===========================
 admit1  # View , the very good big picture view <=== by ZG
 dim(admit1 )
+head(admit1 )
+
 admit2 <- lapply(admit1, function(x)rep(x, admit1$Freq))  # Repeats each row by Freq << ========= ZG
-head(admit2)
+# List !
+head(admit2) 
 dim(admit2)
 summary(admit2)
+?summary
 admit3 <- as.data.frame(admit2)  # Converts from list back to data frame
 admit4 <- admit3[, -4]  # Removes fifth column with frequencies
 admit4
+
 # Or do it all in one go <============ ZG 
 admit.rows <- as.data.frame(lapply(as.data.frame.table(UCBAdmissions), function(x)rep(x, as.data.frame.table(UCBAdmissions)$Freq)))[, -4]
 str(admit.rows)

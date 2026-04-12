@@ -19,8 +19,9 @@ a <- 1  # Use <- and not =
 2 -> a  # Can go other way, but silly
 a <- b <- c <- 3  # Multiple assignments
 
-# Vector Math
-x
+# Vector Math <- shortcut is Alt + "-" 
+x <- 1:5
+x 
 y
 x + y  # Adds corresponding elements in x and y
 x * 2  # Multiplies each element in x by 2
