@@ -22,9 +22,11 @@ display.brewer.pal(4, "Spectral")
 
 # Barplots
 # Can save palette as vector or call in function
-blues <- brewer.pal(6, "Blues")
+
+blues <- brewer.pal(6, "Blues")              # Blues is SET of Name as shown in the display.brewer.all()
 barplot(x, col = blues)
-barplot(x, col = brewer.pal(6, "Greens"))
+
+barplot(x, col = brewer.pal(6, "Greens"))    # Greens is SET of Name as shown in the display.brewer.all()
 barplot(x, col = brewer.pal(6, "YlOrRd"))
 barplot(x, col = brewer.pal(6, "RdGy"))
 barplot(x, col = brewer.pal(6, "BrBG"))

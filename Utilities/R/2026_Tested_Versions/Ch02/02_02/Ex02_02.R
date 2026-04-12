@@ -2,6 +2,8 @@
 # Ex02_02
 # Creating pie charts for categorical variables
 
+# 下面两句功能是重复的，只需要一句即可，
+# 但实际上datasets的是默认加载的数据集，也就是一句都不需要
 # LOAD DATASETS PACKAGE
 require("datasets")
 

@@ -10,7 +10,7 @@ n <- 5  # Number of bars needed
 x <- c(rep(10, n))  # Creates n bars of uniform height
 barplot(x, col = rainbow(n))  # Uses x and n
 
-# Using R's built-in palettes
+# Using R's built-in palettes <<===========================================================
 
 # 1. Show 5 different categories
 n <- 5
@@ -27,7 +27,7 @@ n <- 11
 x <- c(rep(10, n))
 barplot(x, col = cm.colors(n))
 
-# Using RColorBrewer
+# Using RColorBrewer  <<===========================================================
 require("RColorBrewer")
 display.brewer.all()
 

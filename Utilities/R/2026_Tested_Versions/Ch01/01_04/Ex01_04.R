@@ -60,7 +60,7 @@ install.packages("remotes")
 # remotes::install_github("cran/psytabs")
 
 # This for the stable version:
-install.packages("psycho")
+install.packages("psycho") # << ================== used in Ex04_03
 
 # Or this for the dev version:
 install.packages("devtools")

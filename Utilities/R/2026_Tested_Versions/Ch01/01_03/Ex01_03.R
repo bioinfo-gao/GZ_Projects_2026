@@ -1,6 +1,8 @@
 # R Statistics Essential Training
 # Ex01_03
 # Taking a first look at the interface
+# All course tested in RStudio with R 3.6 in Miami   2017-2019
+# All course tested in Positron with R 4.5 in Boston 2026
 
 8 + 5  # Basic math; press cmd/ctrl-enter
  

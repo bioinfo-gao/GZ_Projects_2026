@@ -9,12 +9,12 @@ barplot(x)
 # R specifies color in several ways
 ?colors
 # Web page with PDFs of colors in R
-browseURL("http://research.stowers-institute.org/efg/R/Color/Chart/")
+browseURL("http://research.stowers-institute.org/efg/R/Color/Chart/") # NO more 2026
 
 # Color names
 # R has names for 657 colors, arranged alphabetically except for white (first)
 # "Gray" or "grey": either is acceptable
-colors()  # Gives list of color names
+colors()  # Gives list of color names 657 colors in 2026
 barplot(x, col = "slategray3")
 
 # Color numbers
@@ -30,7 +30,7 @@ barplot(x, col = colors() [602])  # Back to slategray3
 ?rgb
 # Can convert color names to rgb with "col2rgb"
 ?col2rgb
-col2rgb("navyblue")  # Yields (0, 0, 128)
+col2rgb("navyblue")  # Yields (0, 0, 128) # navyblue --> numbers
 barplot(x, col = rgb(.54, .0, .0))  # darkred
 barplot(x, col = rgb(159, 182, 205, max = 255))  # Back to slategray3
 
@@ -40,9 +40,9 @@ barplot(x, col = rgb(159, 182, 205, max = 255))  # Back to slategray3
 barplot(x, col = "#FFEBCD")  # blanchedalmond
 barplot(x, col = "#9FB6CD")  # Back to slategray3
 
-# MULTIPLE COLORS
+################################ MULTIPLE COLORS #####################################
 # Can specify several colors (using any coding method) in vector
-barplot(x, col = c("red", "blue"))  # Colors will cycle
+barplot(x, col = c("red", "blue"))                     # Colors will cycle
 barplot(x, col = c("red", "blue", "green", "yellow"))  # Colors will cycle
 
 # USING COLOR PALETTES
@@ -51,7 +51,7 @@ barplot(x, col = c("red", "blue", "green", "yellow"))  # Colors will cycle
 help(package=colorspace)  # Lots of info on color spaces
 ?palette
 
-# Built-in palettes
+################################ Built-in palettes ################################
 n=6
 rainbow(n, s = 1, v = 1, start = 0, end = max(1, n - 1)/n, alpha = 1)
 heat.colors(n, alpha = 1)  # Yellow through red
@@ -59,6 +59,7 @@ terrain.colors(n, alpha = 1)  # Gray through green
 topo.colors(n, alpha = 1)  # Purple through tan
 cm.colors(n, alpha = 1)  # Blues and pinks
 help(package = colorspace)
+
 palette()
 barplot(x, col = 1:6)
 barplot(x, col = rainbow(6))
