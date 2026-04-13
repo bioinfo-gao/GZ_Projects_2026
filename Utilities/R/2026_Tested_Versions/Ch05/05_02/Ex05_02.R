@@ -9,7 +9,7 @@ iris
 mean(iris$Petal.Width)
 
 # Split the data file and repeat analyses
-# with "aggregate"
+# with "aggregate"                              ### <<============================
 # Compare groups on mean of one variable
 aggregate(iris$Petal.Width ~ iris$Species, FUN = mean)
 

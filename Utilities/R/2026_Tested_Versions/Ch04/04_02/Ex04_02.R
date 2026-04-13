@@ -50,7 +50,7 @@ boxplot(islands.rank2)
 # Use wisely and purposefully!
 # Split at 1000 (= 1,000,000 square miles)
 # ifelse is the conditional element selection
-continent <- ifelse(islands > 1000, 1, 0)
+continent <- ifelse(islands > 1000, 1, 0) # Greenland is 840 sq. mi. , larger than 1000 will be contient, AUstralia is 2968 sq. mi.
 continent
 
 rm(list = ls())  # Clean up
