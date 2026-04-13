@@ -60,9 +60,10 @@ install.packages("remotes")
 # remotes::install_github("cran/psytabs")
 
 # This for the stable version:
-install.packages("psycho") # << ================== used in Ex04_03
+# install.packages("psycho") # << ================== used in Ex03_02, Ex04_03
+library("psycho") # << ================== used in Ex03_02, Ex04_03
 
 # Or this for the dev version:
-install.packages("devtools")
+# install.packages("devtools")
 library(devtools)
 # devtools::install_github("neuropsychology/psycho.R")

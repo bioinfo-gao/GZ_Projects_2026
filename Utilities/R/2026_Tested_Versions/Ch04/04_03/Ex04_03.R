@@ -27,7 +27,7 @@ summary(rn.prod)
 # mesokurtic, normal distribution has a value of 3.
 # The package "psych" recenters the kurtosis values
 # around 0, which is more common now.
-install.packages("psych") # <<<======================= also see Ex01_04
+install.packages("psych") # <<<======================= also see Ex01_04, Ex_03_02
 help(package = "psych")
 require("psych")
 kurtosi(rn1)

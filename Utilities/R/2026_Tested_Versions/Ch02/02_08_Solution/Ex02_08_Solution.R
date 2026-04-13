@@ -11,7 +11,7 @@ pl <- iris$Petal.Length
 
 # Plot 1: Histogram
 hist(pl,
-     prob = TRUE,
+     prob = TRUE, # <<==== y axis is probability y-label ==================
      breaks = 12,
      col = "#E5E5E5",
      border = 0,

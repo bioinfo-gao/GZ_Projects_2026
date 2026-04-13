@@ -4,7 +4,9 @@
 
 # Load data
 ?quakes
+dim(quakes)
 quakes[1:5, ]  # See the first 5 lines of the data
+
 mag <- quakes$mag  # Just load the magnitude variable
 mag[1:5]  # First 5 lines
 

@@ -23,13 +23,13 @@ h <- hist(fertility,
           border = 0,
           main = "Fertility for 47 French-Speaking\nSwiss Provinces, c. 1888")
 
-# Plot 2: Normal curve (if prob = TRUE)
+# Plot 2: Normal curve (if prob = TRUE)     <<===========================================================
 curve(dnorm(x, mean = mean(fertility), sd = sd(fertility)), 
       col = "red", 
       lwd = 3,
       add = TRUE)
 
-# Plot 3 & 4: Kernel density lines (if prob = TRUE)
+# Plot 3 & 4: Kernel density lines (if prob = TRUE) <<===========================================================
 lines(density(fertility), col = "blue")
 lines(density(fertility, adjust = 3), col = "darkgreen")
 

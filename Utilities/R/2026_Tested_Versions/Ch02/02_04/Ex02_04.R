@@ -21,8 +21,8 @@ boxplot(USJudgeRatings$RTEN)
 # Modify boxplot
 boxplot(USJudgeRatings$RTEN,
         horizontal = TRUE,
-        las = 1,  # Make all labels horizontal
-        notch = TRUE,  # Notches for CI for median
+        las = 1,                               # Make all labels horizontal
+        notch = TRUE,               # Notches for CI for median
         ylim = c(0, 10),  # Specify range on Y axis
         col = "slategray3",   # R's named colors (n = 657)
 #         col = colors() [602], # R's color numbers
@@ -37,16 +37,16 @@ boxplot(USJudgeRatings$RTEN,
         xlab = "Lawyers' Ratings")
 
 # Multiple boxplots
-boxplot(USJudgeRatings,
+boxplot(USJudgeRatings,    # <<<===========================================================
         horizontal = TRUE,
-        las = 1,  # Make all labels horizontal
-        notch = TRUE,  # Notches for CI for median
-        ylim = c(0, 10),  # Specify range on Y axis
+        las = 1,           # Make all labels horizontal
+        notch = TRUE,      # Notches for CI for median
+        ylim = c(0, 10),   # Specify range on Y axis
         col = "slategray3",   # R's named colors (n = 657)
-        boxwex = 0.5,  # Width of box as proportion of original
-        whisklty = 1,  # Whisker line type; 1 = solid line
-        staplelty = 0,  # Staple (line at end) type; 0 = none
-        outpch = 16,  # Symbols for outliers; 16 = filled circle
+        boxwex = 0.5,      # Width of box as proportion of original
+        whisklty = 1,      # Whisker line type; 1 = solid line
+        staplelty = 0,     # Staple (line at end) type; 0 = none
+        outpch = 16,       # Symbols for outliers; 16 = filled circle
         outcol = "slategray3",  # Color for outliers
         main = "Lawyers' Ratings of State Judges in the\nUS Superior Court (c. 1977)",
         xlab = "Lawyers' Ratings")

@@ -11,6 +11,7 @@ feeds <- table(chickwts$feed)
 getwd()
 # [1] "/Work_bio/gao/projects/Utilities/R/2026_Tested_Versions"
 # setwd("C:/Users/zhen-/Documents/Code/Rcode/R_Templet_For_Omics/Tutorial//Finished Versions/Ch02/02_06")
+setwd("/home/gao/projects/Utilities/R/2026_Tested_Versions/Ch02/02_06")
 
 setwd("/home/gao/projects/Utilities/R/2026_Tested_Versions/Ch02/02_06")
 # Close any open devices
@@ -51,7 +52,7 @@ barplot(feeds[order(feeds)],  # Create the chart
         xlab   = "Number of Chicks")
 dev.off()  # Close device (run in same block)
 
-# The easy Way: With RStudio "Export"
+# The easy Way: With RStudio "Export" <<=====================================================
 
 par(oma = c(1, 1, 1, 1))  # Outside margins: b, l, t, r
 par(mar = c(4, 5, 2, 1))  # Sets plot margins
