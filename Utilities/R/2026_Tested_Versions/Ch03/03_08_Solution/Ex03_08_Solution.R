@@ -9,7 +9,7 @@
 data(mtcars)
 
 # Use the package "psych"
-require("psych")
+require("psych") # << ================== Ex01_04 Ex03_02, Ex03_08, Ex04_03
 d <- describe(mtcars[c(1, 4, 7)])
 d[, c(3, 4, 11, 12)]
 

@@ -6,14 +6,23 @@
 # Outlier is < 10%
 # Worldwide shipments of smartphone OS
 # in millions for 2013 Q1
-OS <- read.csv("~/Desktop/R/OS.csv", header = TRUE)
+
+getwd()
+#OS <- read.csv("~/Desktop/R/OS.csv", header = TRUE)
+OS <- read.csv("/home/gao/projects/Utilities/R/2026_Tested_Versions/Ch04/04_01/OS.csv", header = TRUE)
 View(OS)
 OS
 
 # Outlier has proportion < .10
 # Either combine into "other" (if homogeneous) or delete
-OS.hi <- subset(OS, Proportion > 0.1)
+# ... existing code ...
+# # ... existing code ...
+# OS.hi <- subset(OS, Proportion > 0.1)
+# OS.hi
+
+OS.hi <- subset(OS, MarketShare_Percent > 10) # MarketShare is a column in the current table 
 OS.hi
+
 
 # Quantitative data
 # See outliers in boxplots

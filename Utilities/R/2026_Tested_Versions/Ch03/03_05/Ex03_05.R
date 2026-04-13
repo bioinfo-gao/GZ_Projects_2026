@@ -22,8 +22,8 @@ chi1 <- chisq.test(eyes)  # Save tests as object "chi1"
 chi1  # Check results
 
 # Compare to population distribution
-# Population data from:
-browseURL("http://www.statisticbrain.com/eye-color-distribution-percentages/")
+# Population data from: NO more in 2026
+# browseURL("http://www.statisticbrain.com/eye-color-distribution-percentages/")
 # Approximate proportions:
 #  Brown: .41 (Combining Brown Irises with Specks & Dark Brown Irises)
 #  Blue:  .32 (Blue / Grey Irises)
