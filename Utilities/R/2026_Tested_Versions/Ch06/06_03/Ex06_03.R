@@ -28,8 +28,8 @@ lines(lowess (cars$speed, cars$dist),
 
 # "car" package ("Companion to Applied Regression") <<<<=================
 # Has many variations on scatterplots
-install.packages("car")
-help(package = "car")
+# install.packages("car")
+# help(package = "car")
 require(car)
 # "scatterplot" has marginal boxplots, smoothers, and quantile regression intervals
 scatterplot(cars$dist ~ cars$speed,

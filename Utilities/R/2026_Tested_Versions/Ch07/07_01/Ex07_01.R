@@ -15,7 +15,7 @@ round(cor(swiss), 2)  # Rounded to 2 decimals
 cor.test(swiss$Fertility, swiss$Education)
 
 # Install "Hmisc" package to get p-values for matrix
-install.packages("Hmisc")
+# install.packages("Hmisc")
 require("Hmisc")
 ??"Hmisc"
 

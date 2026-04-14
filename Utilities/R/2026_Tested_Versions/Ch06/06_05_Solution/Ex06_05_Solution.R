@@ -3,7 +3,9 @@
 # Creating your own grouped boxplots
 
 # Load data
-gsd <- read.csv("~/Desktop/R/SearchData.csv", header = TRUE)
+# gsd <- read.csv("~/Desktop/R/SearchData.csv", header = TRUE)
+gsd <- read.csv("/home/gao/projects/Utilities/R/2026_Tested_Versions/Ch06/06_04_Challenge/SearchData.csv", header = TRUE)
+# NO trainling "/" for file !! by ZG 2026
 gsd[1:5, ]
 
 # Draw boxplots of interest in NFL (nfl) by region
