@@ -3,8 +3,10 @@
 # Comparing proportions
 
 # Load data
-hw <- read.csv("~/Desktop/R/mlb2011.csv", header = TRUE)
+# hw <- read.csv("~/Desktop/R/mlb2011.csv", header = TRUE)
+hw <- read.csv("/home/gao/projects/Utilities/R/2026_Tested_Versions/Ch07/07_09_Challenge/mlb2011.csv", header = TRUE)
 hw[1:5, ]
+dim(hw)
 
 # Compare all teams
 prop.test(hw$HomeWins, hw$AllWins)

@@ -14,9 +14,9 @@ require(quantreg)
 ?rq  # Help on "quantile regression" in quantreg package
 data(engel)
 ?engel
-attach(engel)
+attach(engel) # Engel food expenditure data used in Koenker and Bassett(1982).  engel {quantreg}
 
-plot(income,  # Create plot frame
+plot(income,  # Create plot frame, NO worry <<============ do the following steps to add points
      foodexp,
      xlab = "Household Income",
      ylab = "Food Expenditure",
@@ -26,6 +26,7 @@ points(income,  # Points in plot
        foodexp,
        pch = 16,
        col = "lightgray")
+
 taus <- c(.05, .1, .25, .75, .9, .95)  # Quantiles
 xx <- seq(min(income), max(income), 100)  # X values
 f <- coef(rq((foodexp)~(income), tau=taus))  # Coefficients
@@ -44,7 +45,7 @@ legend(3000, 1000,  # Plot legend
        col = c("darkred", "blue"),
        lty = 1,
        lwd = 2)
-?rq
+?rq             # Quantile Regression
 # Clean up
 detach(engel)
 detach("package:robust", unload=TRUE)

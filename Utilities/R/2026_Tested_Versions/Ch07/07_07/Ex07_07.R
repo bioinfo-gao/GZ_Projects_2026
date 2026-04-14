@@ -41,7 +41,7 @@ ttab2
 # With rounding to get just 2 decimal places
 # Multiplied by 100 to make %
 ttab
-round(prop.table(ttab, 1), 2) * 100 # row %, here 1 means row, 2 means 2 digit for percent
+round(prop.table(ttab, 1), 2) * 100 # row %, here 1 means calculate the ratio by row , 2 means 2 digit for percent <<==============================
 round(prop.table(ttab, 2), 2) * 100 # column %
 round(prop.table(ttab), 2) * 100    # cell %
 

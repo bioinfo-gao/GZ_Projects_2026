@@ -8,6 +8,7 @@ data(iris)
 iris[1:5, ]
 
 # Basic scatterplot matrix
+?pairs
 pairs(iris[1:4])
 
 # Modified scatterplot matrices

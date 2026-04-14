@@ -15,7 +15,7 @@ require(car)  # "Companion to Applied Regression"
 # Single scatterplot with groups marked
 # Function can be called 
 #======>> "scatterplot" or "sp"
-sp(Sepal.Width ~ Sepal.Length | Species,
+sp(Sepal.Width ~ Sepal.Length | Species, # <<==================
    data = iris, 
    xlab = "Sepal Width", 
    ylab = "Sepal Length", 
