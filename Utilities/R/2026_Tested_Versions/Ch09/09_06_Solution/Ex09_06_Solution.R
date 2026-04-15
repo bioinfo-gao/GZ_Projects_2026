@@ -3,7 +3,8 @@
 # Cluster analysis
 
 # Load data
-scd <- read.csv("~/Desktop/R/StateClusterData.csv", header = TRUE)
+#scd <- read.csv("~/Desktop/R/StateClusterData.csv", header = TRUE)
+scd <- read.csv("/home/gao/projects/Utilities/R/2026_Tested_Versions/Ch09/09_05_Challenge/StateClusterData.csv", header = TRUE)
 rownames(scd) <- scd[,1]  # Use state names for row names
 scd[,1] <- NULL  # Remove state names as variable
 scd[1:5, ]

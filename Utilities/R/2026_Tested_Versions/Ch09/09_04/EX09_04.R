@@ -46,9 +46,12 @@ biplot(pc)
 # Varimax rotation by default
 # Gives chi square test that number of factors
 # is sufficient to match data (want p > .05).
+
 # Also gives uniqueness values for variables,
+
 # variable loadings on factors, and variance
 # statistics.
+
 factanal(mtcars1, 1)
 factanal(mtcars1, 2)
 factanal(mtcars1, 3)
