@@ -1,0 +1,15 @@
+不想修改项目的 .gitignore 文件（因为这会影响其他协作者），但又想在本机忽略 data/ 目录，你应该使用 本地 Git 配置 来设置忽略规则。
+
+在 Git 中，有几种方式可以设置仅在本机生效的忽略规则：
+
+1. 使用 .git/info/exclude 文件（推荐）
+这是最常用的方法，.git/info/exclude 文件的作用和 .gitignore 完全一样，但它只在你的本地仓库生效，不会被提交到远程仓库。
+
+让我帮你设置：
+
+Ran in terminal
+cd /home/zhen/GZ_Projects_2026 && echo "data/" >> .git/info/exclude
+现在让我验证设置是否生效：
+
+Run in terminal
+cd /home/zhen/GZ_Projects_2026 && git status --porcelain | grep "data/"
