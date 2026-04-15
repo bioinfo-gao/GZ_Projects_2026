@@ -21,10 +21,10 @@
 cd /home/zhen/GZ_Projects_2026/R_wsl_git_problems/R_version/RStudio
 
 # 切换到 R4.3.3 seurat 环境 (R 4.3.3)
-./switch_r_version.sh seurat
+bash switch_r_version.sh seurat
 
 # 切换到 R4.5.1 spatial 环境 (R 4.5.1)
-./switch_r_version.sh spatial
+bash switch_r_version.sh spatial
 
 # 切换后需要重启RStudio Server：
 sudo rstudio-server restart

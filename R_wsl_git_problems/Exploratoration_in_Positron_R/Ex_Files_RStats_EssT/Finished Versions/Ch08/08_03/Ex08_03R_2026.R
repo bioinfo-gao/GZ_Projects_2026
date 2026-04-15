@@ -13,6 +13,7 @@ pairs(iris[1:4])
 
 # Modified scatterplot matrices
 
+# 以下两个图都需要2分钟才能显示 完全成功  <<<<<<< ===========================================
 # Create palette with RColorBrewer
 require("RColorBrewer")
 display.brewer.pal(3, "Pastel1")
@@ -43,8 +44,14 @@ pairs(iris[1:4],
 # R 4.5.1
 # (base) zhen@DESKTOP-C8OKE65:~/GZ_Projects_2026$ mamba activate spatial
 # critical libmamba Cannot activate, prefix does not exist at: '/home/zhen/miniforge3/envs/spatial'
-# (base) zhen@DESKTOP-C8OKE65:~/GZ_Projects_2026$ mamba activate spatial_R
+# (base) zhen@DESKTOP-C8OKE65:~/GZ_Projects_2026$ mamba activate spatial_R  R 4.5
 # (spatial_R) zhen@DESKTOP-C8OKE65:~/GZ_Projects_2026$ mamba install -c conda-forge r-car
+
+
+# (base) zhen@DESKTOP-C8OKE65:~/GZ_Projects_2026$ mamba activate seurat_env # ===========> R4.3.3
+# 以下行尾禁止升级R 且 自动安装 #同时降级了python 否则无法兼容
+# (seurat_env) zhen@DESKTOP-C8OKE65:~/GZ_Projects_2026$ mamba install -c conda-forge r-car r-base=4.3.3 python=3.12 -y
+
 
 library(car)
 library(stats)
