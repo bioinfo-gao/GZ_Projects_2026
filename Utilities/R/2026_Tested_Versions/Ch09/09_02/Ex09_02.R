@@ -9,16 +9,9 @@ data(warpbreaks)
 boxplot(breaks ~ wool*tension, data = warpbreaks) ## * 
 
 # Model with interaction
-aov0 <- aov(breaks ~ 
-            wool*tension, 
-            # or: wool*tension, 
-            data = warpbreaks)
-summary(aov0)
-
-# Model with interaction
 aov1 <- aov(breaks ~ 
             wool + tension + wool:tension, 
-            # or: wool*tension, 
+            # or: wool*tension,  # << ===================  This form is used more frequently
             data = warpbreaks)
 summary(aov1)
 

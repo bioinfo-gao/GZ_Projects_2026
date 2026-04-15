@@ -28,10 +28,13 @@ plot(c)
 
 # Put observations in groups
 # Need to specify either k = groups or h = height
+
 g3 <- cutree(c, k = 3)  # "g3" = "groups 3"
-# cutree(hcmt, h = 230) will give same result
+
+# cutree(hcmt, h = 230)  # will give same result <<< ===========================
 g3
-# Or do several levels of groups at once
+
+# Or do several levels of groups at once <<< ===================================, 4 types of groups, grouping of 2, 3, 4, 5
 # "gm" = "groups/multiple"
 gm <- cutree(c, k = 2:5) # or k = c(2, 4)
 gm
@@ -51,7 +54,7 @@ require(cluster)
 clusplot(mtcars1,  # data frame
          km$cluster,  # cluster data
          color = TRUE,  # color
-#          shade = TRUE,  # Lines in clusters
+          shade = TRUE,  # Lines in clusters
          lines = 3,  # Lines connecting centroids
          labels = 2)  # Labels clusters and cases
 
