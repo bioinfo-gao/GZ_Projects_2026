@@ -22,12 +22,13 @@ getwd()
 setwd("/home/zhen/GZ_Projects_2026/R_wsl_git_problems/Exploratoration_in_Positron_R/")
 #hw_raw <- read.csv("data/hw.csv")
 hw_raw <- read.csv("HW_R.csv")
-
+hw_raw 
+dim(hw_raw) 
 
 #data prep
 colnames(hw_raw)
-hw <- hw_raw |>   # the old version of pipe is %>%
-  clean_names() |> # Lowercase Conversion: By running clean_names(), the original Female column no longer exists.
+hw <- hw_raw |>                                 # the old version of pipe is %>%
+  clean_names() |>                              # Lowercase Conversion: By running clean_names(), the original Female column no longer exists.
   mutate(deadline = if_else(midnight_deadline == 1, "Midnight", "4pm")) |>
   mutate(
     # Use lowercase 'female' as per clean_names output

@@ -1,4 +1,5 @@
 # 按 deadline 分组计算四分位数
+# 本代码唯一目的是为了诊断为什么codeR 中 上下四分位数和中位数，三个数字重合
 hw |>
   group_by(deadline) |>
   summarise(
