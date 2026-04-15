@@ -74,6 +74,11 @@ QC/
 Genes/
 */Genes/
 
+# data directory (added to fix sparse-checkout issue)
+local_data/
+local/
+# data/ # 这个非常重要，用来同步的 <<==============
+
 # ==========================================
 # 5. 临时文件、日志与备份
 # ==========================================
@@ -86,8 +91,8 @@ local_tmp/
 rubbish/
 junk/
 bak/
-bak/
-# Backup/
+bac/
+# Backup/ # 这个非常重要，是用来同步的 <<==============
 local_bak/
 local_backup/
 local_bac/
@@ -131,4 +136,4 @@ Thumbs.db
 # 使用 ! 符号确保这些目录及其内容不被上述规则过滤
 !2026_Item6_UIC_02122603/results/
 !2026_Item6_UIC_02122603/scripts/
-!2026_Item6_UIC_02122603/config/
+!2026_Item6_UIC_02122603/config/data/

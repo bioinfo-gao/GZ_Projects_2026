@@ -1,0 +1,12 @@
+{
+    // 自定义R二进制文件路径 - 用于发现R环境
+    "positron.r.customBinaries": [
+        "/home/zhen/miniforge3/envs/seurat_env/bin/R"
+    ],
+    
+    // 强制激活当前工作区使用的R路径
+    "positron.r.interpreterPath": "/home/zhen/miniforge3/envs/seurat_env/bin/R",
+    
+    // 兼容性设置
+    "r.rterm.linux": "/home/zhen/miniforge3/envs/seurat_env/bin/R"
+}
