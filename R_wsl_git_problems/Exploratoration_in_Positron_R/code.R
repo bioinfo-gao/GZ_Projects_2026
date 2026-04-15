@@ -11,13 +11,15 @@
 # install.packages("tidyverse", dependencies = TRUE)
 # install.packages("janitor", dependencies = TRUE)
 
-library(tidyverse)
-library(janitor)
+# 首先检查R 版本，右上角两个位置，尤其是顶部的位置，本code 在 R 4.3.3 下运行，没有问题。
+library(tidyverse) 
+library(janitor)  
 library(dplyr)
-library(dplyr)
+library(dplyr) 
 
 getwd()
-setwd("/home/zhen/GZ_Projects_2026/04_SC_Analysis/seurat_path/Exploratory_Data_Analysis_with_R_in_Positron/")
+#setwd("/home/zhen/GZ_Projects_2026/04_SC_Analysis/seurat_path/Exploratory_Data_Analysis_with_R_in_Positron/")
+setwd("/home/zhen/GZ_Projects_2026/R_wsl_git_problems/Exploratoration_in_Positron_R/")
 #hw_raw <- read.csv("data/hw.csv")
 hw_raw <- read.csv("HW_R.csv")
 
