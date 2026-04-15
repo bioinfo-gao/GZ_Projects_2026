@@ -17,8 +17,8 @@
 # 你现在可以尝试这些解决方案，如果还有问题，请告诉我具体是使用Positron还是RStudio Server，以及遇到的具体错误信息。
 
 
-
-
+# Enter the script directory
+cd /home/zhen/GZ_Projects_2026/R_wsl_git_problems/R_version/RStudio
 
 # 切换到 R4.3.3 seurat 环境 (R 4.3.3)
 ./switch_r_version.sh seurat

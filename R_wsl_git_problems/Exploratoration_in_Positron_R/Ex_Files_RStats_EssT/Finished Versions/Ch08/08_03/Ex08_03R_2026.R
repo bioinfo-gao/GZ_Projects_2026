@@ -40,7 +40,14 @@ pairs(iris[1:4],
 
 # Similar with "car" package
 # Gives kernal density and rugplot for each variable
+# R 4.5.1
+# (base) zhen@DESKTOP-C8OKE65:~/GZ_Projects_2026$ mamba activate spatial
+# critical libmamba Cannot activate, prefix does not exist at: '/home/zhen/miniforge3/envs/spatial'
+# (base) zhen@DESKTOP-C8OKE65:~/GZ_Projects_2026$ mamba activate spatial_R
+# (spatial_R) zhen@DESKTOP-C8OKE65:~/GZ_Projects_2026$ mamba install -c conda-forge r-car
+
 library(car)
+library(stats)
 scatterplotMatrix(~Petal.Length + Petal.Width + Sepal.Length + Sepal.Width | Species,
                   data = iris,
                   col = brewer.pal(3, "Dark2"),
