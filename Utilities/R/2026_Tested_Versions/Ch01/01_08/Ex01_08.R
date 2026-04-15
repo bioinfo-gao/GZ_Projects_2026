@@ -21,9 +21,10 @@ margin.table(UCBAdmissions)     # Total
 
 # Save marginals as new table
 admit.dept <- margin.table(UCBAdmissions, 3)  # Dept
+admit.dept  # Show frequencies
 str(admit.dept)
 barplot(admit.dept)
-admit.dept  # Show frequencies
+
 prop.table(admit.dept)  # Show as proportions
 round(prop.table(admit.dept), 2)  # Show as proportions w/2 digits
 round(prop.table(admit.dept), 2) * 100  # Give percentages w/o decimal places
@@ -38,11 +39,15 @@ head(admit1 )
 
 admit2 <- lapply(admit1, function(x)rep(x, admit1$Freq))  # Repeats each row by Freq << ========= ZG
 # List !
+admit2 
 head(admit2) 
 dim(admit2)
 summary(admit2)
+
 ?summary
 admit3 <- as.data.frame(admit2)  # Converts from list back to data frame
+admit3 
+
 admit4 <- admit3[, -4]  # Removes fifth column with frequencies
 admit4
 

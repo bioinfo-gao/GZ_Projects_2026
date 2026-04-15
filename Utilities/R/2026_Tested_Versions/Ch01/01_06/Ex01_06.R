@@ -22,10 +22,12 @@ x5
 ?c
 
 # The following command is a shortcut for entering data manually, but only FOR Real numbers
-# NO strings
-# in RStudio, you can use the keyboard shortcut Cmd/Ctrl-Shift-M
-# in Positron, look at the bottom of the console
-# enter TWICE for FINISH
+
+# 1) NO strings allowed by this function
+
+# 2) in RStudio, you can use the keyboard shortcut Cmd/Ctrl-Shift-M
+
+# 3) in Positron, look at the bottom of the console, # enter TWICE for FINISH
 
 x6 <- scan()  # After running this command, go to console
               # Hit return after each number

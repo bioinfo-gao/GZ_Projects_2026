@@ -16,7 +16,7 @@ require(datasets)
 detach(package:datasets)
 
 # To see a list of the available datasets
-data()
+data() # Data sets in package ‘datasets’:
 # no data sets found
 # Use ‘
 data(package = .packages(all.available = TRUE))
@@ -51,6 +51,7 @@ data(anscombe)  # Appears under "Data" in the Workspace
 
 # See its structure
 str(anscombe)
+head(anscombe)
 
 # See its data (or click on name in Workspace)
 anscombe

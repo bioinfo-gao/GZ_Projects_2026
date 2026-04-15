@@ -33,8 +33,8 @@ str(trends.txt)  # This gives structure of object sntxt
 # setwd("/home/gao/projects/Utilities/R/2026_Tested_Versions")
 # write.csv(res$interest_over_time, "trends.csv")
 
-# trends.txt <- read.table("/home/gao/projects/Utilities/R/2026_Tested_Versions/trends.csv", header = TRUE)
-
+#trends.txt <- read.table("/home/gao/projects/Utilities/R/2026_Tested_Versions/trends.csv", header = TRUE) # NO separator provided, error
+trends.txt <- read.table("/home/gao/projects/Utilities/R/2026_Tested_Versions/Ch01/01_07/trends.csv", header = TRUE, sep = ",")
 
 View(trends.txt)
 ?View
@@ -42,7 +42,8 @@ View(trends.txt)
 # CSV FILES
 # Don't have to specify delimiters for missing data
 # because CSV means "comma separated values"
-trends.csv <- read.csv("~/Desktop/R/GoogleTrends.csv", header = TRUE)
+# trends.csv <- read.csv("~/Desktop/R/GoogleTrends.csv", header = TRUE)
+trends.csv <- read.csv("/home/gao/projects/Utilities/R/2026_Tested_Versions/Ch01/01_07/GoogleTrends.csv", header = TRUE)
 str(trends.csv)
 View(trends.csv)
 

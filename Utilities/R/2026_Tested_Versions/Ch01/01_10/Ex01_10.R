@@ -8,7 +8,7 @@ barplot(x)
 
 # RColorBrewer
 browseURL("http://colorbrewer2.org/")  # Uses Flash
-install.packages("RColorBrewer")
+# install.packages("RColorBrewer")
 help(package = "RColorBrewer")
 require("RColorBrewer")
 
@@ -31,9 +31,9 @@ barplot(x, col = brewer.pal(6, "YlOrRd"))
 barplot(x, col = brewer.pal(6, "RdGy"))
 barplot(x, col = brewer.pal(6, "BrBG"))
 barplot(x, col = brewer.pal(6, "Dark2"))
-barplot(x, col = brewer.pal(6, "Paired"))
-barplot(x, col = brewer.pal(6, "Pastel2"))
-barplot(x, col = brewer.pal(6, "Set3"))
+barplot(x, col = brewer.pal(6, "Paired"))   # bold 
+barplot(x, col = brewer.pal(6, "Pastel2"))  # good 
+barplot(x, col = brewer.pal(6, "Set3"))     # good    
 
 # Clean up
 palette("default")  # Return to default
