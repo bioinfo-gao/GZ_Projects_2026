@@ -9,7 +9,7 @@ iris[1:5, ]
 
 # Static 3D scatterplot
 # Install and load the "scatterplot3d" package
-install.packages("scatterplot3d")
+#install.packages("scatterplot3d")
 require("scatterplot3d")
 
 # Basic static 3D scatterplot
@@ -26,15 +26,17 @@ s3d <-scatterplot3d(iris[1:3],
 plane <- lm(iris$Petal.Length ~ iris$Sepal.Length + iris$Sepal.Width) 
 s3d$plane3d(plane)
 
+# NOT working in Positron ZG 2026-04-15
 # Spinning 3D scatterplot
 # Install and load the "rgl" package ("3D visualization 
 # device system (OpenGL)")
 # NOTE: This will cause RStudio to crash when graphics 
 # window is closed. Instead, run this in the standard, 
 # console version of R.
-install.packages("rgl")
+#install.packages("rgl")
 require("rgl")
 require("RColorBrewer")
+
 plot3d(iris$Petal.Length,  # x variable
        iris$Petal.Width,   # y variable
        iris$Sepal.Length,  # z variable

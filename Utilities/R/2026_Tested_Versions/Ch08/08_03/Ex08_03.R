@@ -2,6 +2,8 @@
 # Ex08_03
 # Creating scatterplot matrices
 
+# 注意positron 对图片支持不完美，显示在屏幕上有问题
+# generate_plot26_exact.R 保存到文件则无问题
 # Load data
 ?iris
 data(iris)
