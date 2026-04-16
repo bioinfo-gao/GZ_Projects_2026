@@ -1,4 +1,4 @@
-[project]
+[workspace]
 name = "04_SC_Analysis"
 version = "0.1.0"
 description = "Single-cell RNA-seq analysis pipeline"
@@ -32,18 +32,18 @@ numba = ">=0.55"
 samtools = ">=1.15"
 bedtools = ">=2.30"
 
-[feature.rstudio.dependencies]
-rstudio = ">=2022.07"
+# [feature.rstudio.dependencies]
+# rstudio = ">=2022.07.0"
 
 [feature.production.dependencies]
 jupyterlab = ">=3.4"
 
 [environments]
 default = ["default"]
-rstudio = ["default", "rstudio"]
+# rstudio = ["default", "rstudio"]
 production = ["default", "production"]
 
-[scripts]
+[tasks]
 # Analysis scripts
 seurat-analysis = "Rscript scripts/seurat_analysis.R"
 scanpy-analysis = "python scripts/scanpy_analysis.py"
