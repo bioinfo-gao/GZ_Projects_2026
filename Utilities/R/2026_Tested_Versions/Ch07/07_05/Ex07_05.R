@@ -23,7 +23,7 @@ anova1
 summary(anova1)
 
 # Post-hoc comparisons
-TukeyHSD(anova1)
+TukeyHSD(anova1)  # see Ex09_02 Ex07_05 
 ?pairwise.t.test  # Other post-hoc tests
 ?p.adjust  # Specific methods
 

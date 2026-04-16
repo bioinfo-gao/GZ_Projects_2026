@@ -10,6 +10,7 @@ data(iris)
 iris[1:5, ]
 
 # Basic scatterplot matrix
+# 拉动 plot panel 即可正常显示图片 <<<< =========================================================
 ?pairs
 pairs(iris[1:4])
 
@@ -31,7 +32,7 @@ panel.hist <- function(x, ...)
   # Removed "col = "cyan" from code block; original below
   # rect(breaks[-nB], 0, breaks[-1], y, col = "cyan", ...) 
 }
-
+# 拉动 plot panel 即可正常显示图片 <<<< =========================================================
 pairs(iris[1:4], 
       panel = panel.smooth,  # Optional smoother
       main = "Scatterplot Matrix for Iris Data Using pairs Function",
@@ -41,7 +42,13 @@ pairs(iris[1:4],
 
 # Similar with "car" package
 # Gives kernal density and rugplot for each variable
-library(car)
+# (base) zhen@DESKTOP-C8OKE65:~/GZ_Projects_2026$ mamba activate seurat_env # ===========> R4.3.3
+# 以下行尾禁止升级R 且 自动安装 #同时降级了python 否则无法兼容
+# (seurat_env) zhen@DESKTOP-C8OKE65:~/GZ_Projects_2026$ mamba install -c conda-forge r-car r-base=4.3.3 python=3.12 -y
+
+# 很奇怪的是：经常图片无法显示完全，但是拉动一下plot panel 下的图片大小就可以正常显示
+library(car) 
+# 拉动 plot panel 即可正常显示图片 <<<< =========================================================
 scatterplotMatrix(~Petal.Length + Petal.Width + Sepal.Length + Sepal.Width | Species,
                   data = iris,
                   col = brewer.pal(3, "Dark2"),

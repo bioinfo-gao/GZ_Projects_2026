@@ -20,7 +20,8 @@ d <- dist(mtcars1)
 d  # Huge matrix
 
 # Use distance matrix for clustering
-c <- hclust(d)
+?hclust               # Hierarchical Clustering << ===========================
+c <- hclust(d)        # d: distance matrix from "dist" ABOVE << ===========================
 c
 
 # Plot dendrogram of clusters
@@ -40,7 +41,7 @@ gm <- cutree(c, k = 2:5) # or k = c(2, 4)
 gm
 
 # Draw boxes around clusters
-rect.hclust(c, k = 2, border = "gray")
+rect.hclust(c, k = 2, border = "gray")            # c is the dendrogram <<< ===================================
 rect.hclust(c, k = 3, border = "blue")
 rect.hclust(c, k = 4, border = "green4")
 rect.hclust(c, k = 5, border = "darkred")

@@ -22,6 +22,6 @@ model.tables(aov1, type = "means")
 model.tables(aov1, type = "effects")  # "effects" is default
 
 # Post-hoc test
-TukeyHSD(aov1)
+TukeyHSD(aov1) # see Ex09_02 Ex07_05 
 
 remove(list = ls())  # Clean up
