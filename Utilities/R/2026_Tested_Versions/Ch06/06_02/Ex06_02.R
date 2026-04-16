@@ -34,7 +34,6 @@ boxplot(painters$Expression ~ painters$School,
         boxwex = 0.5,  # Width of box
         whisklty = 1,  # Whisker line type; 1 = solid line
         staplelty = 1,  # Staple type; 0 = none # 1 = solid line at the top of the range line
-        #staplelty = 0,  # Staple type; 0 = none
         outpch = 16,  # Outlier symbol; 16 = filled circle
         outcol = brewer.pal(8, "Pastel2"),  # Outlier color
         main = "Expression Ratings of Painters by School\nFrom \"painters\" Dataset in \"MASS\" Package",

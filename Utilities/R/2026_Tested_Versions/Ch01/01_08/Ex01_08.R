@@ -37,7 +37,7 @@ admit1  # View , the very good big picture view <=== by ZG
 dim(admit1 )
 head(admit1 )
 
-admit2 <- lapply(admit1, function(x)rep(x, admit1$Freq))  # Repeats each row by Freq << ========= ZG
+admit2 <- lapply(admit1, function(x)rep(x, admit1$Freq))  # Repeats each row by Freq << ========= ZG， see # see Ex07_07 for more info
 # List !
 admit2 
 head(admit2) 

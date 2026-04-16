@@ -4,8 +4,8 @@
 
 # Load data
 # Create random data
-t1 <- rnorm(50, mean = 52, sd = 6)  # Time 1
-dif <- rnorm(50, mean = 6, sd = 12)  # Difference
+t1  <- rnorm(50, mean = 52, sd = 6 )  # Time 1
+dif <- rnorm(50, mean = 6,  sd = 12)  # Difference
 t2 <- t1 + dif  # Time 2
 
 # Some quick plots to check data

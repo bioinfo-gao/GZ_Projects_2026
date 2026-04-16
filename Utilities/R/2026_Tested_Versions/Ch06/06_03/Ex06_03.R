@@ -32,6 +32,7 @@ lines(lowess (cars$speed, cars$dist),
 # help(package = "car")
 require(car)
 # "scatterplot" has marginal boxplots, smoothers, and quantile regression intervals
+# 很奇怪，默认情况显示不全，把PLot 区域随便拉动一下即可正确显示  <<< ===============================
 scatterplot(cars$dist ~ cars$speed,
             pch = 16,
             col = "darkblue",

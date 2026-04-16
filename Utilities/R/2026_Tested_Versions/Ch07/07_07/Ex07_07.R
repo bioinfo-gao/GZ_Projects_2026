@@ -16,23 +16,23 @@ rep(1:4, 2)
 lapply(as.data.frame.table(Titanic), function(x)rep(x, as.data.frame.table(Titanic)$Freq))
 
 as.data.frame(lapply(as.data.frame.table(Titanic), function(x)rep(x, as.data.frame.table(Titanic)$Freq)))
-as.data.frame(lapply(as.data.frame.table(Titanic), function(x)rep(x, as.data.frame.table(Titanic)$Freq)))[, -5]
+as.data.frame(lapply(as.data.frame.table(Titanic), function(x)rep(x, as.data.frame.table(Titanic)$Freq)))[, -5] # see Ex01_08 for more info
 
 # Convert table to data frame with one row per observation
 tdf <- as.data.frame(lapply(as.data.frame.table(Titanic), function(x)rep(x, as.data.frame.table(Titanic)$Freq)))[, -5]
 tdf[1:5, ]  # Check first five rows of d
-tdf[]  # Check first five rows of 
+dim(tdf)  # Check first five rows of 
 
 
 
 # Create contingency table
-ttab <- table(tdf$Class, tdf$Survived)
+ttab <- table(tdf$Class, tdf$Survived) # class as row, survived as column
 ttab
 
-ttab1 <- table(tdf$Sex, tdf$Survived)
+ttab1 <- table(tdf$Sex, tdf$Survived) # sex as row, survived as column
 ttab1
 
-ttab2 <- table(tdf$Age, tdf$Survived)
+ttab2 <- table(tdf$Age, tdf$Survived) # age as row, survived as column
 ttab2
 
 

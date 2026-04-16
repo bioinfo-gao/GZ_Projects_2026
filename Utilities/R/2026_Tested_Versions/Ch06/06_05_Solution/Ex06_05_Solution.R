@@ -19,7 +19,7 @@ boxplot(gsd$nfl ~ gsd$region,
         col = brewer.pal(4, "Set2"),
         boxwex = 0.5,  # Width of box
         whisklty = 1,  # Whisker line type; 1 = solid line
-        staplelty = 0,  # Staple type; 0 = none
+        staplelty = 1,  # Staple type; 0 = none
         outpch = 16,  # Outlier symbol; 16 = filled circle
         outcol = brewer.pal(4, "Set2"),  # Outlier color
         main = "Google Search Interest in NFL by Region of US",

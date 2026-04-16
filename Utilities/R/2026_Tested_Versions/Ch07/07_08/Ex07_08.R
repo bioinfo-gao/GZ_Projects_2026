@@ -9,9 +9,9 @@ help(package = "MASS")  # See rlm ("robust linear model")
 help(package = "quantreg")  # Quantile regression
 
 # Example from "quantreg" package
-install.packages("quantreg")
+#install.packages("quantreg")
 require(quantreg)
-?rq  # Help on "quantile regression" in quantreg package
+?rq  # Help on "quantile regression" in quantreg package # Quantile Regression（分位数回归）<<< =============================================
 data(engel)
 ?engel
 attach(engel) # Engel food expenditure data used in Koenker and Bassett(1982).  engel {quantreg}
