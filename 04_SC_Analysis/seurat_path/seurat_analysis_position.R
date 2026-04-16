@@ -1,18 +1,22 @@
+# 2026-04-15-ZG
+# within system R /Work_bio/gao/miniforge3/bin/Rscript  /Work_bio/gao/miniforge3/bin/R
+# SeuratData package is not available on CRAN but needs to be installed from GitHub. 
 # install.packages("SeuratData")
 # # if (!require("BiocManager", quietly = TRUE))
 # #     install.packages("BiocManager")
 # BiocManager::install("SeuratData")
-# remotes::install_github("satijalab/seurat-data") # 直接从 GitHub 安装最新版本的 SeuratData 包, This works !!
-# 启动 R 后的操作
 
+remotes::install_github("satijalab/seurat-data") # 直接从 GitHub 安装最新版本的 SeuratData 包, This works !!
+# 启动 R 后的操作
+# InstallData("pbmc3k") #installed ONCE in 2026-04-15
 # R has been updated to 4.5.2, some library has to be reinstall
-options(
-  repos = c(
-    satijalab = "https://satijalab.r-universe.dev",
-    CRAN = "https://cloud.r-project.org"
-  )
-)
-remotes::install_github("satijalab/seurat-data", quiet = TRUE)
+# options(
+#   repos = c(
+#     satijalab = "https://satijalab.r-universe.dev",
+#     CRAN = "https://cloud.r-project.org"
+#   )
+# )
+# remotes::install_github("satijalab/seurat-data", quiet = TRUE)
 
 library(Seurat)
 library(dplyr)
@@ -64,8 +68,9 @@ pbmc <- CreateSeuratObject(
   min.features = 200
 )
 
-# 2. 质控 (QC) - 对应 sc.pp.calculate_qc_metrics
+# 2. 质控 (QC) - 对应 sc.pp.calculate_qc_metrics  << ======== sc: scanpy
 pbmc[["percent.mt"]] <- PercentageFeatureSet(pbmc, pattern = "^MT-")
+pbmc
 
 # 3. 过滤 - 对应 adata = adata[... , :]
 pbmc <- subset(
@@ -82,6 +87,15 @@ pbmc <- NormalizeData(
 
 # 5. 寻找高变基因 - 对应 sc.pp.highly_variable_genes
 pbmc <- FindVariableFeatures(pbmc, selection.method = "vst", nfeatures = 2000)
+
+pbmc
+
+
+# 6. 标准化（缩放）- 对应 sc.pp.scale
+pbmc <- ScaleData(pbmc, features = rownames(pbmc))
+
+# 7. 降维 (PCA) - 对应 sc.tl.pca
+pbmc <- RunPCA(pbmc, features = VariableFeatures(object = pbmc))
 # PC_ 1
 # Positive:  CST3, TYROBP, LST1, AIF1, FTL, FTH1, LYZ, FCN1, S100A9, TYMP
 #            FCER1G, CFD, LGALS1, S100A8, CTSS, LGALS2, SERPINA1, IFITM3, SPI1, CFP
@@ -118,43 +132,21 @@ pbmc <- FindVariableFeatures(pbmc, selection.method = "vst", nfeatures = 2000)
 #            LILRB2, PTGES3, MAL, CD27, HN1, CD2, GDI2, CORO1B, ANXA5, TUBA1B
 #            FAM110A, ATP1A1, TRADD, PPA1, CCDC109B, ABRACL, CTD-2006K23.1, WARS, VMO1, FYB
 
-pbmc
-
-
-# 6. 标准化（缩放）- 对应 sc.pp.scale
-pbmc <- ScaleData(pbmc, features = rownames(pbmc))
-
-# 7. 降维 (PCA) - 对应 sc.tl.pca
-pbmc <- RunPCA(pbmc, features = VariableFeatures(object = pbmc))
-
 Reductions(pbmc)
 
 # 8. 聚类 (Leiden/Louvain) - 对应 sc.tl.leiden
 pbmc <- FindNeighbors(pbmc, dims = 1:10)
 pbmc <- FindClusters(pbmc, resolution = 0.5)
 
-# # 9. UMAP 可视化 - 对应 sc.tl.umap 和 sc.pl.umap
-# pbmc <- RunUMAP(pbmc, dims = 1:10)
-# DimPlot(pbmc, reduction = "umap", label = TRUE)
-# FeaturePlot(pbmc, features = c("CST3", "NKG7"))
-
-# 只有运行了这些步骤，才能画 UMAP
-pbmc <- NormalizeData(pbmc)
-pbmc <- FindVariableFeatures(pbmc)
-pbmc <- ScaleData(pbmc)
-pbmc <- RunPCA(pbmc)
-# PC_ 1
-# Positive:  CST3, TYROBP, LST1, AIF1, FTL, FTH1, LYZ, FCN1, S100A9, TYMP
-# FCER1G, CFD, LGALS1, S100A8, CTSS, LGALS2, SERPINA1, IFITM3, SPI1, CFP
-# PSAP, IFI30, SAT1, COTL1, S100A11, NPC2, GRN, LGALS3, GSTP1, PYCARD
-# Negative:  MALAT1, LTB, IL32, IL7R, CD2, B2M, ACAP1, CD27, STK17A, CTSW
-# CD247, GIMAP5, AQP3, CCL5, SELL, TRAF3IP3, GZMA, MAL, CST7, ITM2A
-# MYC, GIMAP7, HOPX, BEX2, LDLRAP1, GZMK, ETS1, ZAP70, TNFAIP8, RIC3
+# 9. UMAP 可视化 - 对应 sc.tl.umap 和 sc.pl.umap
 pbmc <- RunUMAP(pbmc, dims = 1:10) # 假设用前10个主成分
 
 # 现在再尝试绘图
-#DimPlot(pbmc, reduction = "umap")
+DimPlot(pbmc, reduction = "umap", label = TRUE)
+FeaturePlot(pbmc, features = c("CST3", "NKG7"))
 
+
+# 10. 保存结果
 library(ggplot2)
 
 # 1. 检查是否存在 UMAP 坐标
@@ -181,9 +173,6 @@ if ("umap" %in% names(pbmc@reductions)) {
   stop("错误：对象中不存在 umap 降维结果，请先运行 RunUMAP(pbmc, dims = 1:10)")
 }
 
-# 10. 保存结果
-library(ggplot2)
-
 
 # 提取 UMAP 坐标和聚类标签
 plot_data <- Embeddings(pbmc, reduction = "umap") %>%
@@ -201,8 +190,11 @@ p_manual <- ggplot(plot_data, aes(x = umap_1, y = umap_2, color = Cluster)) +
     y = "UMAP 2"
   )
 
+getwd()
+setwd("/home/gao/projects/04_SC_Analysis/seurat_path")
 # 在服务器上保存图片
 ggsave("pbmc_umap_fixed.png", plot = p_manual, width = 8, height = 6)
+
 
 library(Seurat)
 library(ggplot2)
