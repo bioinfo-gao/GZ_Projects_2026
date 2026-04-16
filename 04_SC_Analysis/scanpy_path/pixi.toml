@@ -1,0 +1,51 @@
+[project]
+name = "04_SC_Analysis"
+version = "0.1.0"
+description = "Single-cell RNA-seq analysis pipeline"
+authors = ["Zorin Gao <bioinfo.gaoi@gmail.com.com>"]
+channels = ["conda-forge", "bioconda"]
+platforms = ["linux-64"]
+
+[dependencies]
+# Core dependencies
+python = ">=3.9,<3.12"
+r-base = ">=4.2,<4.4"
+
+# R packages for Seurat analysis
+r-seurat = ">=4.0"
+r-dplyr = ">=1.0"
+r-ggplot2 = ">=3.3"
+r-tidyr = ">=1.1"
+r-matrix = ">=1.3"
+
+# Python packages for Scanpy analysis
+scanpy = ">=1.9"
+anndata = ">=0.8"
+pandas = ">=1.3"
+numpy = ">=1.20"
+scikit-learn = ">=1.0"
+matplotlib = ">=3.5"
+seaborn = ">=0.11"
+numba = ">=0.55"
+
+# Bioinformatics tools
+samtools = ">=1.15"
+bedtools = ">=2.30"
+
+[feature.rstudio.dependencies]
+rstudio = ">=2022.07"
+
+[feature.production.dependencies]
+jupyterlab = ">=3.4"
+
+[environments]
+default = ["default"]
+rstudio = ["default", "rstudio"]
+production = ["default", "production"]
+
+[scripts]
+# Analysis scripts
+seurat-analysis = "Rscript scripts/seurat_analysis.R"
+scanpy-analysis = "python scripts/scanpy_analysis.py"
+# Quality control
+qc-report = "multiqc ."
