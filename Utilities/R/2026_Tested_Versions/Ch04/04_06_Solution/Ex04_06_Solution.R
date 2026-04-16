@@ -23,6 +23,7 @@ hist(x)
 # 如果数据在0-10区间
 # 比如 9 的平方是 81， 
 # 则降低 [9, 10] 区间的密度 , 增加了[80， 90] 区间的密度  把强烈右偏的数据变换为近似正态分布
+
 # 如何还要保持数据区间不变， 则平方之后再除以10
 
 # 比如 9 的平方是 3， 再乘以10
@@ -41,8 +42,8 @@ boxplot(x2)
 # The choice between x^2 and x^4 depends on the degree of skewness: mild skew → square, severe skew → higher power
 # by ZG2026
 x4 <- x^4
-hist(x4)
-boxplot(x4)
+hist(x4)   # 现在偏态大体上被纠正，但范围从0-10区间 变成了 0-10000 区间 
+boxplot(x4) 
 
 # ... existing code ...
 

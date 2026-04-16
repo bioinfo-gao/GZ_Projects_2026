@@ -57,7 +57,7 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#多重共线性诊断" id="toc-多重共线性诊断" class="nav-link" data-scroll-target="#多重共线性诊断">多重共线性诊断</a></li>
   <li><a href="#重要特征总结" id="toc-重要特征总结" class="nav-link" data-scroll-target="#重要特征总结">重要特征总结</a></li>
   </ul>
-<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="../../../../../../../Longley_Dataset_Analysis.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
+<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="../../../../../../Longley_Dataset_Analysis.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
 </div>
 <main class="content" id="quarto-document-content">
 
@@ -329,6 +329,12 @@ ul.task-list li input[type="checkbox"] {
 <li>经典回归模型：<code>lm(Employed ~ .)</code> 用于预测就业人数</li>
 </ul>
 <p>这个数据集在统计学教学中非常重要，用来说明当自变量之间高度相关时，回归系数的估计会变得不稳定。</p>
+<!-- 这就是问题所在：Quarto 在渲染时在真实路径 /Work_bio/gao/projects/... 下创建了临时文件，但尝试清理时却使用了符号链接路径 /home/gao/projects/...，导致权限检查失败。
+
+解决方案
+方案 1：使用真实路径渲染（推荐）
+直接使用真实路径来渲染文档： -->
+<p>quarto preview /Work_bio/gao/projects/Utilities/R/2026_Tested_Versions/Ch05/05_03/Longley_Dataset_Analysis_Simplified.qmd –no-browser –no-watch-inputs</p>
 </section>
 
 </main>

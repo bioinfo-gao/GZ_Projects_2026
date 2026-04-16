@@ -16,7 +16,6 @@ OS
 # Outlier has proportion < .10
 # Either combine into "other" (if homogeneous) or delete
 # ... existing code ...
-# # ... existing code ...
 # OS.hi <- subset(OS, Proportion > 0.1)
 # OS.hi
 
@@ -28,7 +27,9 @@ OS.hi
 # See outliers in boxplots
 require("datasets")
 ?rivers
+
 data(rivers)  # Lengths of Major North American Rivers
+head(rivers)  # 
 hist(rivers)
 boxplot(rivers, horizontal = TRUE)
 boxplot.stats(rivers)

@@ -132,7 +132,7 @@ model <- lm(Employed ~ ., data = longley)
 X <- model.matrix(model)
 condition_number <- kappa(X)
 
-# Calculate VIF (Variance Inflation Factor)
+# Calculate VIF (Variance Inflation Factor) <<< ==================================== 
 library(car)
 vif_values <- vif(model)
 

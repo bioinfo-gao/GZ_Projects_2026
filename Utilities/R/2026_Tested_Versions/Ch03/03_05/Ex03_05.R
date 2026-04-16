@@ -8,18 +8,20 @@ str(HairEyeColor)
 HairEyeColor
 
 # Get marginal frequencies for eye color
-margin.table(HairEyeColor, 2)
+margin.table(HairEyeColor, 1) # 1 row
+margin.table(HairEyeColor, 2) # 2 columns
+margin.table(HairEyeColor, 3) # 3 layers (or  slice)
 
 # Save eye color to data frame
 eyes <- margin.table(HairEyeColor, 2)
 eyes
-round(prop.table(eyes), 2)  # Show as proportions w/2 digits
+round(prop.table(eyes), 2) # Show as proportions w/2 digits
 
 # Use Pearson's chi-squared test
 # Need one-dimensional goodness-of-fit test
 # Default test (assume equal distribution)
-chi1 <- chisq.test(eyes)  # Save tests as object "chi1"
-chi1  # Check results
+chi1 <- chisq.test(eyes) # Save tests as object "chi1"
+chi1 # Check results
 
 # Compare to population distribution
 # Population data from: NO more in 2026
@@ -33,4 +35,4 @@ chi1  # Check results
 chi2 <- chisq.test(eyes, p = c(.41, .32, .15, .12))
 chi2
 
-rm(list = ls())  # Clean up
+rm(list = ls()) # Clean up

@@ -41,8 +41,10 @@ boxplot(islands.ln)
 islands.rank1 <- rank(islands)
 hist(islands.rank1)
 boxplot(islands.rank1)
-# ties.method = c("average", "first", "random", "max", "min")
-islands.rank2 <- rank(islands, ties.method = "random")
+
+
+islands.rank2 <- rank(islands, ties.method = "random") # ties.method = c("average", "first", "random", "max", "min")
+
 hist(islands.rank2)
 boxplot(islands.rank2)
 

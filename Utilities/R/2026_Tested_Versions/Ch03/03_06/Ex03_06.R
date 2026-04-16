@@ -18,6 +18,7 @@ boxplot(area)
 boxplot.stats(area) # conf	the lower and upper extremes of the ‘notch’ 
 ?boxplot.stats
 
+fivenum(area)
 summary(area)
 
 ## from ?boxplot.stats
@@ -35,6 +36,10 @@ boxplot.stats(x)
 (b1 <- boxplot.stats(x))
 (b2 <- boxplot.stats(x, do.conf = FALSE, do.out = FALSE))
 
+?stopifnot
+# If any of the expressions (in ... or exprs) are not all TRUE, stop is called, 
+# producing an error message indicating the first expression which was not (all) true. << ============= Error messege
+
 stopifnot(b1 $ stats == b2 $ stats) # do.out = FALSE is still robust
 boxplot.stats(x, coef = 3, do.conf = FALSE)
 
@@ -43,8 +48,18 @@ boxplot.stats(x, coef = 3, do.conf = FALSE)
 stopifnot(b3$stats == fivenum(x))
 
 ## missing values are ignored
-stopifnot(identical(boxplot.stats(c(x, NA)), b1))
+x
+b1 # b1 是x 的 boxplot.stats
+c(x, NA) # 这是在c 后面添加了一个NA， 
+boxplot.stats( c(x, NA) ) 
+# 这是在x 后面添加了一个NA， 
+# 再做boxplot.stats
+
+
+stopifnot(identical( boxplot.stats( c(x, NA) ),  b1)) #
 ## ... infinite values are not:
+
+# 这是在x 后面添加了一个 正无穷，一个负无穷， 
 (r <- boxplot.stats(c(x, -1:1/0)))
 stopifnot(r$out == c(1000, -Inf, Inf))
 
