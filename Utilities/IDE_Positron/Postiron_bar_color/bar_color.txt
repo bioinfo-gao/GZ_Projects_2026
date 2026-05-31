@@ -59,3 +59,45 @@ workbench.colorCustomizations - 直接设置各种界面元素的淡蓝色背景
 如果您之前在VS Code中使用过Peacock，这些设置应该能提供类似的体验。
 淡蓝色的十六进制代码是 #add8e6，这是一个比较柔和的蓝色调。
 重启Positron后，您应该就能看到淡蓝色的边框效果了！
+
+=== Peacock 配置诊断脚本 ===
+
+1. 检查Peacock扩展安装状态:
+   ✓ Peacock扩展已安装
+
+2. 检查用户设置文件:
+   ✓ 用户设置文件存在
+   内容预览:
+    ],
+    "peacock.remoteColor": "lightblue",
+    "workbench.colorCustomizations": {
+        "titleBar.activeBackground": "#add8e6",
+        "titleBar.inactiveBackground": "#add8e699",
+        "activityBar.background": "#add8e6",
+        "statusBar.background": "#add8e6",
+
+3. 检查工作区设置:
+   工作区目录存在，检查是否有工作区特定设置:
+
+4. 检查Positron进程状态:
+   ✓ Positron服务器正在运行 (PID: 18114)
+
+5. 关键问题诊断:
+   您需要确保以下几点才能看到淡蓝色边框:
+   a) 在Windows中使用Positron打开WSL远程连接
+   b) 不是直接在WSL中打开本地文件夹
+   c) Peacock扩展必须在远程WSL环境中启用
+
+   正确的操作步骤:
+   1. 在Windows中打开Positron
+   2. 按 Ctrl+Shift+P 打开命令面板
+   3. 输入 'Remote-WSL: Open Folder in WSL'
+   4. 选择您的工作区文件夹
+   5. 确保状态栏左下角显示 'WSL: Ubuntu'
+
+6. 手动应用Peacock颜色的方法:
+   在Positron中按 Ctrl+Shift+P
+   输入 'Peacock: Enter a Color'
+   输入 'lightblue' 或 '#add8e6' <==================================================
+
+=== 诊断完成 ===
