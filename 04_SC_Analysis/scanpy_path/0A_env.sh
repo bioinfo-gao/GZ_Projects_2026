@@ -8,7 +8,8 @@ mamba create -n scanpy_ana -c conda-forge -c bioconda \
     matplotlib seaborn numba jupyterlab omicverse -y
 
 # 3. 激活环境并安装 ipykernel
-conda activate scanpy_ana
+#conda activate scanpy_ana
+mamba activate scanpy_ana 
 pip install ipykernel
 
 # 4. 注册 Jupyter kernel
