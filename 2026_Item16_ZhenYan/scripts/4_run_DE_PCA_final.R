@@ -231,7 +231,10 @@ p_pca <- ggplot(pca_data, aes(PC1, PC2, color = Group, label = name)) +
 ggsave(file.path(OUT_DIR, "PCA.pdf"), p_pca, width = 8, height = 6, dpi = 300)
 cat("✅ PCA plot saved (optimized display)\n")
 
-# ================= 7. 差异表达分析 (2 组对比) =================
+
+
+
+# ================= 7. 差异表达分析 (2 组对比) =================1
 # ✅ 对比组定义：c("分组列名", "处理组/分子", "对照组/分母")
 # log2FC = log2(处理组均值 / 对照组均值)
 # 正数 = 在处理组(第一个)中上调；负数 = 在对照组(第二个)中上调
@@ -240,9 +243,7 @@ contrasts <- list(                                                              
   c("Group", "MQ-07-99", "DMSO"),               # ✅ Test_1 vs Control → log2FC>0 = Test_1 上调
   c("Group", "VK-8-101", "DMSO"),               # ✅ Test_2 vs Control → log2FC>0 = Test_2 上调
   c("Group", "MQ-07-81", "DMSO"),               # ✅ Test_2 vs Control → log2FC>0 = Test_2 上调
-  c("Group", "VK-8-101", "MQ-07-99"),               # ✅ Test_2 vs Control → log2FC>0 = Test_2 上调
-  c("Group", "MQ-07-81", "MQ-07-99"),               # ✅ Test_2 vs Control → log2FC>0 = Test_2 上调
-  c("Group", "MQ-07-81", "VK-8-101")               # ✅ Test_2 vs Control → log2FC>0 = Test_2 上调
+
 )
 
 
