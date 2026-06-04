@@ -184,8 +184,16 @@ counts_mat <- counts_mat[, meta$sample_id]
 head(counts_mat)
 
 counts_mat <- round(counts_mat)                                   # to integer
-keep <- rowSums(counts_mat >= 10) >= 4                            # 删除极低表达基因，至少在四个样本中至少有 10 个 reads才保留
+#keep <- rowSums(counts_mat >= 10) >= 4                            # 删除极低表达基因，至少在12/2 = 6个样本中至少有 10 个 reads才保留
+keep <- rowSums(counts_mat >= 10) >= 6                            # 删除极低表达基因，至少在12/2 = 6个样本中至少有 10 个 reads才保留
 counts_mat <- counts_mat[keep, ]
+
+
+# gene_id	gene_name	ME13-1	ME13-2	ME13-3	ME13-4	CTRL-1	CTRL-2	CTRL-3	CTRL-4	baseMean	log2FoldChange	lfcSE	pvalue	padj	sig (padj<0.05 & |log2FC|>=0.585)
+# ENSG00000278233.1	RNA5-8SN2	77.0	171.0	14.0	15.0	0.0	143.0	0.0	0.0	21.963509482370625	0.00668096140267046	0.35611598718401	0.851120448689936	0.9072712331508488	NS
+# 本实验出现一个意外结果，有一个基因在7个样本中均没有 reads，5个样本数中还不少。 导致 log2FC 很成问题计算，因此把该基因删除
+# 我的整体思想是最少一半的样本表达， 所以伤寒改成6 
+
 
 head(counts_mat)
 cat("✅ 表达矩阵加载完成，过滤后保留基因数:", nrow(counts_mat), "\n")
