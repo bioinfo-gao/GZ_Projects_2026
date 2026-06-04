@@ -1,16 +1,16 @@
 # 运行方法
-# cd /home/gao/projects/2026_Item7_LJZ/scripts
+# cd /home/gao/projects_2026H1/2026_Item7_LJZ/scripts
 # python 1_produce_nf-core_Samplesheet.py
-
+# mamba activate regular_bioinfo
 import pandas as pd
 import glob
 import os
 
 # 配置路径
-fastq_base_dir = "/home/gao/Dropbox/P2026_04_20/Guangcan/"
+fastq_base_dir = "/home/gao/Dropbox/0602/01.RawData/"
 
-original_csv = "/home/gao/projects/2026_Item9_gc/scripts/gc.csv"
-output_samplesheet = "/home/gao/projects/2026_Item9_gc/scripts/nf_core_samplesheet.csv"
+original_csv = "/home/gao/projects_2026H1/2026_Item16_ZhenYan/scripts/zy.csv"
+output_samplesheet = "/home/gao/projects_2026H1/2026_Item16_ZhenYan/scripts/nf_core_samplesheet.csv"
 
 # 读取原始表格
 df = pd.read_csv(original_csv)
