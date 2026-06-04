@@ -138,9 +138,6 @@ if (!is.null(QC_SRC)) {
   cat("⚠️  警告: 未找到常见的 QC 文件夹路径，跳过拷贝\n")
 }
 
-
-
-
 # ================= 3. 读取并清洗元数据 =================
 # ZG 需要按照真实组名修改 <<====================   # mutate(Group = factor(Group, levels = c("Control", "Test_1", "Test_2"))) ！！！
 meta_raw <- read_csv(META_FILE)
@@ -153,17 +150,18 @@ meta_raw
 #   rename(sample_id = `Name in File`) %>%
 #   filter(!is.na(Group)) 
 meta <- meta_raw %>%
-  select(Group, `Name in File`) %>%
-  rename(sample_id = `Name in File`) %>%
-  filter(!is.na(Group)) %>%
-  mutate(Group = factor(Group, levels = c("CTRL", "SMA4", "SMC2" , "ME13"))) # 
-meta
+  select(Group, `Name in File`) %>%       # 选择两列 “Group` 和 “Name in File”
+  rename(sample_id = `Name in File`) %>%  # 重命名“Name in File”列名为 sample_id
+  filter(!is.na(Group))           %>%       # 删除 Group 为 NA 的行
+  mutate(Group = factor(Group, levels = c("CTRL", "SMA4", "SMC2" , "ME13"))) # Group = factor(...): 将 Group 列转换为因子（factor）类型，并指定因子的水平（levels）顺序。 
 
-meta <- meta_raw %>%
-  select(Group, `Name in File`) %>%
-  rename(sample_id = `Name in File`) %>%
-  filter(!is.na(Group)) %>%
-  mutate(Group = factor(Group, levels = c("CTRL", "MQ-07-99", "VK-8-101" , "MQ-07-81"))) # ZG 本行需要按照真实组名修改 <<====================   # mutate(Group = factor(Group, levels = c("Control", "Test_1", "Test_2")))
+# levels = c("CTRL", "SMA4", "SMC2" , "ME13"): 明确定义因子的水平顺序为："CTRL" (对照组) "SMA4" "SMC2" "ME13"
+# 为什么要这样做？
+# 在 R 中，因子的水平顺序非常重要，特别是在进行统计分析时：
+# DESeq2 差异表达分析会将第一个水平（"CTRL"）作为参照组（baseline/reference）
+# 其他组会与参照组进行比较
+# 因子水平的顺序会影响结果的解释和可视化（如 PCA 图中组别的颜色顺序）
+# 通过显式设置 levels，可以确保分析的一致性和可重复性，避免 R 自动按字母顺序排列因子水平（那样可能会把 "CTRL" 排在后面）。
 
 meta
 
@@ -184,8 +182,10 @@ counts_mat <- as.matrix(counts_raw[, valid_samples])
 rownames(counts_mat) <- counts_raw$gene_id
 counts_mat <- counts_mat[, meta$sample_id]
 
+head(counts_mat)
+
 counts_mat <- round(counts_mat)                                   # to integer
-keep <- rowSums(counts_mat >= 10) >= 4
+keep <- rowSums(counts_mat >= 10) >= 4                            # 删除极低表达基因，至少在四个样本中至少有 10 个 reads才保留
   
 counts_mat <- counts_mat[keep, ]
 
