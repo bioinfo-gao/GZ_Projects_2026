@@ -2,7 +2,7 @@
 # env in bash 各种包装在了 DE_R45 环境 , Regular_bioinfo lacks ggrepel and ashr
 # mamba activate DE_R45                 # # mamba activate regular_bioinfo
 
-setwd("/home/gao/projects/2026_Item9_gc/scripts/")
+setwd("/home/gao/projects_2026H1/2026_Item16_ZhenYan/scripts/")
 getwd()
 # 跑完的输出文件：
 # DEG_Test_1vsControl.csv
@@ -32,7 +32,7 @@ library(tidyr)
 library(ggrepel)
 
 # ================= 1. 路径设置 =================
-META_FILE <- "gc.csv"                                                                                  #META_FILE   <- "Analysis_LZJ.csv"
+META_FILE <- "zy.csv"                                                                                  #META_FILE   <- "Analysis_LZJ.csv"
 COUNT_FILE <- "../output_results/star_salmon/salmon.merged.gene_counts.tsv"
 TPM_FILE <- "../output_results/star_salmon/salmon.merged.gene_tpm.tsv"
 OUT_DIR <- "../Data_Analysis/DE_PCA_Results"
@@ -80,7 +80,7 @@ for (file_info in files_to_copy) {
 # Define path for Gene Annotation file
 # [MODIFIED] Added logic to copy gene annotation file
 
-GENE_ANNOTATION_SRC <- "/home/gao/projects/Genes/human_Gene_annotation_20260202.xlsx"
+GENE_ANNOTATION_SRC <- "/home/gao/projects_2026H1/Genes/human_Gene_annotation_20260202.xlsx"
 GENE_ANNOTATION_DEST <- file.path(
   OUT_DIR,
   "human_Gene_annotation_20260202.xlsx"
@@ -115,7 +115,7 @@ QC_SRC
 if (!is.null(QC_SRC)) {
   # Define the specific destination path for QC files
   # [MODIFIED] Hardcoded destination path for QC folder
-  QC_DEST_DIR <- "/home/gao/projects/2026_Item9_gc/Data_Analysis/QC"
+  QC_DEST_DIR <- "/home/gao/projects_2026H1/2026_Item16_ZhenYan/Data_Analysis/QC"
 
   # Create the destination directory if it doesn't exist
   dir.create(QC_DEST_DIR, showWarnings = FALSE, recursive = TRUE)
@@ -142,6 +142,7 @@ if (!is.null(QC_SRC)) {
 
 
 # ================= 3. 读取并清洗元数据 =================
+# ZG 需要按照真实组名修改 <<====================   # mutate(Group = factor(Group, levels = c("Control", "Test_1", "Test_2"))) ！！！
 meta_raw <- read_csv(META_FILE)
 meta_raw
 # meta <- meta_raw %>%
@@ -155,7 +156,14 @@ meta <- meta_raw %>%
   select(Group, `Name in File`) %>%
   rename(sample_id = `Name in File`) %>%
   filter(!is.na(Group)) %>%
-  mutate(Group = factor(Group, levels = c("DMSO", "MQ-07-99", "VK-8-101" , "MQ-07-81"))) # ZG 本行需要按照真实组名修改 <<====================   # mutate(Group = factor(Group, levels = c("Control", "Test_1", "Test_2")))
+  mutate(Group = factor(Group, levels = c("CTRL", "SMA4", "SMC2" , "ME13"))) # 
+meta
+
+meta <- meta_raw %>%
+  select(Group, `Name in File`) %>%
+  rename(sample_id = `Name in File`) %>%
+  filter(!is.na(Group)) %>%
+  mutate(Group = factor(Group, levels = c("CTRL", "MQ-07-99", "VK-8-101" , "MQ-07-81"))) # ZG 本行需要按照真实组名修改 <<====================   # mutate(Group = factor(Group, levels = c("Control", "Test_1", "Test_2")))
 
 meta
 
@@ -462,7 +470,7 @@ report_content <- c(
   "# Bioinformatics Analysis Report",
   "",
   paste("Date:", Sys.Date()),
-  paste("Project:", "2026_Item9_gc"),
+  paste("Project:", "2026_Item16_ZhenYan"),
   "",
   "## 1. Overview",
   "This report summarizes the differential expression analysis and quality control metrics for the RNA-seq dataset.",
