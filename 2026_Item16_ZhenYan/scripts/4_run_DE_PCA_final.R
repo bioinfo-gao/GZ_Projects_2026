@@ -181,18 +181,14 @@ meta <- meta[meta$sample_id %in% valid_samples, ]
 counts_mat <- as.matrix(counts_raw[, valid_samples])
 rownames(counts_mat) <- counts_raw$gene_id
 counts_mat <- counts_mat[, meta$sample_id]
-
 head(counts_mat)
 
 counts_mat <- round(counts_mat)                                   # to integer
 keep <- rowSums(counts_mat >= 10) >= 4                            # 删除极低表达基因，至少在四个样本中至少有 10 个 reads才保留
-  
 counts_mat <- counts_mat[keep, ]
 
 head(counts_mat)
-
 cat("✅ 表达矩阵加载完成，过滤后保留基因数:", nrow(counts_mat), "\n")
-
 
 
 # ================= 5. DESeq2 建模 =================
@@ -232,23 +228,22 @@ ggsave(file.path(OUT_DIR, "PCA.pdf"), p_pca, width = 8, height = 6, dpi = 300)
 cat("✅ PCA plot saved (optimized display)\n")
 
 
-
-
 # ================= 7. 差异表达分析 (2 组对比) =================1
 # ✅ 对比组定义：c("分组列名", "处理组/分子", "对照组/分母")
 # log2FC = log2(处理组均值 / 对照组均值)
 # 正数 = 在处理组(第一个)中上调；负数 = 在对照组(第二个)中上调
 
+# c("CTRL", "SMA4", "SMC2" , "ME13")
 contrasts <- list(                                                                                  #c("DMSO", "MQ-07-99", "VK-8-101" , "MQ-07-81")
-  c("Group", "MQ-07-99", "DMSO"),               # ✅ Test_1 vs Control → log2FC>0 = Test_1 上调
-  c("Group", "VK-8-101", "DMSO"),               # ✅ Test_2 vs Control → log2FC>0 = Test_2 上调
-  c("Group", "MQ-07-81", "DMSO"),               # ✅ Test_2 vs Control → log2FC>0 = Test_2 上调
+  c("Group", "SMA4", "CTRL"),               # ✅ Test_1 vs Control → log2FC>0 = Test_1 上调
+  c("Group", "SMC2", "CTRL"),               # ✅ Test_2 vs Control → log2FC>0 = Test_2 上调
+  c("Group", "ME13", "CTRL")               # ✅ Test_2 vs Control → log2FC>0 = Test_2 上调
 
 )
 
-
 res_list <- list()
-sig_col_name <- "sig (padj<0.05 & |log2FC|>=1)"
+#sig_col_name <- "sig (padj<0.05 & |log2FC|>=1)" # log2(1.5) =0.585
+sig_col_name <- "sig (padj<0.05 & |log2FC|>=0.585)" # log2(1.5) =0.585
 
 for (comp in contrasts) {
   grp_treatment <- comp[2] # 处理组（分子）
