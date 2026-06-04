@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # 1. 进入您的脚本工作目录
-cd /home/gao/projects_2026H1/2026_Item9_gc/scripts
+cd /home/gao/projects_2026H1/2026_Item16_ZhenYan/scripts
 
 # 2. 清理可能存在的旧会话并创建新的 rnaseq 会话
 tmux kill-session -t rnaseq 2>/dev/null || true
@@ -26,7 +26,7 @@ tmux new -s rnaseq                    # 创建名为 'rnaseq' 的新会话并立
 # 限制 Nextflow 自身的内存开销，确保它不被 Killed
 export NXF_OPTS="-Xms512m -Xmx2g"
 
-# WARN: Singularity cache directory has not been defined -- Remote image will be stored in the path: /Work_bio/gao/projects_2026H1/2026_Item9_gc/scripts/work/singularity
+# WARN: Singularity cache directory has not been defined -- Remote image will be stored in the path: /Work_bio/gao/projects_2026H1/2026_Item16_ZhenYan/scripts/work/singularity
 # -- Use the environment variable NXF_SINGULARITY_CACHEDIR to specify a different location
 
 # 这样做的好处：
@@ -44,7 +44,7 @@ export NXF_SINGULARITY_CACHEDIR="/home/gao/.singularity/nf-core"
 # 在新的 tmux 会话中运行 Nextflow
 #  删除 --remove_ribo_rna 因为是polyA 测序，所以不需要这行
 
-# WARN: Singularity cache directory has not been defined -- Remote image will be stored in the path: /Work_bio/gao/projects_2026H1/2026_Item9_gc/scripts/work/singularity -- Use the environment variable NXF_SINGULARITY_CACHEDIR to specify a different location
+# WARN: Singularity cache directory has not been defined -- Remote image will be stored in the path: /Work_bio/gao/projects_2026H1/2026_Item16_ZhenYan/scripts/work/singularity -- Use the environment variable NXF_SINGULARITY_CACHEDIR to specify a different location
 nextflow run nf-core/rnaseq \
     -r 3.15.1 \
     -profile singularity \
@@ -57,9 +57,10 @@ nextflow run nf-core/rnaseq \
     --gencode \
     --aligner star_salmon \
     --max_cpus 28 \
-    --max_memory '90.GB' \
-    -resume
-
+    --max_memory '108.GB' 
+    # \
+    # -resume
+# 首次运行，不resume，避免引入无关历史记录
 echo "Nextflow 已在 tmux 会话 'rnaseq' 中启动"
 echo "使用 'tmux a' 连接查看输出"
 
