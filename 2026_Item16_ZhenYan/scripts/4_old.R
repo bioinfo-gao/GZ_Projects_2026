@@ -32,7 +32,7 @@ library(tidyr)
 library(ggrepel)
 
 # ================= 1. 路径设置 =================
-META_FILE <- "zy.csv"                                                                                  #META_FILE   <- "Analysis_LZJ.csv"
+META_FILE <- "zy.csv" #META_FILE   <- "Analysis_LZJ.csv"
 COUNT_FILE <- "../output_results/star_salmon/salmon.merged.gene_counts.tsv"
 TPM_FILE <- "../output_results/star_salmon/salmon.merged.gene_tpm.tsv"
 OUT_DIR <- "../Data_Analysis/DE_PCA_Results"
@@ -143,17 +143,17 @@ if (!is.null(QC_SRC)) {
 meta_raw <- read_csv(META_FILE)
 meta_raw
 # meta <- meta_raw %>%
-#   select(Group, `Name in File`) 
+#   select(Group, `Name in File`)
 
 # meta <- meta_raw %>%
 #   select(Group, `Name in File`) %>%
 #   rename(sample_id = `Name in File`) %>%
-#   filter(!is.na(Group)) 
+#   filter(!is.na(Group))
 meta <- meta_raw %>%
-  select(Group, `Name in File`) %>%       # 选择两列 “Group` 和 “Name in File”
-  rename(sample_id = `Name in File`) %>%  # 重命名“Name in File”列名为 sample_id
-  filter(!is.na(Group))           %>%       # 删除 Group 为 NA 的行
-  mutate(Group = factor(Group, levels = c("CTRL", "SMA4", "SMC2" , "ME13"))) # Group = factor(...): 将 Group 列转换为因子（factor）类型，并指定因子的水平（levels）顺序。 
+  select(Group, `Name in File`) %>% # 选择两列 “Group` 和 “Name in File”
+  rename(sample_id = `Name in File`) %>% # 重命名“Name in File”列名为 sample_id
+  filter(!is.na(Group)) %>% # 删除 Group 为 NA 的行
+  mutate(Group = factor(Group, levels = c("CTRL", "SMA4", "SMC2", "ME13"))) # Group = factor(...): 将 Group 列转换为因子（factor）类型，并指定因子的水平（levels）顺序。
 
 # levels = c("CTRL", "SMA4", "SMC2" , "ME13"): 明确定义因子的水平顺序为："CTRL" (对照组) "SMA4" "SMC2" "ME13"
 # 为什么要这样做？
@@ -183,17 +183,16 @@ rownames(counts_mat) <- counts_raw$gene_id
 counts_mat <- counts_mat[, meta$sample_id]
 head(counts_mat)
 
-counts_mat <- round(counts_mat)                                   # to integer
+counts_mat <- round(counts_mat) # to integer
 #keep <- rowSums(counts_mat >= 10) >= 4                            # 删除极低表达基因，至少在12/2 = 6个样本中至少有 10 个 reads才保留
-keep <- rowSums(counts_mat >= 10) >= 6                            # 删除极低表达基因，至少在12/2 = 6个样本中至少有 10 个 reads才保留
+keep <- rowSums(counts_mat >= 10) >= 6 # 删除极低表达基因，至少在12/2 = 6个样本中至少有 10 个 reads才保留
 counts_mat <- counts_mat[keep, ]
 
 
 # gene_id	gene_name	ME13-1	ME13-2	ME13-3	ME13-4	CTRL-1	CTRL-2	CTRL-3	CTRL-4	baseMean	log2FoldChange	lfcSE	pvalue	padj	sig (padj<0.05 & |log2FC|>=0.585)
 # ENSG00000278233.1	RNA5-8SN2	77.0	171.0	14.0	15.0	0.0	143.0	0.0	0.0	21.963509482370625	0.00668096140267046	0.35611598718401	0.851120448689936	0.9072712331508488	NS
 # 本实验出现一个意外结果，有一个基因在7个样本中均没有 reads，5个样本数中还不少。 导致 log2FC 很成问题计算，因此把该基因删除
-# 我的整体思想是最少一半的样本表达， 所以伤寒改成6 
-
+# 我的整体思想是最少一半的样本表达， 所以伤寒改成6
 
 head(counts_mat)
 cat("✅ 表达矩阵加载完成，过滤后保留基因数:", nrow(counts_mat), "\n")
@@ -242,11 +241,11 @@ cat("✅ PCA plot saved (optimized display)\n")
 # 正数 = 在处理组(第一个)中上调；负数 = 在对照组(第二个)中上调
 
 # c("CTRL", "SMA4", "SMC2" , "ME13")
-contrasts <- list(                                                                                  #c("DMSO", "MQ-07-99", "VK-8-101" , "MQ-07-81")
-  c("Group", "SMA4", "CTRL"),               # ✅ Test_1 vs Control → log2FC>0 = Test_1 上调
-  c("Group", "SMC2", "CTRL"),               # ✅ Test_2 vs Control → log2FC>0 = Test_2 上调
-  c("Group", "ME13", "CTRL")               # ✅ Test_2 vs Control → log2FC>0 = Test_2 上调
-
+contrasts <- list(
+  #c("DMSO", "MQ-07-99", "VK-8-101" , "MQ-07-81")
+  c("Group", "SMA4", "CTRL"), # ✅ Test_1 vs Control → log2FC>0 = Test_1 上调
+  c("Group", "SMC2", "CTRL"), # ✅ Test_2 vs Control → log2FC>0 = Test_2 上调
+  c("Group", "ME13", "CTRL") # ✅ Test_2 vs Control → log2FC>0 = Test_2 上调
 )
 
 res_list <- list()
@@ -386,80 +385,65 @@ for (comp in contrasts) {
   ))
 }
 
-# ================= 8. 热图 (🔻 字体已调整，去除黑体) =================
-# Generate separate heatmap for each comparison using their own top 50 DEGs
-heatmap_files <- c()
+# ================= 8. 热图 (🔻 字体已调整，去除黑体) ============= ====
+first_comp <- names(res_list)[1] # 取第一个比对组
+first_comp
 
-for (comp_name in names(res_list)) {
-  cat(paste0("\n🔍 正在生成热图: ", comp_name, "\n"))
-  
-  # Get top 50 significant genes for this specific comparison
-  top_genes_df <- res_list[[comp_name]] %>%
-    filter(.data[[sig_col_name]] != "NS") %>%
-    arrange(padj) %>%
-    head(50)
-  
-  if (nrow(top_genes_df) == 0) {
-    cat(paste0("⚠️  警告: ", comp_name, " 没有显著差异基因，跳过热图生成\n"))
-    next
-  }
-  
-  top_genes_ids <- top_genes_df$gene_id
-  
-  # Extract VST normalized expression for these genes
-  mat <- assay(vsd)[top_genes_ids, , drop = FALSE]
-  mat <- t(scale(t(mat)))
-  
-  # ✅ 将行名替换为 gene_name，如果 gene_name 为空则使用 gene_id
-  gene_names_for_plot <- top_genes_df$gene_name
-  # 处理缺失或空的 gene_name
-  gene_names_for_plot[
-    is.na(gene_names_for_plot) | gene_names_for_plot == ""
-  ] <- top_genes_df$gene_id[
-    is.na(gene_names_for_plot) | gene_names_for_plot == ""
-  ]
-  # 确保行名唯一，如果有重复，可以添加后缀或保留原ID，这里简单处理：
-  # 如果存在重复的 gene_name，pheatmap 可能会报错或显示不全。
-  # 为了安全，我们检查重复并必要时回退到 ID
-  if (any(duplicated(gene_names_for_plot))) {
-    # 简单的去重策略：如果重复，追加 gene_id 以确保唯一性
-    duplicated_idx <- duplicated(gene_names_for_plot)
-    gene_names_for_plot[duplicated_idx] <- paste0(
-      gene_names_for_plot[duplicated_idx],
-      "_",
-      top_genes_df$gene_id[duplicated_idx]
-    )
-  }
-  
-  rownames(mat) <- gene_names_for_plot
-  
-  # 创建正确的annotation数据框，确保是字符类型而不是因子
-  annotation_df <- data.frame(
-    Group = as.character(meta$Group),
-    row.names = meta$sample_id
+head(res_list[[first_comp]])
+dim(res_list[[first_comp]])
+
+top_genes_df <- res_list[[first_comp]] %>%
+  filter(.data[[sig_col_name]] != "NS") %>%
+  arrange(padj) %>%
+  head(50)
+
+top_genes_ids <- top_genes_df$gene_id
+
+mat <- assay(vsd)[top_genes_ids, ]
+mat <- t(scale(t(mat)))
+
+# ✅ 将行名替换为 gene_name，如果 gene_name 为空则使用 gene_id
+gene_names_for_plot <- top_genes_df$gene_name
+# 处理缺失或空的 gene_name
+gene_names_for_plot[
+  is.na(gene_names_for_plot) | gene_names_for_plot == ""
+] <- top_genes_df$gene_id[
+  is.na(gene_names_for_plot) | gene_names_for_plot == ""
+]
+# 确保行名唯一，如果有重复，可以添加后缀或保留原ID，这里简单处理：
+# 如果存在重复的 gene_name，pheatmap 可能会报错或显示不全。
+# 为了安全，我们检查重复并必要时回退到 ID
+if (any(duplicated(gene_names_for_plot))) {
+  # 简单的去重策略：如果重复，追加 gene_id 以确保唯一性
+  gene_names_for_plot[duplicated(gene_names_for_plot)] <- paste0(
+    gene_names_for_plot[duplicated(gene_names_for_plot)],
+    "_",
+    top_genes_df$gene_id[duplicated(gene_names_for_plot)]
   )
-  
-  # Generate heatmap filename
-  heatmap_filename <- paste0("Heatmap_top50_", gsub("_vs_", "_", comp_name), ".pdf")
-  heatmap_files <- c(heatmap_files, heatmap_filename)
-  
-  pheatmap(
-    mat,
-    annotation_col = annotation_df,
-    filename = file.path(OUT_DIR, heatmap_filename),
-    show_rownames = TRUE,
-    main = paste("Top 50 DEGs:", comp_name),
-    fontsize = 7,
-    fontsize_row = 5,
-    fontsize_col = 7,
-    fontfamily = "sans",
-    legend_labels = c("Low", "High")
-  ) # Ensure legend labels are English if auto-generated
-  
-  cat(paste0("✅ ", comp_name, " 热图已生成: ", heatmap_filename, "\n"))
 }
 
-cat("✅ 所有热图生成完成\n")
+rownames(mat) <- gene_names_for_plot
+
+# 创建正确的annotation数据框，确保是字符类型而不是因子
+annotation_df <- data.frame(
+  Group = as.character(meta$Group),
+  row.names = meta$sample_id
+)
+
+pheatmap(
+  mat,
+  annotation_col = annotation_df,
+  filename = file.path(OUT_DIR, "heatmap.pdf"),
+  show_rownames = TRUE,
+  main = paste("Top 50 DEGs:", first_comp),
+  fontsize = 7,
+  fontsize_row = 5,
+  fontsize_col = 7,
+  fontfamily = "sans",
+  legend_labels = c("Low", "High")
+) # Ensure legend labels are English if auto-generated
+
+cat("✅ Heatmap generated\n")
 
 # # ================= 9. 保存标准化计数矩阵 =================
 # norm_counts <- counts(dds, normalized = TRUE)
@@ -473,7 +457,6 @@ cat("✅ 所有热图生成完成\n")
 # norm_counts_df <- norm_counts_df[, final_norm_cols]
 # write_csv(norm_counts_df, file.path(OUT_DIR, "Normalized_Counts.csv"))
 # cat("✅ 标准化计数矩阵已保存\n")
-
 
 # ================= 10. 生成分析报告 =================
 # Generate Bioinformatics_Analysis_Report.md with detailed content
@@ -546,9 +529,9 @@ report_content <- c(
   "- **Files**: `Volcano_*.png`",
   "- **Description**: Displays the relationship between statistical significance (-log10 padj) and magnitude of change (log2FC). Red points indicate upregulated genes, blue points indicate downregulated genes.",
   "",
-  "### Heatmaps",
-  "- **Files**: `Heatmap_top50_*.pdf`",
-  "- **Description**: Hierarchical clustering of the top 50 differentially expressed genes for each contrast separately. Each heatmap shows expression patterns (Z-score normalized) for the most significant genes in that specific comparison across all samples.",
+  "### Heatmap",
+  "- **File**: `heatmap.pdf`",
+  "- **Description**: Hierarchical clustering of the top 50 differentially expressed genes in first across all samples. Shows expression patterns (Z-score normalized) for key genes.",
   "",
   "## 5. Generated Data Files",
   "",
@@ -560,7 +543,7 @@ report_content <- c(
   "| `DEG_*.csv` | Detailed differential expression results including log2FC, p-values, and base means. |",
   "| `PCA.pdf` | PCA plot showing sample relationships. |",
   "| `Volcano_*.png` | Volcano plots for each contrast. |",
-  "| `Heatmap_top50_*.pdf` | Heatmaps of top 50 DEGs for each contrast separately. |",
+  "| `heatmap.pdf` | Heatmap of top DEGs. |",
   ifelse(
     !is.null(QC_SRC),
     "| `QC/` | Directory containing MultiQC and other QC reports. |",
