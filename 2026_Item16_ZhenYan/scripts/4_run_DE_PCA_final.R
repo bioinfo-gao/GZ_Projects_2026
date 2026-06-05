@@ -386,13 +386,17 @@ for (comp in contrasts) {
   ))
 }
 
-# ================= 8. 热图 (🔻 字体已调整，去除黑体) =================
-# first_comp <- names(res_list)[1]
-# first_comp
+# ================= 8. 热图 (🔻 字体已调整，去除黑体) ============= ====
+first_comp <- names(res_list)[1] # 取第一个比对组
+first_comp
+
+head(res_list[[first_comp]] )
+dim(res_list[[first_comp]] )
+
 top_genes_df <- res_list[[first_comp]] %>%
-  filter(.data[[sig_col_name]] != "NS") %>%
-  arrange(padj) %>%
-  head(50)
+filter(.data[[sig_col_name]] != "NS") %>%
+arrange(padj) %>%
+head(50)
 
 top_genes_ids <- top_genes_df$gene_id
 
@@ -549,7 +553,7 @@ report_content <- c(
 )
 
 # report_file
-[1] "../Data_Analysis/DE_PCA_Results/Bioinformatics_Analysis_Report.md"
+# [1] "../Data_Analysis/DE_PCA_Results/Bioinformatics_Analysis_Report.md"
 
 writeLines(report_content, con = report_file)
 cat("✅ 详细分析报告已生成:", report_file, "\n")
