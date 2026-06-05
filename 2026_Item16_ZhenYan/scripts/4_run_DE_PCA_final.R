@@ -484,7 +484,7 @@ report_content <- c(
   "This report summarizes the differential expression analysis and quality control metrics for the RNA-seq dataset.",
   "- **Analysis Tool**: DESeq2",
   "- **Normalization**: VST (Variance Stabilizing Transformation) for PCA/Heatmap, Median-of-ratios for DE",
-  "- **Significance Thresholds**: padj < 0.05, |log2FoldChange| >= 1",
+  "- **Significance Thresholds**: padj < 0.05, |log2FoldChange| >= 0.585",
   "",
   "## 2. Quality Control (QC)",
   ifelse(
@@ -505,6 +505,7 @@ report_content <- c(
 )
 
 # Add DEG statistics for each contrast
+# heatmap ARE changed !, fold are log2(1.5)= 0.585
 for (name in names(deg_summary)) {
   stats <- deg_summary[[name]]
   report_content <- c(
@@ -532,7 +533,7 @@ report_content <- c(
   "",
   "### Heatmap",
   "- **File**: `heatmap.pdf`",
-  "- **Description**: Hierarchical clustering of the top 50 differentially expressed genes across all samples. Shows expression patterns (Z-score normalized) for key genes.",
+  "- **Description**: Hierarchical clustering of the top 50 differentially expressed genes in first across all samples. Shows expression patterns (Z-score normalized) for key genes.",
   "",
   "## 5. Generated Data Files",
   "",
