@@ -30,6 +30,7 @@ library(dplyr)
 library(readr)
 library(tidyr)
 library(ggrepel)
+library(readxl) # Add readxl package to read Excel files
 
 # ================= 1. 路径设置 =================
 META_FILE <- "zy.csv" #META_FILE   <- "Analysis_LZJ.csv"
@@ -185,45 +186,95 @@ head(counts_mat)
 
 counts_mat <- round(counts_mat) # to integer
 
-# === NEW FILTERING LOGIC ===
-# Step 1: Create a data frame with gene info for filtering
-gene_info <- counts_raw[, c("gene_id", "gene_name")]
+# === ENHANCED FILTERING USING GENE ANNOTATION FILE ===
+# Step 1: Try to read the gene annotation Excel file for accurate filtering
+GENE_ANNOTATION_FILE <- file.path(OUT_DIR, "human_Gene_annotation_20260202.xlsx")
+gene_annotation <- NULL
 
-# Step 2: Remove ribosomal genes
-# Ribosomal genes typically start with RPL, RPS, MRPL, MRPS, etc.
-ribosomal_pattern <- paste0(
-  "^RPL", "|^RPS", "|^MRPL", "|^MRPS", 
-  "|^RPLP", "|^RPSA", "|^RACK", "|^RAN",
-  "|Ribosomal", "|ribosomal"
-)
-non_ribosomal <- !grepl(ribosomal_pattern, gene_info$gene_name, ignore.case = TRUE)
+if (file.exists(GENE_ANNOTATION_FILE)) {
+  tryCatch({
+    # Read the gene annotation file
+    gene_annotation <- read_excel(GENE_ANNOTATION_FILE)
+    cat("✅ Gene annotation file loaded successfully\n")
+    
+    # Check if required columns exist
+    required_cols <- c("gene_id", "gene_name", "gene_type")
+    if (all(required_cols %in% colnames(gene_annotation))) {
+      # Filter out ribosomal genes (gene_type containing "ribosomal" or gene_name starting with ribosomal patterns)
+      ribosomal_filter <- !(
+        grepl("ribosomal", gene_annotation$gene_type, ignore.case = TRUE) |
+        grepl("^RPL|^RPS|^MRPL|^MRPS", gene_annotation$gene_name, ignore.case = TRUE)
+      )
+      
+      # Filter out non-protein coding genes (keep only protein_coding)
+      protein_coding_filter <- gene_annotation$gene_type == "protein_coding"
+      
+      # Combine filters
+      annotation_filter <- ribosomal_filter & protein_coding_filter
+      
+      # Create a logical vector for counts_raw based on gene_id
+      gene_ids_to_keep <- gene_annotation$gene_id[annotation_filter]
+      annotation_based_filter <- counts_raw$gene_id %in% gene_ids_to_keep
+      
+      cat("✅ Applied annotation-based filtering:", sum(annotation_based_filter), "genes retained\n")
+    } else {
+      cat("⚠️  Gene annotation file missing required columns, falling back to regex filtering\n")
+      annotation_based_filter <- rep(TRUE, nrow(counts_raw))
+    }
+  }, error = function(e) {
+    cat("⚠️  Error reading gene annotation file:", e$message, "\n")
+    cat("⚠️  Falling back to regex filtering\n")
+    annotation_based_filter <- rep(TRUE, nrow(counts_raw))
+  })
+} else {
+  cat("⚠️  Gene annotation file not found, using regex filtering\n")
+  annotation_based_filter <- rep(TRUE, nrow(counts_raw))
+}
 
-# Step 3: Attempt to remove non-protein coding genes
-# Without full annotation, we'll use common patterns for non-coding RNAs
-non_coding_pattern <- paste0(
-  "^MT-", "|^MT_", "|^MTRNR", "|^MTRF", "|^MTTF", "|^MTTS", "|^MTTL", "|^MTTH", "|^MTTD", "|^MTTC", "|^MTTA",
-  "|^SNORD", "|^SNORA", "|^RNU", "|^U[0-9]", "|^MALAT", "|^NEAT", "|^XIST", "|^HOTAIR",
-  "|^MIR", "|^miR", "|^let-", "|^lincRNA", "|^LINC", "|^LOC[0-9]", "|^RP[0-9]",
-  "|pseudogene", "|Pseudogene", "|antisense", "|Antisense"
-)
-protein_coding <- !grepl(non_coding_pattern, gene_info$gene_name, ignore.case = TRUE)
+# Fallback regex filtering (in case annotation file is not available or missing columns)
+if (!exists("annotation_based_filter") || all(annotation_based_filter)) {
+  # Create a data frame with gene info for filtering
+  gene_info <- counts_raw[, c("gene_id", "gene_name")]
+  
+  # Remove ribosomal genes
+  ribosomal_pattern <- paste0(
+    "^RPL", "|^RPS", "|^MRPL", "|^MRPS", 
+    "|^RPLP", "|^RPSA", "|^RACK", "|^RAN",
+    "|Ribosomal", "|ribosomal"
+  )
+  non_ribosomal <- !grepl(ribosomal_pattern, gene_info$gene_name, ignore.case = TRUE)
+  
+  # Attempt to remove non-protein coding genes
+  non_coding_pattern <- paste0(
+    "^MT-", "|^MT_", "|^MTRNR", "|^MTRF", "|^MTTF", "|^MTTS", "|^MTTL", "|^MTTH", "|^MTTD", "|^MTTC", "|^MTTA",
+    "|^SNORD", "|^SNORA", "|^RNU", "|^U[0-9]", "|^MALAT", "|^NEAT", "|^XIST", "|^HOTAIR",
+    "|^MIR", "|^miR", "|^let-", "|^lincRNA", "|^LINC", "|^LOC[0-9]", "|^RP[0-9]",
+    "|pseudogene", "|Pseudogene", "|antisense", "|Antisense"
+  )
+  protein_coding <- !grepl(non_coding_pattern, gene_info$gene_name, ignore.case = TRUE)
+  
+  # Combine both filters
+  regex_filter <- non_ribosomal & protein_coding
+} else {
+  regex_filter <- rep(TRUE, nrow(counts_raw))
+}
 
-# Combine both filters
-coding_non_ribosomal <- non_ribosomal & protein_coding
+# Combine annotation-based and regex filtering
+combined_gene_filter <- annotation_based_filter & regex_filter
 
-# Step 4: Remove low count genes (<10 in more than 2 samples)
+# Step 2: Remove low count genes (<10 in more than 2 samples)
 # This means: keep genes that have >=10 counts in at least (n_samples - 2) samples
 n_samples <- ncol(counts_mat)
 min_samples_for_expression <- n_samples - 2  # genes must have >=10 in at least (total_samples - 2) samples
 low_count_filter <- rowSums(counts_mat >= 10) >= min_samples_for_expression
 
 # Apply all filters
-combined_filter <- coding_non_ribosomal & low_count_filter
-counts_mat_filtered <- counts_mat[combined_filter, ]
+final_filter <- combined_gene_filter & low_count_filter
+counts_mat_filtered <- counts_mat[final_filter, ]
 
 cat("✅ Original gene count:", nrow(counts_mat), "\n")
-cat("✅ After ribosomal/non-coding filtering:", sum(coding_non_ribosomal), "\n")
-cat("✅ After low count filtering:", sum(combined_filter), "\n")
+cat("✅ After gene type filtering:", sum(combined_gene_filter), "\n")
+cat("✅ After low count filtering:", sum(final_filter), "\n")
 cat("✅ Final gene count for analysis:", nrow(counts_mat_filtered), "\n")
 
 # ================= 5. DESeq2 建模 =================
