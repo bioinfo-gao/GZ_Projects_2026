@@ -120,6 +120,24 @@ Genes were filtered using a two-tiered approach to ensure high-quality analysis:
 4. **Update regex patterns** periodically to include newly discovered non-coding RNA families
 5. **Check the final report** to ensure filtering statistics match expectations
 
+## Output File Data Types
+
+### DEG CSV Files (e.g., `DEG_ME13_vs_CTRL.csv`)
+- **Contain RAW READ COUNTS** (integer values from Salmon quantification)
+- **NOT TPM or other normalized values**
+- Sample columns show original input counts used for DESeq2 statistical analysis
+- Statistical results (log2FC, p-values, padj) are calculated using DESeq2's internal normalization on these raw counts
+
+### Separate TPM File
+- **`All_sample_gene_tpm.tsv`** contains TPM (Transcripts Per Million) normalized values
+- Available in the same output directory as the DEG files
+- Use TPM values for cross-sample gene expression comparisons or visualization purposes
+
+### Best Practices for Data Usage
+- **Differential Expression Analysis**: Use raw counts (as provided in DEG files) - this is the standard approach for DESeq2, edgeR, etc.
+- **Expression Visualization/Comparison**: Use TPM values from the separate file for better cross-sample comparability
+- **Data Interpretation**: Understand that the sample columns in DEG files represent the original input data, not normalized expression levels
+
 ## Example Log Output
 ```
 ✅ Gene annotation file loaded successfully
