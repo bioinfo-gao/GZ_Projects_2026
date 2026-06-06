@@ -9,10 +9,17 @@ This report summarizes the differential expression analysis and quality control 
 - **Normalization**: VST (Variance Stabilizing Transformation) for PCA/Heatmap, Median-of-ratios for DE
 - **Significance Thresholds**: padj <= 0.05, |log2FoldChange| >= 0.263 (20% fold change)
 
-## 2. Quality Control (QC)
+## 2. Gene Filtering Statistics
+Genes were filtered using a two-tiered approach to ensure high-quality analysis:
+- **Original gene count**: 63187
+- **After gene type filtering** (ribosomal and non-protein coding genes removed): 54484
+- **After low count filtering** (<10 counts in more than 2 samples removed): 14982
+- **Final gene count for analysis**: 14982
+
+## 3. Quality Control (QC)
 - QC reports were generated using MultiQC.
 
-## 3. Differential Expression Analysis Results
+## 4. Differential Expression Analysis Results
 
 ### Contrast: SMA4_vs_CTRL
 - Total Significant Genes: 3328
@@ -32,7 +39,7 @@ This report summarizes the differential expression analysis and quality control 
   - Downregulated: 1991
 - Output File: `DEG_ME13_vs_CTRL.csv`
 
-## 4. Visualizations
+## 5. Visualizations
 
 ### Principal Component Analysis (PCA)
 - **File**: `PCA.pdf`
@@ -46,7 +53,7 @@ This report summarizes the differential expression analysis and quality control 
 - **Files**: `Heatmap_top50_*.pdf`
 - **Description**: Hierarchical clustering of the top 50 differentially expressed genes for each contrast separately. Each heatmap shows expression patterns (Z-score normalized) for the most significant genes in that specific comparison across all samples.
 
-## 5. Generated Data Files
+## 6. Generated Data Files
 
 | File Name | Description |
 | :--- | :--- |
