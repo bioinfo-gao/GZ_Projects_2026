@@ -616,7 +616,14 @@ report_content <- c(
   "- **Normalization**: VST (Variance Stabilizing Transformation) for PCA/Heatmap, Median-of-ratios for DE",
   "- **Significance Thresholds**: padj <= 0.05, |log2FoldChange| >= 0.263 (20% fold change)",
   "",
-  "## 2. Quality Control (QC)",
+  "## 2. Gene Filtering Statistics",
+  "Genes were filtered using a two-tiered approach to ensure high-quality analysis:",
+  paste0("- **Original gene count**: ", nrow(counts_mat)),
+  paste0("- **After gene type filtering** (ribosomal and non-protein coding genes removed): ", sum(combined_gene_filter)),
+  paste0("- **After low count filtering** (<10 counts in more than 2 samples removed): ", sum(final_filter)),
+  paste0("- **Final gene count for analysis**: ", nrow(counts_mat_filtered)),
+  "",
+  "## 3. Quality Control (QC)",
   ifelse(
     !is.null(QC_SRC),
     c(
@@ -630,7 +637,7 @@ report_content <- c(
     )
   ),
   "",
-  "## 3. Differential Expression Analysis Results",
+  "## 4. Differential Expression Analysis Results",
   ""
 )
 
@@ -651,7 +658,7 @@ for (name in names(deg_summary)) {
 
 report_content <- c(
   report_content,
-  "## 4. Visualizations",
+  "## 5. Visualizations",
   "",
   "### Principal Component Analysis (PCA)",
   "- **File**: `PCA.pdf`",
@@ -665,7 +672,7 @@ report_content <- c(
   "- **Files**: `Heatmap_top50_*.pdf`",
   "- **Description**: Hierarchical clustering of the top 50 differentially expressed genes for each contrast separately. Each heatmap shows expression patterns (Z-score normalized) for the most significant genes in that specific comparison across all samples.",
   "",
-  "## 5. Generated Data Files",
+  "## 6. Generated Data Files",
   "",
   "| File Name | Description |",
   "| :--- | :--- |",
