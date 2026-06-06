@@ -184,23 +184,51 @@ counts_mat <- counts_mat[, meta$sample_id]
 head(counts_mat)
 
 counts_mat <- round(counts_mat) # to integer
-#keep <- rowSums(counts_mat >= 10) >= 4                            # 删除极低表达基因，至少在12/2 = 6个样本中至少有 10 个 reads才保留
-keep <- rowSums(counts_mat >= 10) >= 6 # 删除极低表达基因，至少在12/2 = 6个样本中至少有 10 个 reads才保留
-counts_mat <- counts_mat[keep, ]
 
+# === NEW FILTERING LOGIC ===
+# Step 1: Create a data frame with gene info for filtering
+gene_info <- counts_raw[, c("gene_id", "gene_name")]
 
-# gene_id	gene_name	ME13-1	ME13-2	ME13-3	ME13-4	CTRL-1	CTRL-2	CTRL-3	CTRL-4	baseMean	log2FoldChange	lfcSE	pvalue	padj	sig (padj<0.05 & |log2FC|>=0.585)
-# ENSG00000278233.1	RNA5-8SN2	77.0	171.0	14.0	15.0	0.0	143.0	0.0	0.0	21.963509482370625	0.00668096140267046	0.35611598718401	0.851120448689936	0.9072712331508488	NS
-# 本实验出现一个意外结果，有一个基因在7个样本中均没有 reads，5个样本数中还不少。 导致 log2FC 很成问题计算，因此把该基因删除
-# 我的整体思想是最少一半的样本表达， 所以伤寒改成6
+# Step 2: Remove ribosomal genes
+# Ribosomal genes typically start with RPL, RPS, MRPL, MRPS, etc.
+ribosomal_pattern <- paste0(
+  "^RPL", "|^RPS", "|^MRPL", "|^MRPS", 
+  "|^RPLP", "|^RPSA", "|^RACK", "|^RAN",
+  "|Ribosomal", "|ribosomal"
+)
+non_ribosomal <- !grepl(ribosomal_pattern, gene_info$gene_name, ignore.case = TRUE)
 
-head(counts_mat)
-cat("✅ 表达矩阵加载完成，过滤后保留基因数:", nrow(counts_mat), "\n")
+# Step 3: Attempt to remove non-protein coding genes
+# Without full annotation, we'll use common patterns for non-coding RNAs
+non_coding_pattern <- paste0(
+  "^MT-", "|^MT_", "|^MTRNR", "|^MTRF", "|^MTTF", "|^MTTS", "|^MTTL", "|^MTTH", "|^MTTD", "|^MTTC", "|^MTTA",
+  "|^SNORD", "|^SNORA", "|^RNU", "|^U[0-9]", "|^MALAT", "|^NEAT", "|^XIST", "|^HOTAIR",
+  "|^MIR", "|^miR", "|^let-", "|^lincRNA", "|^LINC", "|^LOC[0-9]", "|^RP[0-9]",
+  "|pseudogene", "|Pseudogene", "|antisense", "|Antisense"
+)
+protein_coding <- !grepl(non_coding_pattern, gene_info$gene_name, ignore.case = TRUE)
 
+# Combine both filters
+coding_non_ribosomal <- non_ribosomal & protein_coding
+
+# Step 4: Remove low count genes (<10 in more than 2 samples)
+# This means: keep genes that have >=10 counts in at least (n_samples - 2) samples
+n_samples <- ncol(counts_mat)
+min_samples_for_expression <- n_samples - 2  # genes must have >=10 in at least (total_samples - 2) samples
+low_count_filter <- rowSums(counts_mat >= 10) >= min_samples_for_expression
+
+# Apply all filters
+combined_filter <- coding_non_ribosomal & low_count_filter
+counts_mat_filtered <- counts_mat[combined_filter, ]
+
+cat("✅ Original gene count:", nrow(counts_mat), "\n")
+cat("✅ After ribosomal/non-coding filtering:", sum(coding_non_ribosomal), "\n")
+cat("✅ After low count filtering:", sum(combined_filter), "\n")
+cat("✅ Final gene count for analysis:", nrow(counts_mat_filtered), "\n")
 
 # ================= 5. DESeq2 建模 =================
 dds <- DESeqDataSetFromMatrix(
-  countData = counts_mat,
+  countData = counts_mat_filtered,
   colData = meta,
   design = ~Group
 )
@@ -249,8 +277,9 @@ contrasts <- list(
 )
 
 res_list <- list()
-#sig_col_name <- "sig (padj<0.05 & |log2FC|>=1)" # log2(1.5) =0.585
-sig_col_name <- "sig (padj<0.05 & |log2FC|>=0.585)" # log2(1.5) =0.585
+# UPDATE: Change significance threshold to |log2FC| >= 0.263 (20% fold change)
+# sig_col_name <- "sig (padj<0.05 & |log2FC|>=0.585)" # log2(1.5) =0.585
+sig_col_name <- "sig (padj<=0.05 & |log2FC|>=0.263)" # |log2FC|>=0.263 for 20% FC
 
 for (comp in contrasts) {
   grp_treatment <- comp[2] # 处理组（分子）
@@ -301,10 +330,10 @@ for (comp in contrasts) {
   # ✅ 按 padj 从小到大排序
   res_df <- res_df %>% arrange(padj)
 
-  # ✅ 添加 sig 列（列名已含标准）
+  # ✅ 添加 sig 列（列名已含标准）- UPDATED THRESHOLD
   res_df[[sig_col_name]] <- case_when(
-    res_df$padj < 0.05 & res_df$log2FoldChange >= 1 ~ "Up",
-    res_df$padj < 0.05 & res_df$log2FoldChange <= -1 ~ "Down",
+    res_df$padj <= 0.05 & res_df$log2FoldChange >= 0.263 ~ "Up",
+    res_df$padj <= 0.05 & res_df$log2FoldChange <= -0.263 ~ "Down",
     TRUE ~ "NS"
   )
 
@@ -512,7 +541,7 @@ report_content <- c(
   "This report summarizes the differential expression analysis and quality control metrics for the RNA-seq dataset.",
   "- **Analysis Tool**: DESeq2",
   "- **Normalization**: VST (Variance Stabilizing Transformation) for PCA/Heatmap, Median-of-ratios for DE",
-  "- **Significance Thresholds**: padj < 0.05, |log2FoldChange| >= 0.585",
+  "- **Significance Thresholds**: padj <= 0.05, |log2FoldChange| >= 0.263 (20% fold change)",
   "",
   "## 2. Quality Control (QC)",
   ifelse(
