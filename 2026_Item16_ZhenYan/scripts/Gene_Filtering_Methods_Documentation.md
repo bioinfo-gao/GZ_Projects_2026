@@ -35,7 +35,7 @@ This document describes the two-tiered approach implemented in `4A_run_DE_PCA_an
 ### Filtering Logic
 
 #### Ribosomal Gene Patterns
-```regex
+``regex
 ^RPL|^RPS|^MRPL|^MRPS|^RPLP|^RPSA|^RACK|^RAN|Ribosomal|ribosomal
 ```
 - `^RPL`, `^RPS`: Cytoplasmic ribosomal proteins (large/small subunits)
@@ -47,7 +47,7 @@ This document describes the two-tiered approach implemented in `4A_run_DE_PCA_an
 - Case-insensitive matching for "Ribosomal"/"ribosomal"
 
 #### Non-Coding RNA Patterns
-```regex
+``regex
 ^MT-|^MT_|^MTRNR|^MTRF|^MTTF|^MTTS|^MTTL|^MTTH|^MTTD|^MTTC|^MTTA|
 ^SNORD|^SNORA|^RNU|^U[0-9]|^MALAT|^NEAT|^XIST|^HOTAIR|
 ^MIR|^miR|^let-|^lincRNA|^LINC|^LOC[0-9]|^RP[0-9]|
