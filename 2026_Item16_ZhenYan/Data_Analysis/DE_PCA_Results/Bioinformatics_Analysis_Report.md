@@ -1,13 +1,13 @@
 # Bioinformatics Analysis Report
 
-Date: 2026-06-04
+Date: 2026-06-05
 Project: 2026_Item16_ZhenYan
 
 ## 1. Overview
 This report summarizes the differential expression analysis and quality control metrics for the RNA-seq dataset.
 - **Analysis Tool**: DESeq2
 - **Normalization**: VST (Variance Stabilizing Transformation) for PCA/Heatmap, Median-of-ratios for DE
-- **Significance Thresholds**: padj < 0.05, |log2FoldChange| >= 0.585
+- **Significance Thresholds**: padj <= 0.05, |log2FoldChange| >= 0.263 (20% fold change)
 
 ## 2. Quality Control (QC)
 - QC reports were generated using MultiQC.
@@ -15,21 +15,21 @@ This report summarizes the differential expression analysis and quality control 
 ## 3. Differential Expression Analysis Results
 
 ### Contrast: SMA4_vs_CTRL
-- Total Significant Genes: 143
-  - Upregulated: 41
-  - Downregulated: 102
+- Total Significant Genes: 3328
+  - Upregulated: 1601
+  - Downregulated: 1727
 - Output File: `DEG_SMA4_vs_CTRL.csv`
 
 ### Contrast: SMC2_vs_CTRL
-- Total Significant Genes: 250
-  - Upregulated: 85
-  - Downregulated: 165
+- Total Significant Genes: 4135
+  - Upregulated: 2040
+  - Downregulated: 2095
 - Output File: `DEG_SMC2_vs_CTRL.csv`
 
 ### Contrast: ME13_vs_CTRL
-- Total Significant Genes: 220
-  - Upregulated: 106
-  - Downregulated: 114
+- Total Significant Genes: 3750
+  - Upregulated: 1759
+  - Downregulated: 1991
 - Output File: `DEG_ME13_vs_CTRL.csv`
 
 ## 4. Visualizations

@@ -287,10 +287,10 @@ combined_gene_filter <- annotation_based_filter & regex_filter
 # This implements the requirement "<10 in more than 2 samples" = keep if >=10 in (n-2) samples
 n_samples <- ncol(counts_mat)
 min_samples_for_expression <- n_samples - 2
-low_count_filter <- rowSums(counts_mat >= 10) >= min_samples_for_expression
+low_count_filter <- rowSums(counts_mat >= 10) >= min_samples_for_expression # 统计每行中至少有10个以上值的个数
 
 # APPLY ALL FILTERS TO CREATE FINAL COUNT MATRIX FOR DESEQ2 ANALYSIS
-final_filter <- combined_gene_filter & low_count_filter
+final_filter <- combined_gene_filter & low_count_filter # 合并两个过滤器 <===================================================================================================================================
 counts_mat_filtered <- counts_mat[final_filter, ]
 
 # LOG FILTERING RESULTS FOR TRANSPARENCY
