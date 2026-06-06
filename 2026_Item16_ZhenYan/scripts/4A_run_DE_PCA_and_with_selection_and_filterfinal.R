@@ -198,7 +198,7 @@ counts_mat <- round(counts_mat) # to integer
 GENE_ANNOTATION_FILE <- file.path(OUT_DIR, "human_Gene_annotation_20260202.xlsx")
 gene_annotation <- NULL
 
-# PRIMARY METHOD: Try to use the gene annotation file for accurate filtering
+# PRIMARY METHOD: Try to use the gene annotation file for accurate filtering <<====================================================================================================================================
 if (file.exists(GENE_ANNOTATION_FILE)) {
   tryCatch({
     # Read the Excel file containing comprehensive gene annotations
@@ -246,7 +246,7 @@ if (file.exists(GENE_ANNOTATION_FILE)) {
   annotation_based_filter <- rep(TRUE, nrow(counts_raw))
 }
 
-# FALLBACK METHOD: Regex pattern matching on gene names
+# FALLBACK METHOD: Regex pattern matching on gene names << ====================================================================================================================================
 # This is used when annotation file is unavailable OR as an additional safety net
 if (!exists("annotation_based_filter") || all(annotation_based_filter)) {
   # Extract gene information from count matrix for pattern matching
@@ -279,7 +279,7 @@ if (!exists("annotation_based_filter") || all(annotation_based_filter)) {
 }
 
 # COMBINE BOTH FILTERING APPROACHES
-# Even when using annotation-based filtering, apply regex as additional safety net
+# Even when using annotation-based filtering, apply regex as additional safety net <<=========================================================================================================================
 combined_gene_filter <- annotation_based_filter & regex_filter
 
 # ADDITIONAL FILTER: Remove low-count genes
