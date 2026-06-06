@@ -84,12 +84,41 @@ The implementation uses robust error handling:
 ### Combined Approach
 Even when using annotation-based filtering, regex patterns are applied as an additional safety net to catch any ribosomal genes that might be missed in the annotation.
 
+## Report Integration
+
+### Gene Filtering Statistics in Analysis Report
+The analysis automatically generates a comprehensive `Bioinformatics_Analysis_Report.md` file that includes detailed gene filtering statistics in **Section 2: Gene Filtering Statistics**:
+
+```
+## 2. Gene Filtering Statistics
+Genes were filtered using a two-tiered approach to ensure high-quality analysis:
+- **Original gene count**: [actual_number]
+- **After gene type filtering** (ribosomal and non-protein coding genes removed): [actual_number]
+- **After low count filtering** (<10 counts in more than 2 samples removed): [actual_number]
+- **Final gene count for analysis**: [actual_number]
+```
+
+### Dynamic Population
+- All numbers are **automatically populated** from the actual analysis run
+- Provides complete **audit trail** of the filtering process
+- Ensures **transparency and reproducibility** for peer review
+- Section numbering is automatically adjusted to accommodate the new filtering section
+
+### Updated Report Structure
+- **Section 1**: Overview
+- **Section 2**: Gene Filtering Statistics  
+- **Section 3**: Quality Control (QC)
+- **Section 4**: Differential Expression Analysis Results
+- **Section 5**: Visualizations
+- **Section 6**: Generated Data Files
+
 ## Usage Recommendations
 
 1. **Always provide gene annotation file** when possible for highest accuracy
 2. **Verify annotation file structure** matches expected columns before analysis
 3. **Review filtering logs** to understand which method was used and how many genes were filtered
 4. **Update regex patterns** periodically to include newly discovered non-coding RNA families
+5. **Check the final report** to ensure filtering statistics match expectations
 
 ## Example Log Output
 ```
