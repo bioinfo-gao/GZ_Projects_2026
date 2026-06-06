@@ -186,7 +186,7 @@ head(counts_mat)
 
 counts_mat <- round(counts_mat) # to integer
 
-# === TWO-TIERED GENE FILTERING STRATEGY ===
+# === TWO-TIERED GENE FILTERING STRATEGY === <<<<<<<<<<<<<<<<<<<<<<<<<========================================================================================================================================
 # This section implements a robust gene filtering approach with two methods:
 # 1. PRIMARY METHOD: Use official gene annotation file (most accurate)
 # 2. FALLBACK METHOD: Use regex patterns on gene names (when annotation unavailable)
