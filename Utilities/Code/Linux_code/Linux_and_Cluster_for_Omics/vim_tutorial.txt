@@ -1,0 +1,33 @@
+#Tue Feb 11 01:16:41 AM EST 2025
+#Tue Feb 11 01:16:41 AM EST 2025
+#Tue Feb 11 01:16:41 AM EST 2025
+
+bioinfo_gao
+
+
+This is tutorial for run VIM
+
+3 mode: command , insertion, and edit
+(1) aAiIoO
+(2) yy p
+(3) xx D
+(4) 0^ to beginin       & to end
+(5): set nu (mber) set nonu set ic ignorecase == in edit mode 
+(5): n go to line n  ===== in edit mode 
+(2) yy p == copy and paste
+(2x) dd delete  (or) cut
+(2y) YY P before the line of cursor 光标
+(2z) yy p
+(2u) YY p
+(2w) dd delte line D delte after cursor  
+(6) search /string 
+(7) %s/old/new/g replace  
+(8) n1, n2/old/new/g replace bewteeb line n1 and n2  == 1, 4s/^/#/g
+(9) u undo
+(10) yy 
+(11) gg  to  1st line  G to the the last line
+(12) R  ==== replace mode 
+(13) q!  quit without save   wq  ZZ save and quite wq!  force to save   ==== replace mode 
+(14) :r !date === read the result of the command to the cursor position
+(15) :!date :!which ls === call the command in the edito mode
+(16) :map ctrl-V ctr-P I#
