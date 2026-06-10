@@ -1,0 +1,4 @@
+Name Math Physics Chemistry Biology
+Zhen 100 100 100 100
+Ting 90 10 50 30
+Lena 100 100 100 100

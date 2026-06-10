@@ -1,0 +1,49 @@
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+*backup/
+*Backup/
+*Back/
+*BACKUP/
+*back/
+*tmp/
+*Tmp/
+*TMP/
+*temp/
+*tmp
+*Tmp
+*TMP
+*temp
+
+
+# 忽略所有 .log 文件
+*.log
+
+# 但是，不要忽略这一个特定的 log 文件
+!important_audit.log
+
+# 忽略所有 .log 文件
+#*.txt 
+
+# 但是，不要忽略这一个特定的 log 文件
+# data/*.txt 只会对 data 文件夹第一层的 .txt 文件生效。
+# 如果你希望 data 文件夹及其所有子文件夹下的 .txt 文件都不被忽略，你需要使用两个星号 ** 来表示递归
+!s1.txt
+!s2.txt
+!**/data/**/*.txt
+!*WSL*.txt
+!*Linux*.txt
+!*Git*.txt*
+!*tutorial*.txt
+!*experience*.txt
+!*/data/*.txt 
+!*/data/**/*.txt
+
+# 确保取消忽略，让 Git 检查目录本身。
+!*_backup/
+
+# --- 最关键的步骤：取消忽略目录内的内容 ---
+# 如果 _backup/ 内的文件依然被忽略，请添加：
+!*_backup/*
+!*_backup/**
